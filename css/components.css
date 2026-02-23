@@ -1,0 +1,30 @@
+/* ================================================================
+   components.css — HN College of Management, Solapur
+   Accessibility & Print Styles
+   ================================================================ */
+
+/* ----------------------------------------------------------------
+   Accessibility
+   ---------------------------------------------------------------- */
+:focus-visible {
+    outline: 2px solid var(--clr-hover);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+/* ----------------------------------------------------------------
+   Print
+   ---------------------------------------------------------------- */
+@media print {
+
+    .site-nav,
+    .news-ticker-bar,
+    .nav-toggle {
+        display: none;
+    }
+
+    .site-header {
+        box-shadow: none;
+        border-bottom: 2px solid var(--clr-heading);
+    }
+}
