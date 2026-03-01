@@ -2,26 +2,25 @@
  * placement.js — HN College of Management, Solapur
  * Animated stat counters + fade image slider for the
  * Training & Placement Overview section.
- * Initialised after 'componentsReady' fires from loader.js.
  */
 
 'use strict';
 
-document.addEventListener('componentsReady', function () {
+document.addEventListener('DOMContentLoaded', function () {
 
     /* ═══════════════════════════════════════════════════
        1. ANIMATED STAT COUNTERS
        Each .placement-stat__number carries:
          data-target  — final numeric value
-         data-suffix  — text appended after the number ("+", " LPA", etc.)
-       Counters animate 0 → target in 1.5 s via rAF,
-       triggered once by IntersectionObserver.
+         data-suffix  — text appended after number ("+", " LPA", etc.)
+       Counts 0 → target in 1.4 s via rAF (easeOutQuart),
+       triggered once by IntersectionObserver (threshold 0.3).
     ═══════════════════════════════════════════════════ */
     (function () {
         var statsSection = document.getElementById('placementStats');
         if (!statsSection) return;
 
-        var DURATION = 1500; /* ms */
+        var DURATION = 1400; /* ms */
         var animated = false;
 
         function easeOutQuart(t) {
@@ -43,7 +42,7 @@ document.addEventListener('componentsReady', function () {
                 if (progress < 1) {
                     requestAnimationFrame(step);
                 } else {
-                    el.textContent = target + suffix; /* ensure exact final value */
+                    el.textContent = target + suffix; /* guarantee exact final value */
                 }
             }
 
@@ -62,7 +61,7 @@ document.addEventListener('componentsReady', function () {
             });
         }
 
-        /* Trigger once when stats row enters the viewport */
+        /* Trigger once when the stats block scrolls into view */
         if ('IntersectionObserver' in window) {
             var observer = new IntersectionObserver(function (entries) {
                 entries.forEach(function (entry) {
@@ -75,49 +74,79 @@ document.addEventListener('componentsReady', function () {
 
             observer.observe(statsSection);
         } else {
-            /* Fallback for old browsers — run immediately */
-            startAll();
+            startAll(); /* immediate fallback for older browsers */
         }
     }());
 
 
     /* ═══════════════════════════════════════════════════
        2. PLACEMENT FADE SLIDER
-       Cycles through .placement-slide elements by
-       toggling .placement-slide--active (CSS handles
-       the opacity transition). No arrows, no dots.
+       Cycles .placement-slide elements every 4 s.
+       CSS opacity transition handles the fade.
+       Adds small dot indicators bottom-right.
     ═══════════════════════════════════════════════════ */
     (function () {
         var slider = document.getElementById('placementSlider');
         if (!slider) return;
 
-        var slides = slider.querySelectorAll('.placement-slide');
+        var slides = Array.prototype.slice.call(slider.querySelectorAll('.placement-slide'));
         var total = slides.length;
         var current = 0;
-        var INTERVAL = 3000; /* ms between auto-advance */
+        var INTERVAL = 4000; /* ms between auto-advance */
+        var timer;
 
-        if (total < 2) return; /* nothing to cycle */
+        if (total < 2) return;
+
+        /* ── Build dot indicators ── */
+        var dotsWrap = document.createElement('div');
+        dotsWrap.className = 'placement-slider-dots';
+        slider.appendChild(dotsWrap);
+
+        var dots = [];
+        slides.forEach(function (_, i) {
+            var dot = document.createElement('button');
+            dot.className = 'placement-slider-dot' + (i === 0 ? ' placement-slider-dot--active' : '');
+            dot.setAttribute('aria-label', 'Placement slide ' + (i + 1));
+            dot.addEventListener('click', function () {
+                showSlide(i);
+                resetTimer();
+            });
+            dotsWrap.appendChild(dot);
+            dots.push(dot);
+        });
+
+        function updateDots() {
+            dots.forEach(function (d, i) {
+                d.classList.toggle('placement-slider-dot--active', i === current);
+            });
+        }
 
         function showSlide(index) {
             slides[current].classList.remove('placement-slide--active');
             current = (index + total) % total;
             slides[current].classList.add('placement-slide--active');
+            updateDots();
         }
 
         /* Auto-advance */
-        var timer = setInterval(function () {
-            showSlide(current + 1);
-        }, INTERVAL);
-
-        /* Pause on hover for accessibility */
-        slider.addEventListener('mouseenter', function () {
-            clearInterval(timer);
-        });
-        slider.addEventListener('mouseleave', function () {
+        function startTimer() {
             timer = setInterval(function () {
                 showSlide(current + 1);
             }, INTERVAL);
-        });
+        }
+
+        function resetTimer() {
+            clearInterval(timer);
+            startTimer();
+        }
+
+        /* Pause on hover */
+        slider.addEventListener('mouseenter', function () { clearInterval(timer); });
+        slider.addEventListener('mouseleave', startTimer);
+
+        /* Initialise */
+        updateDots();
+        startTimer();
     }());
 
-}); /* end componentsReady */
+}); /* end DOMContentLoaded */

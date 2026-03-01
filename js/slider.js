@@ -1,12 +1,11 @@
 /**
  * slider.js — HN College of Management, Solapur
  * Initialises the hero image slider and the Latest Events carousel.
- * Runs after the 'componentsReady' event fired by loader.js.
  */
 
 'use strict';
 
-document.addEventListener('componentsReady', function () {
+document.addEventListener('DOMContentLoaded', function () {
 
     /* ═══════════════════════════════════════════
        1. HERO IMAGE SLIDER
@@ -138,8 +137,6 @@ document.addEventListener('componentsReady', function () {
 
         function getCardWidth() {
             var pv = perView();
-            /* getBoundingClientRect gives the exact rendered width including
-               fractional pixels — far more reliable than offsetWidth */
             var trackW = Math.floor(track.parentElement.getBoundingClientRect().width);
             return Math.floor((trackW - GAP_PX * (pv - 1)) / pv);
         }
@@ -226,9 +223,6 @@ document.addEventListener('componentsReady', function () {
 
         function setSizes() {
             var pv = perView();
-            /* getBoundingClientRect gives exact rendered float width.
-               CSS gap:14px adds space BETWEEN cards only (not after last),
-               so: visible fill = N*cardW + (N-1)*14 <= trackW. No bleed. */
             var trackW = Math.floor(track.parentElement.getBoundingClientRect().width);
             var cardW = Math.floor((trackW - GAP_PX * (pv - 1)) / pv);
 
@@ -250,4 +244,4 @@ document.addEventListener('componentsReady', function () {
         startTimer();
     }());
 
-}); /* end componentsReady */
+}); /* end DOMContentLoaded */

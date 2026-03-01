@@ -1,12 +1,11 @@
 /**
  * main.js — HN College of Management, Solapur
  * Navigation: sticky shadow, hamburger, smooth scroll, active section tracking.
- * Runs after the 'componentsReady' event fired by loader.js.
  */
 
 'use strict';
 
-document.addEventListener('componentsReady', function () {
+document.addEventListener('DOMContentLoaded', function () {
 
   /* ── DOM references ── */
   var siteNav = document.getElementById('siteNav');
@@ -93,4 +92,4 @@ document.addEventListener('componentsReady', function () {
     sections.forEach(function (s) { obs.observe(s); });
   }
 
-}); /* end componentsReady */
+}); /* end DOMContentLoaded */

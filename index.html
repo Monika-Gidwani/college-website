@@ -22,20 +22,297 @@
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/events.css" />
     <link rel="stylesheet" href="css/placement.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
     <link rel="stylesheet" href="css/components.css" />
 </head>
 
 <body>
 
-    <!-- ── Component placeholders ── -->
-    <div id="header"></div>
-    <div id="navbar"></div>
+    <!-- ===================================================
+         SITE HEADER
+    =================================================== -->
+    <header class="site-header" role="banner">
+        <div class="header-inner">
+
+            <!-- Logo (left) -->
+            <div class="logo-col" aria-label="College Logo">
+                <img src="assets/logo.png" alt="Hirachand Nemchand College of Management Logo" class="college-logo"
+                    loading="eager" onerror="this.src='assets/logo-fallback.svg'" />
+            </div>
+
+            <!-- Text (center) -->
+            <div class="header-text-col">
+
+                <!-- 1. Sanskrit Motto -->
+                <p class="sanskrit-motto" lang="mr">|| शिक्षण हाच धर्म ||</p>
+
+                <!-- 2. Trust Name -->
+                <p class="trust-name">
+                    Shri Hirachand Nemchand Mafatal Punamchand Educational Trust, Solapur
+                </p>
+
+                <!-- 3. Main College Name -->
+                <h1 class="college-name">
+                    Hirachand Nemchand College of Management, Solapur
+                </h1>
+
+                <!-- 4. Department line -->
+                <p class="dept-name">Department of Management Studies</p>
+
+                <!-- 5. Compact info row -->
+                <p class="college-details">
+                    <span class="detail-bold">Autonomous College</span>
+                    <span class="divider" aria-hidden="true">|</span>
+                    <span>Affiliated to P.A.H Solapur University, Solapur</span>
+                    <span class="divider" aria-hidden="true">|</span>
+                    <span>Solapur, Maharashtra – 413 006</span>
+                    <span class="divider" aria-hidden="true">|</span>
+                    <span class="naac-badge">NAAC Re-accredited 'A' Grade</span>
+                    <span class="divider" aria-hidden="true">|</span>
+                    <span class="email-info">&#9993;&nbsp;<a
+                            href="mailto:hnccsolapur@gmail.com">hnccsolapur@gmail.com</a></span>
+                </p>
+
+            </div>
+            <!-- /header-text-col -->
+
+        </div>
+        <!-- /header-inner -->
+    </header>
+    <!-- /site-header -->
+
+    <!-- ===================================================
+         MULTI-LEVEL STICKY NAVIGATION
+    =================================================== -->
+    <nav class="snav" id="siteNav" role="navigation" aria-label="Main site navigation">
+        <div class="snav-inner">
+
+            <!-- Mobile hamburger -->
+            <button class="snav-hamburger" id="snavHamburger" aria-label="Toggle navigation menu" aria-expanded="false"
+                aria-controls="snavMenu">
+                <span class="snav-line"></span>
+                <span class="snav-line"></span>
+                <span class="snav-line"></span>
+            </button>
+
+            <div class="snav-menu" id="snavMenu">
+
+                <!-- ══ ROW 1 ══ -->
+                <ul class="snav-row" role="list" aria-label="Primary navigation">
+
+                    <!-- Home -->
+                    <li class="snav-item">
+                        <a href="#home" class="snav-link active">Home</a>
+                    </li>
+
+                    <!-- About Us -->
+                    <li class="snav-item has-drop">
+                        <a href="#" class="snav-link">About Us <span class="snav-caret"
+                                aria-hidden="true">&#9660;</span></a>
+                        <ul class="snav-drop" role="list">
+                            <li><a href="about.html#institute-information" class="snav-drop-link">Institute
+                                    Information</a></li>
+                            <li><a href="about.html#vision-mission" class="snav-drop-link">Vision and Mission</a></li>
+                            <li><a href="about.html#goals-quality" class="snav-drop-link">Goals and Quality Policy</a>
+                            </li>
+                            <li><a href="about.html#core-values" class="snav-drop-link">Core Values</a></li>
+                            <li><a href="about.html#governing-body" class="snav-drop-link">Governing Body</a></li>
+                            <li><a href="about.html#policies" class="snav-drop-link">Policies</a></li>
+                            <li><a href="about.html#principal-secretary" class="snav-drop-link">Principal and Secretary
+                                    Desk</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Programmes -->
+                    <li class="snav-item has-drop">
+                        <a href="#" class="snav-link">Programmes <span class="snav-caret"
+                                aria-hidden="true">&#9660;</span></a>
+                        <ul class="snav-drop" role="list">
+                            <li class="has-subdrop">
+                                <a href="#" class="snav-drop-link">MBA <span class="snav-subcaret"
+                                        aria-hidden="true">&#8250;</span></a>
+                                <ul class="snav-subdrop" role="list">
+                                    <li><a href="#" class="snav-drop-link">HOD's Desk</a></li>
+                                    <li><a href="#" class="snav-drop-link">About Department</a></li>
+                                    <li><a href="#" class="snav-drop-link">Vision and Mission</a></li>
+                                    <li><a href="#" class="snav-drop-link">CO, PO, PSO, PEO</a></li>
+                                    <li><a href="#" class="snav-drop-link">Faculty</a></li>
+                                    <li><a href="#" class="snav-drop-link">Infrastructure</a></li>
+                                    <li><a href="#" class="snav-drop-link">Syllabus</a></li>
+                                    <li><a href="#" class="snav-drop-link">Specialisation</a></li>
+                                    <li><a href="#" class="snav-drop-link">Certification Course</a></li>
+                                    <li><a href="#" class="snav-drop-link">Parents Meet &amp; Orientation Program</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="#" class="snav-drop-link">BCA Course</a></li>
+                            <li><a href="#" class="snav-drop-link">BBA Course</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Academics -->
+                    <li class="snav-item has-drop">
+                        <a href="#" class="snav-link">Academics <span class="snav-caret"
+                                aria-hidden="true">&#9660;</span></a>
+                        <ul class="snav-drop" role="list">
+                            <li><a href="#" class="snav-drop-link">Academic Calendar</a></li>
+                            <li><a href="#" class="snav-drop-link">Time Table (Theory, Practical)</a></li>
+                            <li><a href="#" class="snav-drop-link">Examination</a></li>
+                            <li><a href="#" class="snav-drop-link">Result</a></li>
+                            <li><a href="#" class="snav-drop-link">Library</a></li>
+                            <li><a href="#" class="snav-drop-link">E-Resources</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Events and Activities -->
+                    <li class="snav-item">
+                        <a href="#" class="snav-link">Events &amp; Activities</a>
+                    </li>
+
+                    <!-- Important Links -->
+                    <li class="snav-item has-drop">
+                        <a href="#" class="snav-link">Important Links <span class="snav-caret"
+                                aria-hidden="true">&#9660;</span></a>
+                        <ul class="snav-drop drop-left" role="list">
+                            <li><a href="#" class="snav-drop-link">Annual Report</a></li>
+                            <li><a href="#" class="snav-drop-link">Institute Development Plan</a></li>
+                            <li class="has-subdrop">
+                                <a href="#" class="snav-drop-link">Statutory Committee <span class="snav-subcaret"
+                                        aria-hidden="true">&#8250;</span></a>
+                                <ul class="snav-subdrop subdrop-left" role="list">
+                                    <li><a href="#" class="snav-drop-link">Anti-Ragging Committee</a></li>
+                                    <li><a href="#" class="snav-drop-link">Internal Committee</a></li>
+                                    <li><a href="#" class="snav-drop-link">College Development Committee</a></li>
+                                    <li><a href="#" class="snav-drop-link">IQAC</a></li>
+                                    <li><a href="#" class="snav-drop-link">Grievance Redressal Committee</a></li>
+                                    <li><a href="#" class="snav-drop-link">SC/ST Committee</a></li>
+                                    <li><a href="#" class="snav-drop-link">Staff Grievance Committee</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" class="snav-drop-link">Strategic Management</a></li>
+                            <li><a href="#" class="snav-drop-link">Organization Chart</a></li>
+                            <li><a href="#" class="snav-drop-link">Mandatory Disclosure</a></li>
+                            <li><a href="#" class="snav-drop-link">Statement of Accounts</a></li>
+                            <li><a href="#" class="snav-drop-link">Approvals</a></li>
+                            <li><a href="#" class="snav-drop-link">RTI</a></li>
+                            <li><a href="#" class="snav-drop-link">Online Grievance</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Accreditation -->
+                    <li class="snav-item has-drop">
+                        <a href="#" class="snav-link">Accreditation <span class="snav-caret"
+                                aria-hidden="true">&#9660;</span></a>
+                        <ul class="snav-drop drop-left" role="list">
+                            <li><a href="#" class="snav-drop-link">IQAC</a></li>
+                            <li><a href="#" class="snav-drop-link">NAAC</a></li>
+                            <li><a href="#" class="snav-drop-link">Best Practices</a></li>
+                            <li><a href="#" class="snav-drop-link">E-Learning</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Training & Placement -->
+                    <li class="snav-item">
+                        <a href="#placement" class="snav-link">Training &amp; Placement</a>
+                    </li>
+
+                </ul>
+                <!-- /row 1 -->
+
+                <!-- Row divider -->
+                <div class="snav-divider" aria-hidden="true"></div>
+
+                <!-- ══ ROW 2 ══ -->
+                <ul class="snav-row" role="list" aria-label="Secondary navigation">
+
+                    <!-- Alumni -->
+                    <li class="snav-item">
+                        <a href="#" class="snav-link">Alumni</a>
+                    </li>
+
+                    <!-- Achievements & Awards -->
+                    <li class="snav-item">
+                        <a href="#" class="snav-link">Achievements &amp; Awards</a>
+                    </li>
+
+                    <!-- Feedback -->
+                    <li class="snav-item has-drop">
+                        <a href="#" class="snav-link">Feedback <span class="snav-caret"
+                                aria-hidden="true">&#9660;</span></a>
+                        <ul class="snav-drop" role="list">
+                            <li><a href="#" class="snav-drop-link">Student Feedback</a></li>
+                            <li><a href="#" class="snav-drop-link">Student Satisfaction Survey</a></li>
+                            <li><a href="#" class="snav-drop-link">Student Feedback About Teacher</a></li>
+                            <li><a href="#" class="snav-drop-link">Parents Feedback</a></li>
+                            <li><a href="#" class="snav-drop-link">Alumni Feedback</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Tenders -->
+                    <li class="snav-item">
+                        <a href="#" class="snav-link">Tenders</a>
+                    </li>
+
+                    <!-- Contact Us -->
+                    <li class="snav-item">
+                        <a href="#" class="snav-link">Contact Us</a>
+                    </li>
+
+                    <!-- Notification & Circulars -->
+                    <li class="snav-item">
+                        <a href="#" class="snav-link">Notification &amp; Circulars</a>
+                    </li>
+
+                </ul>
+                <!-- /row 2 -->
+
+            </div><!-- /snav-menu -->
+        </div><!-- /snav-inner -->
+    </nav>
+    <!-- /snav -->
+
+
+    <!-- ===================================================
+         ROLLING NEWS TICKER
+    =================================================== -->
+    <section class="news-ticker-bar" aria-label="Latest News and Notices">
+        <span class="ticker-label">
+            <span class="ticker-label-icon" aria-hidden="true">&#128240;</span>
+            Latest News
+        </span>
+        <div class="ticker-track-wrapper">
+            <div class="ticker-track" id="tickerTrack" role="marquee" aria-live="off">
+                <span class="ticker-content" aria-label="News items">
+                    Recruitment Notice &nbsp;||&nbsp;
+                    BCA I-NEP Pattern Final Re-Exam Time Table July 2025 &nbsp;||&nbsp;
+                    MBA Admission Open 2026–27 – Apply Now &nbsp;||&nbsp;
+                    NAAC Re-accreditation 'A' Grade achieved &nbsp;||&nbsp;
+                    Ph.D. Research Seminar — March 2026 &nbsp;||&nbsp;
+                    Annual Sports Meet Registration Open &nbsp;||&nbsp;
+                    New E-Library Resources Now Available &nbsp;||&nbsp;
+                    Management Fest "SYNERGY 2026" Coming Soon &nbsp;||&nbsp;
+                </span>
+                <!-- Duplicate for seamless loop -->
+                <span class="ticker-content" aria-hidden="true">
+                    Recruitment Notice &nbsp;||&nbsp;
+                    BCA I-NEP Pattern Final Re-Exam Time Table July 2025 &nbsp;||&nbsp;
+                    MBA Admission Open 2026–27 – Apply Now &nbsp;||&nbsp;
+                    NAAC Re-accreditation 'A' Grade achieved &nbsp;||&nbsp;
+                    Ph.D. Research Seminar — March 2026 &nbsp;||&nbsp;
+                    Annual Sports Meet Registration Open &nbsp;||&nbsp;
+                    New E-Library Resources Now Available &nbsp;||&nbsp;
+                    Management Fest "SYNERGY 2026" Coming Soon &nbsp;||&nbsp;
+                </span>
+            </div>
+        </div>
+    </section>
+    <!-- /news-ticker-bar -->
 
     <!-- ── Homepage: grid layout (slider stays inline for CSS Grid integrity) ── -->
     <main class="main-content" id="home">
         <div class="homepage-grid">
 
-            <!-- Left: Hero Image Slider (structural — stays in index.html) -->
+            <!-- Left: Hero Image Slider -->
             <section class="slider-panel" aria-label="Campus Image Slideshow">
                 <div class="slider" id="slider">
 
@@ -78,24 +355,303 @@
                 </div><!-- /slider -->
             </section>
 
-            <!-- Right: News + Events panel (loaded by loader.js) -->
-            <div id="news-panel"></div>
+            <!-- ═══════ RIGHT PANEL: News + Events ═══════ -->
+            <aside class="right-panel" aria-label="News and Events">
+
+                <!-- ── News & Notices ── -->
+                <div class="panel-section">
+                    <div class="panel-header">
+                        <span class="panel-header__title">&#128240; News &amp; Notices</span>
+                        <a href="#" class="panel-header__link">View All</a>
+                    </div>
+                    <div class="panel-scroll-wrap" aria-label="Scrolling news items">
+                        <ul class="panel-scroll-inner" id="newsList">
+                            <li class="panel-item"><a href="#">MBA Admission Open 2026–27 — Apply Now</a></li>
+                            <li class="panel-item"><a href="#">NAAC Re-accreditation 'A' Grade Achieved</a></li>
+                            <li class="panel-item"><a href="#">Recruitment Notice: Faculty Positions</a></li>
+                            <li class="panel-item"><a href="#">University Examination Schedule Released</a></li>
+                            <li class="panel-item"><a href="#">BCA I-NEP Pattern Re-Exam Time Table</a></li>
+                            <li class="panel-item"><a href="#">Ph.D. Admission Open — Research Centre</a></li>
+                            <li class="panel-item"><a href="#">New E-Library Resources Now Available</a></li>
+                            <li class="panel-item"><a href="#">Scholarship Form Last Date Extended</a></li>
+                            <!-- Duplicate set for seamless loop -->
+                            <li class="panel-item" aria-hidden="true"><a href="#">MBA Admission Open 2026–27 — Apply
+                                    Now</a></li>
+                            <li class="panel-item" aria-hidden="true"><a href="#">NAAC Re-accreditation 'A' Grade
+                                    Achieved</a></li>
+                            <li class="panel-item" aria-hidden="true"><a href="#">Recruitment Notice: Faculty
+                                    Positions</a></li>
+                            <li class="panel-item" aria-hidden="true"><a href="#">University Examination Schedule
+                                    Released</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Divider -->
+                <div class="panel-divider" aria-hidden="true"></div>
+
+                <!-- ── Events ── -->
+                <div class="panel-section">
+                    <div class="panel-header">
+                        <span class="panel-header__title">&#128197; Events</span>
+                        <a href="#" class="panel-header__link">View All</a>
+                    </div>
+                    <div class="panel-scroll-wrap" aria-label="Scrolling events">
+                        <ul class="panel-scroll-inner" id="eventsList">
+                            <li class="panel-item"><a href="#">Management Fest SYNERGY 2026</a></li>
+                            <li class="panel-item"><a href="#">Industry Guest Lecture — Feb 28</a></li>
+                            <li class="panel-item"><a href="#">Annual Sports Meet 2026</a></li>
+                            <li class="panel-item"><a href="#">Alumni Connect Meet 2026</a></li>
+                            <li class="panel-item"><a href="#">National HR Summit — Mar 10</a></li>
+                            <li class="panel-item"><a href="#">Entrepreneurship Bootcamp</a></li>
+                            <li class="panel-item"><a href="#">Cultural Week — April 2026</a></li>
+                            <li class="panel-item"><a href="#">Research Paper Presentation Day</a></li>
+                            <!-- Duplicate set for seamless loop -->
+                            <li class="panel-item" aria-hidden="true"><a href="#">Management Fest SYNERGY 2026</a></li>
+                            <li class="panel-item" aria-hidden="true"><a href="#">Industry Guest Lecture — Feb 28</a>
+                            </li>
+                            <li class="panel-item" aria-hidden="true"><a href="#">Annual Sports Meet 2026</a></li>
+                            <li class="panel-item" aria-hidden="true"><a href="#">Alumni Connect Meet 2026</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </aside>
+            <!-- /right-panel -->
 
         </div><!-- /homepage-grid -->
     </main>
     <!-- /home -->
 
-    <!-- Latest Events carousel (loaded by loader.js) -->
-    <div id="latest-events"></div>
+    <!-- ===================================================
+         LATEST EVENTS SECTION
+    =================================================== -->
+    <section class="levents-section" id="latest-events" aria-label="Latest Events">
+        <div class="levents-container">
 
-    <!-- Training & Placement Overview (loaded by loader.js) -->
-    <div id="placement-overview"></div>
+            <!-- Section heading -->
+            <div class="levents-heading">
+                <h2 class="levents-title">Latest Events</h2>
+                <span class="levents-title-bar" aria-hidden="true"></span>
+                <p class="levents-subtitle">Showcasing the Latest Events, Achievements, and Milestones</p>
+            </div>
 
-    <!-- Footer (loaded by loader.js) -->
-    <div id="footer"></div>
+            <!-- Carousel wrapper -->
+            <div class="levents-carousel" id="leventsCarousel">
 
-    <!-- Scripts: loader first, then nav and slider logic -->
-    <script src="js/loader.js"></script>
+                <!-- Track -->
+                <div class="levents-track-wrap">
+                    <div class="levents-track" id="leventsTrack">
+
+                        <!-- Card 1 -->
+                        <article class="levent-card">
+                            <a href="#" class="levent-card__link" aria-label="Orientation Programme">
+                                <div class="levent-card__img levent-card__img--1" role="img"
+                                    aria-label="Orientation Programme photo"></div>
+                                <div class="levent-card__strip">
+                                    <span class="levent-card__date">16 September 2025</span>
+                                    <h3 class="levent-card__title">Orientation Programme</h3>
+                                </div>
+                            </a>
+                        </article>
+
+                        <!-- Card 2 -->
+                        <article class="levent-card">
+                            <a href="#" class="levent-card__link" aria-label="Rangavardhan 2025-26 Cultural Festival">
+                                <div class="levent-card__img levent-card__img--2" role="img"
+                                    aria-label="Rangavardhan Cultural Festival photo"></div>
+                                <div class="levent-card__strip">
+                                    <span class="levent-card__date">December 2025</span>
+                                    <h3 class="levent-card__title">Rangavardhan 2025-26 Cultural Festival</h3>
+                                </div>
+                            </a>
+                        </article>
+
+                        <!-- Card 3 -->
+                        <article class="levent-card">
+                            <a href="#" class="levent-card__link" aria-label="National HR Summit">
+                                <div class="levent-card__img levent-card__img--3" role="img"
+                                    aria-label="National HR Summit photo"></div>
+                                <div class="levent-card__strip">
+                                    <span class="levent-card__date">10 March 2026</span>
+                                    <h3 class="levent-card__title">National HR Summit</h3>
+                                </div>
+                            </a>
+                        </article>
+
+                        <!-- Card 4 -->
+                        <article class="levent-card">
+                            <a href="#" class="levent-card__link" aria-label="Alumni Connect Meet 2026">
+                                <div class="levent-card__img levent-card__img--4" role="img"
+                                    aria-label="Alumni Connect Meet photo"></div>
+                                <div class="levent-card__strip">
+                                    <span class="levent-card__date">22 March 2026</span>
+                                    <h3 class="levent-card__title">Alumni Connect Meet 2026</h3>
+                                </div>
+                            </a>
+                        </article>
+
+                        <!-- Card 5 -->
+                        <article class="levent-card">
+                            <a href="#" class="levent-card__link" aria-label="Industry Guest Lecture">
+                                <div class="levent-card__img levent-card__img--5" role="img"
+                                    aria-label="Industry Guest Lecture photo"></div>
+                                <div class="levent-card__strip">
+                                    <span class="levent-card__date">28 February 2026</span>
+                                    <h3 class="levent-card__title">Industry Guest Lecture</h3>
+                                </div>
+                            </a>
+                        </article>
+
+                    </div><!-- /levents-track -->
+                </div><!-- /levents-track-wrap -->
+
+                <!-- Prev / Next arrows -->
+                <button class="levents-btn levents-btn--prev" id="leventsPrev"
+                    aria-label="Previous event slide">&#10094;</button>
+                <button class="levents-btn levents-btn--next" id="leventsNext"
+                    aria-label="Next event slide">&#10095;</button>
+
+            </div><!-- /levents-carousel -->
+
+            <!-- Dot indicators -->
+            <div class="levents-dots" id="leventsDots" role="tablist" aria-label="Event slide indicators"></div>
+
+        </div><!-- /levents-container -->
+    </section>
+    <!-- /levents-section -->
+
+    <!-- ===================================================
+         TRAINING & PLACEMENT OVERVIEW SECTION
+    =================================================== -->
+    <section class="placement-section" id="placement" aria-label="Training and Placement Overview">
+        <div class="placement-container">
+
+            <!-- Section heading -->
+            <div class="placement-heading">
+                <h2 class="placement-title">Training &amp; Placement Overview</h2>
+                <span class="placement-title-bar" aria-hidden="true"></span>
+                <p class="placement-subtitle">Building Career Opportunities for Future Leaders</p>
+            </div>
+
+            <!-- Two-column grid -->
+            <div class="placement-grid">
+
+                <!-- LEFT: Stats + description + CTA -->
+                <div class="placement-left">
+
+                    <!-- Stats row — data-target drives animated counter -->
+                    <div class="placement-stats" id="placementStats">
+                        <div class="placement-stat">
+                            <span class="placement-stat__number" data-target="200" data-suffix="+"
+                                id="pstat-0">0+</span>
+                            <span class="placement-stat__label">Companies Visited</span>
+                        </div>
+                        <div class="placement-stat">
+                            <span class="placement-stat__number" data-target="150" data-suffix="+"
+                                id="pstat-1">0+</span>
+                            <span class="placement-stat__label">Students Placed</span>
+                        </div>
+                        <div class="placement-stat">
+                            <span class="placement-stat__number" data-target="12" data-suffix=" LPA" id="pstat-2">0
+                                LPA</span>
+                            <span class="placement-stat__label">Highest Package</span>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="placement-desc">
+                        The Training &amp; Placement Cell at HN College of Management actively bridges the gap between
+                        academia and industry. Through structured training programmes, mock interviews, and industry
+                        mentorship, students are groomed for leadership roles across diverse sectors.
+                    </p>
+                    <p class="placement-desc">
+                        Our dedicated placement team collaborates with top-tier corporates, SMEs, and start-ups to
+                        ensure every student has access to meaningful career opportunities aligned with their
+                        specialisation and aspirations.
+                    </p>
+
+                    <!-- CTA button -->
+                    <a href="#placement" class="placement-btn" aria-label="View Placement Details">
+                        View Placement Details
+                    </a>
+
+                </div><!-- /placement-left -->
+
+                <!-- RIGHT: Fade image slider -->
+                <div class="placement-right" aria-hidden="true">
+                    <div class="placement-slider" id="placementSlider">
+
+                        <!-- Slide 1: Campus placement drive -->
+                        <div class="placement-slide placement-slide--active placement-slide--1">
+                            <div class="placement-slide__caption">
+                                <span>Campus Placement Drive</span>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2: Industry connect -->
+                        <div class="placement-slide placement-slide--2">
+                            <div class="placement-slide__caption">
+                                <span>Industry Connect Programme</span>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3: Corporate mentorship -->
+                        <div class="placement-slide placement-slide--3">
+                            <div class="placement-slide__caption">
+                                <span>Corporate Mentorship &amp; Training</span>
+                            </div>
+                        </div>
+
+                    </div><!-- /placement-slider -->
+                </div><!-- /placement-right -->
+
+            </div><!-- /placement-grid -->
+
+        </div><!-- /placement-container -->
+    </section>
+    <!-- /placement-section -->
+
+    <!-- ===================================================
+         SITE FOOTER
+    =================================================== -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-inner">
+            <div class="footer-col footer-col--about">
+                <h3 class="footer-heading">HN College of Management</h3>
+                <p class="footer-text">
+                    Hirachand Nemchand College of Management, Solapur — Autonomous &amp; NAAC Re-accredited 'A' Grade.
+                    Affiliated to P.A.H. Solapur University.
+                </p>
+            </div>
+            <div class="footer-col footer-col--links">
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#admission">Admission</a></li>
+                    <li><a href="#placement">Placement Cell</a></li>
+                    <li><a href="#iqac">IQAC</a></li>
+                    <li><a href="#alumni">Alumni</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-col--contact">
+                <h3 class="footer-heading">Contact</h3>
+                <address class="footer-address">
+                    <p>HN College of Management</p>
+                    <p>Solapur, Maharashtra – 413 006</p>
+                    <p><a href="mailto:hnccsolapur@gmail.com">hnccsolapur@gmail.com</a></p>
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Hirachand Nemchand College of Management, Solapur. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- /site-footer -->
+
+    <!-- Scripts -->
+    <script src="js/navbar.js"></script>
     <script src="js/main.js"></script>
     <script src="js/slider.js"></script>
     <script src="js/placement.js"></script>

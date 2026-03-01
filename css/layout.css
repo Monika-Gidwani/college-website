@@ -600,11 +600,12 @@
    Footer
    ---------------------------------------------------------------- */
 .site-footer {
-    background: linear-gradient(160deg, #1a0c04 0%, #2c1606 35%, var(--clr-nav-end) 100%);
+    /* Softer warm-brown — reads as the navbar's quieter sibling */
+    background: linear-gradient(160deg, var(--clr-nav-end) 0%, #6a3d21 40%, #7A4E2D 100%);
     color: var(--clr-nav-text);
-    padding: 3.25rem 1.25rem 0;
+    padding: 3rem 1.25rem 0;
     margin-top: auto;
-    border-top: 3px solid var(--clr-hover);
+    border-top: 2px solid var(--clr-hover);
 }
 
 .footer-inner {
@@ -643,7 +644,8 @@
 .footer-text {
     font-family: var(--font-body);
     font-size: 0.79rem;
-    color: rgba(245, 236, 215, 0.75);
+    color: rgba(245, 236, 215, 0.82);
+    /* slightly brighter on lighter bg */
     line-height: 1.72;
     max-width: 380px;
 }
@@ -661,7 +663,8 @@
 .footer-links a {
     font-family: var(--font-body);
     font-size: 0.79rem;
-    color: rgba(245, 236, 215, 0.72);
+    color: rgba(245, 236, 215, 0.80);
+    /* readable on lighter bg */
     position: relative;
     padding-bottom: 1px;
     transition: color var(--transition-fast);
@@ -689,7 +692,7 @@
 .footer-address {
     font-family: var(--font-body);
     font-size: 0.79rem;
-    color: rgba(245, 236, 215, 0.72);
+    color: rgba(245, 236, 215, 0.80);
     line-height: 1.85;
     font-style: normal;
 }
@@ -711,13 +714,15 @@
 
 /* Divider above copyright */
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(0, 0, 0, 0.2);
-    padding: 1rem 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(0, 0, 0, 0.12);
+    /* subtler strip on lighter footer */
+    padding: 0.85rem 1.25rem;
     text-align: center;
     font-family: var(--font-body);
     font-size: 0.72rem;
-    color: rgba(245, 236, 215, 0.45);
+    color: rgba(245, 236, 215, 0.58);
+    /* easier to read */
     letter-spacing: 0.02em;
 }
 
