@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Academics — HN College of Management, Solapur. Academic Calendar, Time Table, Examination, Result, Library, E-Resources." />
+    <title>Academics — HN College of Management, Solapur</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <!-- Shared stylesheets -->
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+
+    <!-- Page-specific -->
+    <link rel="stylesheet" href="../css/academics.css" />
+</head>
+
+<body>
+
+    <!-- ===================================================
+         COMPONENT PLACEHOLDERS — loaded by js/loader.js
+    =================================================== -->
+    <div id="header-placeholder"></div>
+    <div id="navbar-placeholder"></div>
+
+    <!-- ===================================================
+         ACADEMICS PAGE BODY
+    =================================================== -->
+    <main class="ac-page" id="academics-main">
+
+        <!-- Page title -->
+        <div class="ac-page-title">
+            <h2>Academics</h2>
+            <span class="ac-page-title__bar" aria-hidden="true"></span>
+            <p class="ac-page-title__sub">Academic Calendar, Time Table, Examination, Library, and more</p>
+        </div>
+
+        <!-- Two-column layout -->
+        <div class="ac-layout">
+
+            <!-- ══ LEFT SIDEBAR ══ -->
+            <aside class="ac-sidebar" aria-label="Academics navigation">
+                <div class="ac-sidebar__header">
+                    <h3>Academics</h3>
+                </div>
+                <ul class="ac-sidebar__nav" role="list">
+                    <li>
+                        <a href="#" data-section="academic-calendar" class="ac-active" aria-current="true">
+                            Academic Calendar
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-section="time-table">
+                            Time Table (Theory, Practical)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-section="examination">
+                            Examination
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-section="result">
+                            Result
+                        </a>
+                    </li>
+                    <li class="has-sub">
+                        <a href="#" data-section="library" class="ac-has-sub-toggle">
+                            Library <span class="ac-sub-caret" aria-hidden="true">&#9660;</span>
+                        </a>
+                        <ul class="ac-sub-nav" role="list">
+                            <li><a href="#" data-section="library-books">Books &amp; Periodicals</a></li>
+                            <li><a href="#" data-section="library-digital">Digital Resources</a></li>
+                            <li><a href="#" data-section="library-rules">Library Rules</a></li>
+                            <li><a href="#" data-section="library-timings">Library Timings</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" data-section="e-resources">
+                            E-Resources
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- ══ RIGHT CONTENT ══ -->
+            <div class="ac-content" id="acContent">
+
+                <!-- ─────────────────────────────────
+                     1. ACADEMIC CALENDAR (default)
+                ───────────────────────────────────── -->
+                <div class="ac-section ac-visible" id="academic-calendar">
+                    <div class="ac-card">
+                        <h2 class="ac-section-title">Academic Calendar</h2>
+                        <div class="ac-callout">
+                            <p>The Academic Calendar for 2025–26 outlines key dates for semesters,
+                                examinations, vacations, and major events — helping students and faculty plan
+                                their academic year effectively.</p>
+                        </div>
+                        <div class="ac-body">
+                            <h3 class="ac-sub-heading">AY 2025–26 Key Dates</h3>
+                        </div>
+                        <div class="ac-table-wrap">
+                            <table class="ac-table">
+                                <thead>
+                                    <tr>
+                                        <th>Event</th>
+                                        <th>Odd Semester (I / III)</th>
+                                        <th>Even Semester (II / IV)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Semester Commencement</td>
+                                        <td>July 15, 2025</td>
+                                        <td>January 6, 2026</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Induction / Orientation (New Students)</td>
+                                        <td>July 15–17, 2025</td>
+                                        <td>—</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Parents' Meet</td>
+                                        <td>August 5, 2025</td>
+                                        <td>January 20, 2026</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Internal Test I</td>
+                                        <td>September 1–5, 2025</td>
+                                        <td>February 9–13, 2026</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Internal Test II</td>
+                                        <td>October 13–17, 2025</td>
+                                        <td>March 16–20, 2026</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Diwali Vacation</td>
+                                        <td>October 20 – November 2, 2025</td>
+                                        <td>—</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Semester End Exam (University)</td>
+                                        <td>November 17 – December 10, 2025</td>
+                                        <td>April 6 – April 30, 2026</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Summer Internship (MBA SEM II)</td>
+                                        <td>—</td>
+                                        <td>May – June 2026</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Result Declaration</td>
+                                        <td>January 2026</td>
+                                        <td>June 2026</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="ac-body" style="margin-top:1rem;">
+                            <p><em>Note: Dates are tentative and subject to University notification. Final dates
+                                    will be communicated through official notices on the college notice board
+                                    and website.</em></p>
+                            <p>
+                                <a href="#" class="ac-download-btn">&#128196; Download Academic Calendar PDF</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ─────────────────────────────────
+                     2. TIME TABLE
+                ───────────────────────────────────── -->
+                <div class="ac-section" id="time-table">
+                    <div class="ac-card">
+                        <h2 class="ac-section-title">Time Table (Theory &amp; Practical)</h2>
+                        <div class="ac-callout">
+                            <p>The Time Table for each class is prepared at the beginning of each semester and
+                                displayed on the department notice board and provided to students on the first
+                                day of the semester.</p>
+                        </div>
+
+                        <h3 class="ac-sub-heading" style="margin-top:0.5rem;">MBA Time Table — Semester I
+                            (2025–26)</h3>
+                        <div class="ac-table-wrap">
+                            <table class="ac-table ac-tt">
+                                <thead>
+                                    <tr>
+                                        <th>Day / Time</th>
+                                        <th>9:00–10:00</th>
+                                        <th>10:00–11:00</th>
+                                        <th>11:00–12:00</th>
+                                        <th>12:00–1:00</th>
+                                        <th>1:00–2:00</th>
+                                        <th>2:00–3:00</th>
+                                        <th>3:00–4:00</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Monday</strong></td>
+                                        <td>Principles of Mgmt</td>
+                                        <td>Managerial Economics</td>
+                                        <td>Accounting for Mgrs</td>
+                                        <td class="ac-tt-break">BREAK</td>
+                                        <td>QM for Management</td>
+                                        <td>Biz Communication</td>
+                                        <td>Library / Self Study</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Tuesday</strong></td>
+                                        <td>Biz Environment &amp; Ethics</td>
+                                        <td>Accounting for Mgrs</td>
+                                        <td>Managerial Economics</td>
+                                        <td class="ac-tt-break">BREAK</td>
+                                        <td>Computer Lab (Practical)</td>
+                                        <td>Computer Lab (Practical)</td>
+                                        <td>Seminar / GD</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Wednesday</strong></td>
+                                        <td>QM for Management</td>
+                                        <td>Principles of Mgmt</td>
+                                        <td>Biz Communication</td>
+                                        <td class="ac-tt-break">BREAK</td>
+                                        <td>Managerial Economics</td>
+                                        <td>Biz Environment &amp; Ethics</td>
+                                        <td>Library / Self Study</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Thursday</strong></td>
+                                        <td>Accounting for Mgrs</td>
+                                        <td>QM for Management</td>
+                                        <td>Principles of Mgmt</td>
+                                        <td class="ac-tt-break">BREAK</td>
+                                        <td>Biz Communication</td>
+                                        <td>Computer Lab (Practical)</td>
+                                        <td>Computer Lab (Practical)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Friday</strong></td>
+                                        <td>Biz Environment &amp; Ethics</td>
+                                        <td>Biz Communication</td>
+                                        <td>QM for Management</td>
+                                        <td class="ac-tt-break">BREAK</td>
+                                        <td>Principles of Mgmt</td>
+                                        <td>Managerial Economics</td>
+                                        <td>Sports / Co-curricular</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Saturday</strong></td>
+                                        <td>Seminar / Workshop</td>
+                                        <td>Guest Lecture / Industry Visit</td>
+                                        <td>Internal Test / Revision</td>
+                                        <td class="ac-tt-break">BREAK</td>
+                                        <td colspan="3" style="text-align:center;">Remedial / Extra Classes</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="ac-body" style="margin-top:1rem;">
+                            <p><em>* Practical sessions are conducted in Computer Lab. Time Table is subject to
+                                    revision by the department.</em></p>
+                            <p>
+                                <a href="#" class="ac-download-btn">&#128196; Download BCA Time Table
+                                    PDF</a>&nbsp;&nbsp;
+                                <a href="#" class="ac-download-btn">&#128196; Download BBA Time Table PDF</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ─────────────────────────────────
+                     3. EXAMINATION
+                ───────────────────────────────────── -->
+                <div class="ac-section" id="examination">
+                    <div class="ac-card">
+                        <h2 class="ac-section-title">Examination</h2>
+                        <div class="ac-callout">
+                            <p>HN College of Management, being an Autonomous College, conducts its own
+                                university-level semester examinations as per the examination schedule
+                                prescribed by P.A.H. Solapur University.</p>
+                        </div>
+
+                        <div class="ac-body">
+                            <h3 class="ac-sub-heading">Examination Pattern</h3>
+                            <div class="ac-table-wrap">
+                                <table class="ac-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Component</th>
+                                            <th>Marks</th>
+                                            <th>Frequency</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Internal Assessment (Test I + Test II + Assignments)</td>
+                                            <td>30</td>
+                                            <td>Each Semester</td>
+                                        </tr>
+                                        <tr>
+                                            <td>University / End-Semester Examination</td>
+                                            <td>70</td>
+                                            <td>Each Semester</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Total</strong></td>
+                                            <td><strong>100</strong></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h3 class="ac-sub-heading" style="margin-top:1.3rem;">Examination Rules</h3>
+                            <ul class="ac-list">
+                                <li>Students must carry their College ID Card and Hall Ticket to every
+                                    examination.</li>
+                                <li>Minimum 75% attendance is required to be eligible to appear in university
+                                    examinations.</li>
+                                <li>Use of unfair means during examination is a serious offence and may lead
+                                    to cancellation of the examination paper and disciplinary action.</li>
+                                <li>Students must report to the examination hall 15 minutes before the
+                                    scheduled start time.</li>
+                                <li>Mobile phones and electronic devices are strictly prohibited in the
+                                    examination hall.</li>
+                                <li>Re-assessment / Photocopy of Answer Books can be applied for as per
+                                    university norms within the prescribed time limit.</li>
+                                <li>Atkt / Supplementary examinations are conducted as per university
+                                    schedule.</li>
+                            </ul>
+
+                            <h3 class="ac-sub-heading" style="margin-top:1.3rem;">Examination Schedule 2025–26
+                            </h3>
+                            <p>
+                                <a href="#" class="ac-download-btn">&#128196; Download Examination Schedule PDF</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ─────────────────────────────────
+                     4. RESULT
+                ───────────────────────────────────── -->
+                <div class="ac-section" id="result">
+                    <div class="ac-card">
+                        <h2 class="ac-section-title">Result</h2>
+                        <div class="ac-callout">
+                            <p>Semester examination results are declared by P.A.H. Solapur University. Students
+                                can check their results on the university portal or the college notice board
+                                after official declaration.</p>
+                        </div>
+
+                        <div class="ac-body">
+                            <h3 class="ac-sub-heading">How to Check Your Result</h3>
+                            <ol class="ac-ordered-list">
+                                <li>Visit the <strong>P.A.H. Solapur University Results Portal</strong>
+                                    at <a href="http://www.sus.ac.in" target="_blank"
+                                        rel="noopener noreferrer">www.sus.ac.in</a>
+                                </li>
+                                <li>Click on "Student Results" or "Exam Results" link.</li>
+                                <li>Enter your Seat Number and select the Examination Month &amp; Year.</li>
+                                <li>Click "Get Result" to view your marks and grade card.</li>
+                                <li>Download or print the Result for records. Original Mark Sheet
+                                    is issued by the University separately.</li>
+                            </ol>
+
+                            <h3 class="ac-sub-heading" style="margin-top:1.3rem;">Result History — Overview
+                            </h3>
+                            <div class="ac-table-wrap">
+                                <table class="ac-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Year</th>
+                                            <th>Programme</th>
+                                            <th>Pass %</th>
+                                            <th>Distinctions</th>
+                                            <th>First Class</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>2024–25</td>
+                                            <td>MBA</td>
+                                            <td>94%</td>
+                                            <td>18</td>
+                                            <td>36</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2024–25</td>
+                                            <td>BCA</td>
+                                            <td>89%</td>
+                                            <td>12</td>
+                                            <td>28</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2024–25</td>
+                                            <td>BBA</td>
+                                            <td>91%</td>
+                                            <td>14</td>
+                                            <td>30</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2023–24</td>
+                                            <td>MBA</td>
+                                            <td>92%</td>
+                                            <td>16</td>
+                                            <td>34</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ─────────────────────────────────
+                     5. LIBRARY (default sub: Books)
+                ───────────────────────────────────── -->
+                <div class="ac-section" id="library">
+                    <div class="ac-card">
+                        <h2 class="ac-section-title">Library</h2>
+                        <div class="ac-callout">
+                            <p>The HN College of Management Library is a well-stocked, student-friendly resource
+                                centre with a rich collection of management, commerce, computer science, and
+                                reference books, journals, and digital resources.</p>
+                        </div>
+
+                        <!-- Library sub-nav -->
+                        <div class="ac-lib-tabs" role="tablist" aria-label="Library sections">
+                            <button class="ac-lib-tab ac-lib-active" data-libtab="books" role="tab"
+                                aria-selected="true">Books &amp; Periodicals</button>
+                            <button class="ac-lib-tab" data-libtab="digital" role="tab" aria-selected="false">Digital
+                                Resources</button>
+                            <button class="ac-lib-tab" data-libtab="rules" role="tab" aria-selected="false">Library
+                                Rules</button>
+                            <button class="ac-lib-tab" data-libtab="timings" role="tab"
+                                aria-selected="false">Timings</button>
+                        </div>
+
+                        <!-- Books & Periodicals -->
+                        <div class="ac-lib-panel ac-lib-visible" id="libtab-books">
+                            <div class="ac-body">
+                                <h3 class="ac-sub-heading">Collection Overview</h3>
+                                <div class="ac-table-wrap">
+                                    <table class="ac-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Category</th>
+                                                <th>Titles</th>
+                                                <th>Volumes</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Management &amp; Business</td>
+                                                <td>1,800+</td>
+                                                <td>3,200+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Commerce &amp; Economics</td>
+                                                <td>600+</td>
+                                                <td>1,000+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Computer Science &amp; IT</td>
+                                                <td>400+</td>
+                                                <td>750+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>General Reference</td>
+                                                <td>300+</td>
+                                                <td>500+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>National / International Journals</td>
+                                                <td>30+</td>
+                                                <td colspan="1">Subscriptions</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Newspapers (Daily)</td>
+                                                <td>8</td>
+                                                <td>Current issues</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Digital Resources -->
+                        <div class="ac-lib-panel" id="libtab-digital">
+                            <div class="ac-body">
+                                <h3 class="ac-sub-heading">Digital Library Resources</h3>
+                                <ul class="ac-list">
+                                    <li><strong>N-LIST (INFLIBNET):</strong> Access to 6,000+ e-journals and
+                                        3,00,000+ e-books for students and faculty.</li>
+                                    <li><strong>e-ShodhSindhu:</strong> Consortium of e-journals from leading
+                                        publishers available for research.</li>
+                                    <li><strong>EPGP (NPTEL/SWAYAM):</strong> Access to free online courses
+                                        from IITs, IIMs, and top universities.</li>
+                                    <li><strong>Delnet:</strong> Library resource sharing network for inter-library
+                                        book loans and bibliographic databases.</li>
+                                    <li><strong>OPAC:</strong> Online Public Access Catalogue for searching
+                                        library holdings from any device on campus network.</li>
+                                    <li><strong>Reprography:</strong> Photocopy / printing facility available
+                                        in the library building at nominal charges.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Library Rules -->
+                        <div class="ac-lib-panel" id="libtab-rules">
+                            <div class="ac-body">
+                                <h3 class="ac-sub-heading">Library Rules &amp; Regulations</h3>
+                                <ul class="ac-list">
+                                    <li>Library membership is compulsory for all registered students. ID card
+                                        must be produced at entry and during book issue.</li>
+                                    <li>Students may borrow a maximum of <strong>3 books</strong> at a time for
+                                        a period of <strong>14 days</strong>.</li>
+                                    <li>Overdue books attract a fine of ₹2 per book per day after the due date.
+                                    </li>
+                                    <li>Talking, using mobile phones, and eating/drinking are strictly
+                                        prohibited inside the library.</li>
+                                    <li>Torn, damaged, or lost books must be replaced or fined at double the
+                                        cost of the book as per library rules.</li>
+                                    <li>Reference books, journals, and newspapers are for in-library use only
+                                        and cannot be issued for home use.</li>
+                                    <li>Silence must be maintained in the library at all times.</li>
+                                    <li>Library membership is non-transferable.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Library Timings -->
+                        <div class="ac-lib-panel" id="libtab-timings">
+                            <div class="ac-body">
+                                <h3 class="ac-sub-heading">Library Timings</h3>
+                                <div class="ac-table-wrap">
+                                    <table class="ac-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Day</th>
+                                                <th>Opening Time</th>
+                                                <th>Closing Time</th>
+                                                <th>Issue / Return</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Monday – Friday</td>
+                                                <td>8:00 AM</td>
+                                                <td>5:00 PM</td>
+                                                <td>8:30 AM – 4:30 PM</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Saturday</td>
+                                                <td>9:00 AM</td>
+                                                <td>1:00 PM</td>
+                                                <td>9:00 AM – 12:30 PM</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sunday &amp; Public Holidays</td>
+                                                <td colspan="3">Closed</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Examination Days</td>
+                                                <td>8:00 AM</td>
+                                                <td>6:00 PM</td>
+                                                <td>Extended Hours</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <p class="ac-body" style="margin-top:0.8rem;font-size:0.92rem;">
+                                    <em>* Library timings may change during holidays, examinations, or special
+                                        events. Notices will be displayed on the library notice board.</em>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ─────────────────────────────────
+                     6. E-RESOURCES
+                ───────────────────────────────────── -->
+                <div class="ac-section" id="e-resources">
+                    <div class="ac-card">
+                        <h2 class="ac-section-title">E-Resources</h2>
+                        <div class="ac-callout">
+                            <p>HN College of Management provides students and faculty with access to premium
+                                online learning resources, e-journals, course platforms, and research databases
+                                to supplement classroom learning and support research activities.</p>
+                        </div>
+
+                        <div class="ac-body">
+                            <h3 class="ac-sub-heading">Online Learning Platforms</h3>
+                            <ul class="ac-list">
+                                <li>
+                                    <strong>SWAYAM (MOOCs):</strong> Free online courses by IITs, IIMs, and
+                                    top universities across all subjects including management, finance,
+                                    marketing, and technology. Students can earn credit for SWAYAM courses
+                                    under the NEP 2020 framework.
+                                </li>
+                                <li>
+                                    <strong>NPTEL Online Certification:</strong> Industry-recognised
+                                    certification courses from IIT professors on technical, management, and
+                                    humanistic disciplines. Certification exams available at designated
+                                    centres.
+                                </li>
+                                <li>
+                                    <strong>Google Scholar:</strong> Free web search engine for scholarly
+                                    literature — useful for literature review and research paper searches.
+                                </li>
+                                <li>
+                                    <strong>ResearchGate / Academia.edu:</strong> Platforms for finding
+                                    research papers, collaborating with researchers, and publishing findings.
+                                </li>
+                                <li>
+                                    <strong>YouTube EDU:</strong> Curated educational content from leading
+                                    institutions and subject matter experts for supplementary learning.
+                                </li>
+                            </ul>
+
+                            <h3 class="ac-sub-heading" style="margin-top:1.3rem;">E-Journal &amp; Database
+                                Access</h3>
+                            <ul class="ac-list">
+                                <li>
+                                    <strong>N-LIST (INFLIBNET):</strong> Provides access to 6,000+ e-journals
+                                    and 3,00,000+ e-books. Students can register using their college email ID
+                                    at <a href="https://nlist.inflibnet.ac.in" target="_blank"
+                                        rel="noopener noreferrer">nlist.inflibnet.ac.in</a>.
+                                </li>
+                                <li>
+                                    <strong>e-ShodhSindhu:</strong> Access to bibliographic databases,
+                                    full-text journals, and citation indexes from publishers like JSTOR,
+                                    Emerald, Taylor &amp; Francis, and Springer.
+                                </li>
+                                <li>
+                                    <strong>Shodhganga:</strong> Reservoir of Indian Electronic Theses and
+                                    Dissertations — useful for PhD scholars and research students.
+                                    <a href="https://shodhganga.inflibnet.ac.in" target="_blank"
+                                        rel="noopener noreferrer">shodhganga.inflibnet.ac.in</a>
+                                </li>
+                                <li>
+                                    <strong>Project MUSE:</strong> Humanities and social science journals and
+                                    books from university presses and scholarly institutions.
+                                </li>
+                            </ul>
+
+                            <h3 class="ac-sub-heading" style="margin-top:1.3rem;">Free Management Resources
+                            </h3>
+                            <ul class="ac-list">
+                                <li>
+                                    <strong>Harvard Business Review (HBR) — Free Articles:</strong>
+                                    Leading management publication with in-depth articles on strategy,
+                                    leadership, and innovation. Three free articles monthly.
+                                </li>
+                                <li>
+                                    <strong>MIT OpenCourseWare:</strong> Free lecture notes, videos, and
+                                    course materials from MIT including Sloan School of Management courses.
+                                </li>
+                                <li>
+                                    <strong>Coursera (Audit Mode):</strong> Access to thousands of business
+                                    and management courses from Yale, Stanford, Wharton, and other top
+                                    universities for free in audit mode.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /ac-content -->
+
+        </div><!-- /ac-layout -->
+
+    </main>
+
+    <!-- Footer placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="../js/loader.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/academics.js"></script>
+
+</body>
+
+</html>

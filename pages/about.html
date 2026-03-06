@@ -16,192 +16,23 @@
         rel="stylesheet" />
 
     <!-- Shared stylesheets -->
-    <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/header.css" />
-    <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/navbar.css" />
-    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <link rel="stylesheet" href="../css/components.css" />
 
     <!-- Page-specific -->
-    <link rel="stylesheet" href="css/about.css" />
+    <link rel="stylesheet" href="../css/about.css" />
 </head>
 
 <body>
 
     <!-- ===================================================
-         SITE HEADER
+         COMPONENT PLACEHOLDERS — loaded by js/loader.js
     =================================================== -->
-    <header class="site-header" role="banner">
-        <div class="header-inner">
-            <div class="logo-col" aria-label="College Logo">
-                <img src="assets/logo.png" alt="HN College of Management Logo" class="college-logo" loading="eager"
-                    onerror="this.src='assets/logo-fallback.svg'" />
-            </div>
-            <div class="header-text-col">
-                <p class="sanskrit-motto" lang="mr">|| शिक्षण हाच धर्म ||</p>
-                <p class="trust-name">Shri Hirachand Nemchand Mafatal Punamchand Educational Trust, Solapur</p>
-                <h1 class="college-name">Hirachand Nemchand College of Management, Solapur</h1>
-                <p class="dept-name">Department of Management Studies</p>
-                <p class="college-details">
-                    <span class="detail-bold">Autonomous College</span>
-                    <span class="divider" aria-hidden="true">|</span>
-                    <span>Affiliated to P.A.H Solapur University, Solapur</span>
-                    <span class="divider" aria-hidden="true">|</span>
-                    <span>Solapur, Maharashtra – 413 006</span>
-                    <span class="divider" aria-hidden="true">|</span>
-                    <span class="naac-badge">NAAC Re-accredited 'A' Grade</span>
-                    <span class="divider" aria-hidden="true">|</span>
-                    <span class="email-info">&#9993;&nbsp;<a
-                            href="mailto:hnccsolapur@gmail.com">hnccsolapur@gmail.com</a></span>
-                </p>
-            </div>
-        </div>
-    </header>
-
-    <!-- ===================================================
-         MULTI-LEVEL STICKY NAVIGATION
-    =================================================== -->
-    <nav class="snav" id="siteNav" role="navigation" aria-label="Main site navigation">
-        <div class="snav-inner">
-            <button class="snav-hamburger" id="snavHamburger" aria-label="Toggle navigation menu" aria-expanded="false"
-                aria-controls="snavMenu">
-                <span class="snav-line"></span>
-                <span class="snav-line"></span>
-                <span class="snav-line"></span>
-            </button>
-            <div class="snav-menu" id="snavMenu">
-                <!-- Row 1 -->
-                <ul class="snav-row" role="list">
-                    <li class="snav-item"><a href="index.html" class="snav-link">Home</a></li>
-                    <li class="snav-item has-drop">
-                        <a href="#" class="snav-link active">About Us <span class="snav-caret"
-                                aria-hidden="true">&#9660;</span></a>
-                        <ul class="snav-drop" role="list">
-                            <li><a href="about.html#institute-information" class="snav-drop-link">Institute
-                                    Information</a></li>
-                            <li><a href="about.html#vision-mission" class="snav-drop-link">Vision and Mission</a></li>
-                            <li><a href="about.html#goals-quality" class="snav-drop-link">Goals and Quality Policy</a>
-                            </li>
-                            <li><a href="about.html#core-values" class="snav-drop-link">Core Values</a></li>
-                            <li><a href="about.html#governing-body" class="snav-drop-link">Governing Body</a></li>
-                            <li><a href="about.html#policies" class="snav-drop-link">Policies</a></li>
-                            <li><a href="about.html#principal-secretary" class="snav-drop-link">Principal and Secretary
-                                    Desk</a></li>
-                        </ul>
-                    </li>
-                    <li class="snav-item has-drop">
-                        <a href="programmes.html" class="snav-link">Programmes <span class="snav-caret"
-                                aria-hidden="true">&#9660;</span></a>
-                        <ul class="snav-drop" role="list">
-                            <li class="has-subdrop">
-                                <a href="programmes.html#mba-hods-desk" class="snav-drop-link">MBA <span
-                                        class="snav-subcaret" aria-hidden="true">&#8250;</span></a>
-                                <ul class="snav-subdrop" role="list">
-                                    <li><a href="programmes.html#mba-hods-desk" class="snav-drop-link">HOD's Desk</a>
-                                    </li>
-                                    <li><a href="programmes.html#mba-about-dept" class="snav-drop-link">About
-                                            Department</a></li>
-                                    <li><a href="programmes.html#mba-vision-mission" class="snav-drop-link">Vision and
-                                            Mission</a></li>
-                                    <li><a href="programmes.html#mba-co-po-pso-peo" class="snav-drop-link">CO, PO, PSO,
-                                            PEO</a></li>
-                                    <li><a href="programmes.html#mba-faculty" class="snav-drop-link">Faculty</a></li>
-                                    <li><a href="programmes.html#mba-infrastructure"
-                                            class="snav-drop-link">Infrastructure</a></li>
-                                    <li><a href="programmes.html#mba-syllabus" class="snav-drop-link">Syllabus</a></li>
-                                    <li><a href="programmes.html#mba-specialisation"
-                                            class="snav-drop-link">Specialisation</a></li>
-                                    <li><a href="programmes.html#mba-certification" class="snav-drop-link">Certification
-                                            Course</a></li>
-                                    <li><a href="programmes.html#mba-parents-meet" class="snav-drop-link">Parents Meet
-                                            &amp; Orientation Program</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="programmes.html#bca" class="snav-drop-link">BCA Course</a></li>
-                            <li><a href="programmes.html#bba" class="snav-drop-link">BBA Course</a></li>
-                        </ul>
-                    </li>
-                    <li class="snav-item has-drop">
-                        <a href="academics.html" class="snav-link">Academics <span class="snav-caret"
-                                aria-hidden="true">&#9660;</span></a>
-                        <ul class="snav-drop" role="list">
-                            <li><a href="academics.html#academic-calendar" class="snav-drop-link">Academic Calendar</a>
-                            </li>
-                            <li><a href="academics.html#time-table" class="snav-drop-link">Time Table (Theory,
-                                    Practical)</a></li>
-                            <li><a href="academics.html#examination" class="snav-drop-link">Examination</a></li>
-                            <li><a href="academics.html#result" class="snav-drop-link">Result</a></li>
-                            <li><a href="academics.html#library" class="snav-drop-link">Library</a></li>
-                            <li><a href="academics.html#e-resources" class="snav-drop-link">E-Resources</a></li>
-                        </ul>
-                    </li>
-                    <li class="snav-item"><a href="#" class="snav-link">Events &amp; Activities</a></li>
-                    <li class="snav-item has-drop">
-                        <a href="#" class="snav-link">Important Links <span class="snav-caret"
-                                aria-hidden="true">&#9660;</span></a>
-                        <ul class="snav-drop drop-left" role="list">
-                            <li><a href="#" class="snav-drop-link">Annual Report</a></li>
-                            <li><a href="#" class="snav-drop-link">Institute Development Plan</a></li>
-                            <li class="has-subdrop">
-                                <a href="#" class="snav-drop-link">Statutory Committee <span class="snav-subcaret"
-                                        aria-hidden="true">&#8250;</span></a>
-                                <ul class="snav-subdrop subdrop-left" role="list">
-                                    <li><a href="#" class="snav-drop-link">Anti-Ragging Committee</a></li>
-                                    <li><a href="#" class="snav-drop-link">Internal Committee</a></li>
-                                    <li><a href="#" class="snav-drop-link">College Development Committee</a></li>
-                                    <li><a href="#" class="snav-drop-link">IQAC</a></li>
-                                    <li><a href="#" class="snav-drop-link">Grievance Redressal Committee</a></li>
-                                    <li><a href="#" class="snav-drop-link">SC/ST Committee</a></li>
-                                    <li><a href="#" class="snav-drop-link">Staff Grievance Committee</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#" class="snav-drop-link">Strategic Management</a></li>
-                            <li><a href="#" class="snav-drop-link">Organization Chart</a></li>
-                            <li><a href="#" class="snav-drop-link">Mandatory Disclosure</a></li>
-                            <li><a href="#" class="snav-drop-link">Statement of Accounts</a></li>
-                            <li><a href="#" class="snav-drop-link">Approvals</a></li>
-                            <li><a href="#" class="snav-drop-link">RTI</a></li>
-                            <li><a href="#" class="snav-drop-link">Online Grievance</a></li>
-                        </ul>
-                    </li>
-                    <li class="snav-item has-drop">
-                        <a href="#" class="snav-link">Accreditation <span class="snav-caret"
-                                aria-hidden="true">&#9660;</span></a>
-                        <ul class="snav-drop drop-left" role="list">
-                            <li><a href="#" class="snav-drop-link">IQAC</a></li>
-                            <li><a href="#" class="snav-drop-link">NAAC</a></li>
-                            <li><a href="#" class="snav-drop-link">Best Practices</a></li>
-                            <li><a href="#" class="snav-drop-link">E-Learning</a></li>
-                        </ul>
-                    </li>
-                    <li class="snav-item"><a href="index.html#placement" class="snav-link">Training &amp; Placement</a>
-                    </li>
-                </ul>
-
-                <div class="snav-divider" aria-hidden="true"></div>
-
-                <!-- Row 2 -->
-                <ul class="snav-row" role="list">
-                    <li class="snav-item"><a href="#" class="snav-link">Alumni</a></li>
-                    <li class="snav-item"><a href="#" class="snav-link">Achievements &amp; Awards</a></li>
-                    <li class="snav-item has-drop">
-                        <a href="#" class="snav-link">Feedback <span class="snav-caret"
-                                aria-hidden="true">&#9660;</span></a>
-                        <ul class="snav-drop" role="list">
-                            <li><a href="#" class="snav-drop-link">Student Feedback</a></li>
-                            <li><a href="#" class="snav-drop-link">Student Satisfaction Survey</a></li>
-                            <li><a href="#" class="snav-drop-link">Student Feedback About Teacher</a></li>
-                            <li><a href="#" class="snav-drop-link">Parents Feedback</a></li>
-                            <li><a href="#" class="snav-drop-link">Alumni Feedback</a></li>
-                        </ul>
-                    </li>
-                    <li class="snav-item"><a href="#" class="snav-link">Tenders</a></li>
-                    <li class="snav-item"><a href="#" class="snav-link">Contact Us</a></li>
-                    <li class="snav-item"><a href="#" class="snav-link">Notification &amp; Circulars</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <div id="header-placeholder"></div>
+    <div id="navbar-placeholder"></div>
 
     <!-- ===================================================
          ABOUT US PAGE BODY
@@ -713,46 +544,14 @@
 
     </main>
 
-    <!-- ===================================================
-         SITE FOOTER
-    =================================================== -->
-    <footer class="site-footer" role="contentinfo">
-        <div class="footer-inner">
-            <div class="footer-col footer-col--about">
-                <h3 class="footer-heading">HN College of Management</h3>
-                <p class="footer-text">
-                    Hirachand Nemchand College of Management, Solapur — Autonomous &amp; NAAC Re-accredited 'A' Grade.
-                    Affiliated to P.A.H. Solapur University.
-                </p>
-            </div>
-            <div class="footer-col footer-col--links">
-                <h3 class="footer-heading">Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="index.html#placement">Placement Cell</a></li>
-                    <li><a href="#">IQAC</a></li>
-                    <li><a href="#">Alumni</a></li>
-                </ul>
-            </div>
-            <div class="footer-col footer-col--contact">
-                <h3 class="footer-heading">Contact</h3>
-                <address class="footer-address">
-                    <p>HN College of Management</p>
-                    <p>Solapur, Maharashtra – 413 006</p>
-                    <p><a href="mailto:hnccsolapur@gmail.com">hnccsolapur@gmail.com</a></p>
-                </address>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Hirachand Nemchand College of Management, Solapur. All rights reserved.</p>
-        </div>
-    </footer>
+    <!-- Footer placeholder -->
+    <div id="footer-placeholder"></div>
 
     <!-- Scripts -->
-    <script src="js/navbar.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/about.js"></script>
+    <script src="../js/loader.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/about.js"></script>
 
 </body>
 

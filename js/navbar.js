@@ -3,11 +3,18 @@
  * Handles: sticky scroll shadow, mobile hamburger accordion,
  * caret rotation on mobile open/close, and right-edge
  * detection to flip dropdowns that would overflow the viewport.
+ *
+ * Exports window.initNavbar() so it can be called by loader.js
+ * after the navbar component HTML has been dynamically injected.
  */
 
 'use strict';
 
-document.addEventListener('DOMContentLoaded', function () {
+/* ─────────────────────────────────────────────
+   Core navbar initialisation — called once the
+   navbar HTML exists in the DOM.
+───────────────────────────────────────────── */
+function initNavbar() {
 
     var nav = document.getElementById('siteNav');
     var hamburger = document.getElementById('snavHamburger');
@@ -144,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /* ─────────────────────────────────────────────
        9. Active link — highlight current section
-       (mirrors main.js logic, now using .snav-link)
+       (for single-page anchor links, e.g. index.html)
     ───────────────────────────────────────────── */
     var sections = document.querySelectorAll('[id]');
     var navLinks = nav.querySelectorAll('.snav-link[href^="#"]');
@@ -163,5 +170,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
         sections.forEach(function (s) { obs.observe(s); });
     }
+}
 
-}); /* end DOMContentLoaded */
+/* Export so loader.js can call it after navbar HTML injection */
+window.initNavbar = initNavbar;
+
+/* Also run on DOMContentLoaded for pages that embed the navbar
+   directly (e.g. old root-level pages still in use) */
+document.addEventListener('DOMContentLoaded', function () {
+    /* Only init directly if the navbar is already present
+       (i.e., not being loaded dynamically by loader.js) */
+    if (document.querySelector('#navbar-placeholder')) {
+        /* loader.js will handle this — do nothing here */
+        return;
+    }
+    initNavbar();
+});
+
+/* Also listen for the navbarLoaded event dispatched by loader.js */
+document.addEventListener('navbarLoaded', function () {
+    initNavbar();
+});
