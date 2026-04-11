@@ -1,0 +1,310 @@
+/* ================================================================
+   syllabus.css — HN College of Management, Solapur
+   Syllabus Page — Sidebar + Content Layout
+   Matches the design language of about.css & programmes.css
+   ================================================================ */
+
+/* ── Page wrapper ── */
+.syllabus-page {
+    background-color: var(--clr-bg);
+    min-height: calc(100vh - 200px);
+    padding: 2.25rem 0 3rem;
+}
+
+/* ── Page title ── */
+.syllabus-page-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.syllabus-page-title h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 2.8vw, 1.85rem);
+    font-weight: 700;
+    color: var(--clr-heading);
+    letter-spacing: 0.015em;
+    margin-bottom: 0.4rem;
+}
+
+.syllabus-page-title__bar {
+    display: block;
+    width: 64px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--clr-hover), transparent);
+    border-radius: 2px;
+    margin: 0 auto 0.45rem;
+}
+
+.syllabus-page-title__sub {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--clr-text);
+    opacity: 0.6;
+}
+
+/* ── Two-column layout ── */
+.syllabus-layout {
+    display: grid;
+    grid-template-columns: 265px 1fr;
+    gap: 2rem;
+    max-width: 1160px;
+    width: 92%;
+    margin-inline: auto;
+    align-items: start;
+}
+
+/* ================================================================
+   SIDEBAR
+   ================================================================ */
+.syllabus-sidebar {
+    position: sticky;
+    top: calc(var(--snav-height, 80px) + 1rem);
+    background: #fff8f0;
+    border-radius: 10px;
+    border: 1px solid rgba(74, 44, 23, 0.1);
+    box-shadow: 0 4px 18px rgba(74, 44, 23, 0.1), 0 1px 4px rgba(74, 44, 23, 0.06);
+    overflow: hidden;
+}
+
+/* Sidebar header */
+.syllabus-sidebar__header {
+    background: linear-gradient(135deg, var(--clr-nav-start) 0%, var(--clr-nav-end) 100%);
+    padding: 0.85rem 1.1rem;
+}
+
+.syllabus-sidebar__header h3 {
+    font-family: var(--font-heading);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--clr-hover);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* Sidebar nav list */
+.syllabus-sidebar__nav {
+    list-style: none;
+    padding: 0.4rem 0;
+    margin: 0;
+}
+
+.syllabus-sidebar__nav li {
+    border-bottom: 1px solid rgba(74, 44, 23, 0.07);
+}
+
+.syllabus-sidebar__nav li:last-child {
+    border-bottom: none;
+}
+
+.syllabus-sidebar__nav a {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.72rem 1.1rem;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--clr-heading);
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+/* Bullet dot */
+.syllabus-sidebar__nav a::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(74, 44, 23, 0.3);
+    flex-shrink: 0;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.syllabus-sidebar__nav a:hover {
+    background: rgba(212, 160, 23, 0.08);
+    color: var(--clr-nav-start);
+    padding-left: 1.3rem;
+    border-left-color: rgba(212, 160, 23, 0.4);
+}
+
+.syllabus-sidebar__nav a:hover::before {
+    background: var(--clr-hover);
+}
+
+/* Active state */
+.syllabus-sidebar__nav a.sy-active {
+    background: linear-gradient(90deg, rgba(212, 160, 23, 0.15) 0%, rgba(212, 160, 23, 0.04) 100%);
+    color: var(--clr-nav-start);
+    font-weight: 600;
+    border-left-color: var(--clr-hover);
+    padding-left: 1.3rem;
+}
+
+.syllabus-sidebar__nav a.sy-active::before {
+    background: var(--clr-hover);
+    transform: scale(1.3);
+}
+
+/* ================================================================
+   CONTENT PANEL
+   ================================================================ */
+.syllabus-content {
+    min-height: 460px;
+}
+
+/* Each section — hidden by default */
+.syllabus-section {
+    display: none;
+    animation: syFadeIn 0.3s ease;
+}
+
+.syllabus-section.sy-visible {
+    display: block;
+}
+
+@keyframes syFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── Content card ── */
+.syllabus-card {
+    background: #fff8f0;
+    border-radius: 10px;
+    border: 1px solid rgba(74, 44, 23, 0.1);
+    box-shadow: 0 4px 18px rgba(74, 44, 23, 0.09);
+    padding: 2.2rem 2.4rem;
+}
+
+/* Section heading */
+.syllabus-section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 700;
+    color: var(--clr-heading);
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid rgba(212, 160, 23, 0.35);
+    position: relative;
+}
+
+.syllabus-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 48px;
+    height: 2px;
+    background: var(--clr-hover);
+    border-radius: 2px;
+}
+
+/* Description text */
+.syllabus-desc {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--clr-text);
+    margin-bottom: 1.35rem;
+    opacity: 0.9;
+}
+
+/* PDF viewer */
+.pdf-viewer iframe {
+    border: 1px solid rgba(74, 44, 23, 0.12);
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(74, 44, 23, 0.08);
+    width: 100%;
+}
+
+/* ================================================================
+   MOBILE — ≤ 768px
+   ================================================================ */
+@media (max-width: 768px) {
+
+    /* Collapse to single column */
+    .syllabus-layout {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        width: 94%;
+    }
+
+    /* Sidebar becomes horizontal scrollable tabs at top */
+    .syllabus-sidebar {
+        position: static;
+        border-radius: 8px;
+    }
+
+    .syllabus-sidebar__nav {
+        display: flex;
+        overflow-x: auto;
+        padding: 0;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        flex-wrap: nowrap;
+    }
+
+    .syllabus-sidebar__nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .syllabus-sidebar__nav li {
+        border-bottom: none;
+        border-right: 1px solid rgba(74, 44, 23, 0.08);
+        flex-shrink: 0;
+    }
+
+    .syllabus-sidebar__nav a {
+        padding: 0.68rem 0.95rem;
+        font-size: 0.78rem;
+        white-space: nowrap;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+        flex-direction: column;
+        gap: 0.2rem;
+        align-items: center;
+    }
+
+    .syllabus-sidebar__nav a::before {
+        display: none;
+    }
+
+    .syllabus-sidebar__nav a:hover,
+    .syllabus-sidebar__nav a.sy-active {
+        padding-left: 0.95rem;
+        border-left: none;
+        border-bottom-color: var(--clr-hover);
+        background: rgba(212, 160, 23, 0.1);
+    }
+
+    /* Content card less padding */
+    .syllabus-card {
+        padding: 1.4rem 1.25rem;
+    }
+
+    /* Responsive iframe */
+    .pdf-viewer iframe {
+        height: 450px;
+    }
+}
+
+@media (max-width: 480px) {
+    .syllabus-page {
+        padding: 1.5rem 0 2rem;
+    }
+
+    .pdf-viewer iframe {
+        height: 350px;
+    }
+}

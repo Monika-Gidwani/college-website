@@ -1,0 +1,509 @@
+/* ================================================================
+   infrastructure.css — HN College of Management, Solapur
+   Infrastructure Page — Sidebar + Content Layout
+   Mirrors about.css design language for consistency
+   ================================================================ */
+
+/* ── Page wrapper ── */
+.infra-page {
+    background-color: var(--clr-bg);
+    min-height: calc(100vh - 200px);
+    padding: 2.25rem 0 3rem;
+}
+
+/* ── Page title ── */
+.infra-page-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.infra-page-title h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 2.8vw, 1.85rem);
+    font-weight: 700;
+    color: var(--clr-heading);
+    letter-spacing: 0.015em;
+    margin-bottom: 0.4rem;
+}
+
+.infra-page-title__bar {
+    display: block;
+    width: 64px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--clr-hover), transparent);
+    border-radius: 2px;
+    margin: 0 auto 0.45rem;
+}
+
+.infra-page-title__sub {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--clr-text);
+    opacity: 0.6;
+}
+
+/* ── Two-column layout ── */
+.infra-layout {
+    display: grid;
+    grid-template-columns: 265px 1fr;
+    gap: 2rem;
+    max-width: 1160px;
+    width: 92%;
+    margin-inline: auto;
+    align-items: start;
+}
+
+/* ================================================================
+   SIDEBAR
+   ================================================================ */
+.infra-sidebar {
+    position: sticky;
+    top: calc(var(--snav-height, 80px) + 1rem);
+    background: #fff8f0;
+    border-radius: 10px;
+    border: 1px solid rgba(74, 44, 23, 0.1);
+    box-shadow: 0 4px 18px rgba(74, 44, 23, 0.1), 0 1px 4px rgba(74, 44, 23, 0.06);
+    overflow: hidden;
+}
+
+/* Sidebar header */
+.infra-sidebar__header {
+    background: linear-gradient(135deg, var(--clr-nav-start) 0%, var(--clr-nav-end) 100%);
+    padding: 0.85rem 1.1rem;
+}
+
+.infra-sidebar__header h3 {
+    font-family: var(--font-heading);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--clr-hover);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* Sidebar nav list */
+.infra-sidebar__nav {
+    list-style: none;
+    padding: 0.4rem 0;
+    margin: 0;
+}
+
+.infra-sidebar__nav li {
+    border-bottom: 1px solid rgba(74, 44, 23, 0.07);
+}
+
+.infra-sidebar__nav li:last-child {
+    border-bottom: none;
+}
+
+.infra-sidebar__nav a {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.72rem 1.1rem;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--clr-heading);
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+/* Bullet dot */
+.infra-sidebar__nav a::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(74, 44, 23, 0.3);
+    flex-shrink: 0;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.infra-sidebar__nav a:hover {
+    background: rgba(212, 160, 23, 0.08);
+    color: var(--clr-nav-start);
+    padding-left: 1.3rem;
+    border-left-color: rgba(212, 160, 23, 0.4);
+}
+
+.infra-sidebar__nav a:hover::before {
+    background: var(--clr-hover);
+}
+
+/* Active state */
+.infra-sidebar__nav a.inf-active {
+    background: linear-gradient(90deg, rgba(212, 160, 23, 0.15) 0%, rgba(212, 160, 23, 0.04) 100%);
+    color: var(--clr-nav-start);
+    font-weight: 600;
+    border-left-color: var(--clr-hover);
+    padding-left: 1.3rem;
+}
+
+.infra-sidebar__nav a.inf-active::before {
+    background: var(--clr-hover);
+    transform: scale(1.3);
+}
+
+/* ================================================================
+   CONTENT PANEL
+   ================================================================ */
+.infra-content {
+    min-height: 460px;
+}
+
+/* Each section — hidden by default */
+.infra-section {
+    display: none;
+    animation: infFadeIn 0.3s ease;
+}
+
+.infra-section.inf-visible {
+    display: block;
+}
+
+@keyframes infFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── Content card ── */
+.infra-card {
+    background: #fff8f0;
+    border-radius: 10px;
+    border: 1px solid rgba(74, 44, 23, 0.1);
+    box-shadow: 0 4px 18px rgba(74, 44, 23, 0.09);
+    padding: 2.2rem 2.4rem;
+}
+
+/* Section heading */
+.infra-section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 700;
+    color: var(--clr-heading);
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid rgba(212, 160, 23, 0.35);
+    position: relative;
+}
+
+.infra-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 48px;
+    height: 2px;
+    background: var(--clr-hover);
+    border-radius: 2px;
+}
+
+/* Body text */
+.infra-body {
+    max-width: 800px;
+}
+
+.infra-body p {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--clr-text);
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.infra-body p:last-child {
+    margin-bottom: 0;
+}
+
+/* Highlight callout */
+.infra-callout {
+    border-left: 4px solid var(--clr-hover);
+    background: rgba(212, 160, 23, 0.06);
+    padding: 0.9rem 1.2rem;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 1.35rem;
+}
+
+.infra-callout p {
+    font-size: 0.92rem !important;
+    font-weight: 500 !important;
+    color: var(--clr-heading) !important;
+    opacity: 1 !important;
+    margin: 0 !important;
+    line-height: 1.65 !important;
+}
+
+/* Sub-heading */
+.infra-sub-heading {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--clr-heading);
+    margin-bottom: 0.65rem;
+    margin-top: 1.5rem;
+}
+
+/* Bullet list */
+.infra-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 1.1rem;
+}
+
+.infra-list li {
+    display: flex;
+    gap: 0.65rem;
+    align-items: flex-start;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: var(--clr-text);
+    line-height: 1.7;
+    padding: 0.28rem 0;
+    border-bottom: 1px solid rgba(74, 44, 23, 0.06);
+}
+
+.infra-list li:last-child {
+    border-bottom: none;
+}
+
+.infra-list li::before {
+    content: '◆';
+    color: var(--clr-hover);
+    font-size: 0.5rem;
+    flex-shrink: 0;
+    margin-top: 0.42rem;
+}
+
+/* Info grid */
+.infra-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1.25rem 0;
+}
+
+.infra-info-card {
+    background: rgba(74, 44, 23, 0.04);
+    border: 1px solid rgba(74, 44, 23, 0.1);
+    border-radius: 7px;
+    padding: 0.85rem 1rem;
+}
+
+.infra-info-card__label {
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--clr-nav-start);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-bottom: 0.3rem;
+}
+
+.infra-info-card__value {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--clr-heading);
+}
+
+/* ================================================================
+   TABLE (Library statistics)
+   ================================================================ */
+.infra-table-wrap {
+    overflow-x: auto;
+    margin-top: 1.25rem;
+    border-radius: 7px;
+    border: 1px solid rgba(74, 44, 23, 0.12);
+    box-shadow: 0 2px 10px rgba(74, 44, 23, 0.06);
+}
+
+.infra-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-body);
+    font-size: 0.84rem;
+}
+
+.infra-table thead tr {
+    background: linear-gradient(90deg, var(--clr-nav-start), var(--clr-nav-end));
+}
+
+.infra-table thead th {
+    padding: 0.7rem 1rem;
+    text-align: left;
+    color: var(--clr-nav-text);
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+
+.infra-table tbody tr {
+    border-bottom: 1px solid rgba(74, 44, 23, 0.08);
+    transition: background 0.15s ease;
+}
+
+.infra-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.infra-table tbody tr:nth-child(odd) {
+    background: rgba(74, 44, 23, 0.025);
+}
+
+.infra-table tbody tr:hover {
+    background: rgba(212, 160, 23, 0.07);
+}
+
+.infra-table tbody td {
+    padding: 0.62rem 1rem;
+    color: var(--clr-text);
+    line-height: 1.5;
+}
+
+.infra-table tbody td:first-child {
+    color: var(--clr-nav-start);
+    font-weight: 600;
+}
+
+/* ================================================================
+   IMAGE GALLERY
+   ================================================================ */
+.infra-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-top: 1.75rem;
+}
+
+.infra-gallery__item {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(74, 44, 23, 0.1);
+    box-shadow: 0 3px 12px rgba(74, 44, 23, 0.08);
+    background: #fff;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.infra-gallery__item:hover {
+    box-shadow: 0 8px 28px rgba(74, 44, 23, 0.16);
+    transform: translateY(-3px);
+}
+
+.infra-gallery__item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+}
+
+.infra-gallery__item:hover img {
+    transform: scale(1.05);
+}
+
+/* ================================================================
+   MOBILE — ≤ 768px
+   ================================================================ */
+@media (max-width: 768px) {
+
+    /* Collapse to single column */
+    .infra-layout {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        width: 94%;
+    }
+
+    /* Sidebar becomes horizontal scrollable tabs */
+    .infra-sidebar {
+        position: static;
+        border-radius: 8px;
+    }
+
+    .infra-sidebar__nav {
+        display: flex;
+        overflow-x: auto;
+        padding: 0;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        flex-wrap: nowrap;
+    }
+
+    .infra-sidebar__nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .infra-sidebar__nav li {
+        border-bottom: none;
+        border-right: 1px solid rgba(74, 44, 23, 0.08);
+        flex-shrink: 0;
+    }
+
+    .infra-sidebar__nav a {
+        padding: 0.68rem 0.95rem;
+        font-size: 0.78rem;
+        white-space: nowrap;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+        flex-direction: column;
+        gap: 0.2rem;
+        align-items: center;
+    }
+
+    .infra-sidebar__nav a::before {
+        display: none;
+    }
+
+    .infra-sidebar__nav a:hover,
+    .infra-sidebar__nav a.inf-active {
+        padding-left: 0.95rem;
+        border-left: none;
+        border-bottom-color: var(--clr-hover);
+        background: rgba(212, 160, 23, 0.1);
+    }
+
+    /* Content card less padding */
+    .infra-card {
+        padding: 1.4rem 1.25rem;
+    }
+
+    /* Gallery: 2 columns on tablet */
+    .infra-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .infra-gallery__item img {
+        height: 160px;
+    }
+
+    .infra-info-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .infra-page {
+        padding: 1.5rem 0 2rem;
+    }
+
+    /* Gallery: single column on phone */
+    .infra-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .infra-info-grid {
+        grid-template-columns: 1fr;
+    }
+}

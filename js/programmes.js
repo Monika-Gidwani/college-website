@@ -1,7 +1,7 @@
 /**
  * programmes.js — HN College of Management, Solapur
  * Sidebar programme switching (MBA / BCA / BBA) +
- * MBA inner tab switching using simple .active class.
+ * MBA & BCA inner tab switching using simple .active class.
  * No fetch(), no hash writing, no scroll on tab click.
  */
 
@@ -19,20 +19,20 @@ document.addEventListener('DOMContentLoaded', function () {
        Sections: .tab-content[data-content]
        Active class on both: "active"
     ════════════════════════════════════════════════ */
-    var tabs = document.querySelectorAll('.mba-tab-btn');
-    var contents = document.querySelectorAll('.tab-content');
+    var mbaTabs = document.querySelectorAll('.mba-tab-btn');
+    var mbaContents = document.querySelectorAll('.tab-content');
 
-    function activateTab(tabName) {
+    function activateMbaTab(tabName) {
         if (!tabName) return;
 
         /* deactivate all buttons */
-        tabs.forEach(function (t) {
+        mbaTabs.forEach(function (t) {
             t.classList.remove('active', 'mba-tab-active');
             t.setAttribute('aria-selected', 'false');
         });
 
         /* hide all content sections */
-        contents.forEach(function (c) { c.classList.remove('active'); });
+        mbaContents.forEach(function (c) { c.classList.remove('active'); });
 
         /* activate matching button */
         var btn = document.querySelector('.mba-tab-btn[data-tab="' + tabName + '"]');
@@ -49,10 +49,53 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /* tab button click — no hash, no scroll */
-    tabs.forEach(function (tab) {
+    mbaTabs.forEach(function (tab) {
         tab.addEventListener('click', function (e) {
             e.preventDefault();
-            activateTab(this.dataset.tab);
+            activateMbaTab(this.dataset.tab);
+        });
+    });
+
+    /* ════════════════════════════════════════════════
+       BCA INNER TAB SWITCHING
+       Buttons:  .bca-tab-btn[data-tab]
+       Sections: .bca-tab-content[data-content]
+       Active class on both: "active"
+    ════════════════════════════════════════════════ */
+    var bcaTabs = document.querySelectorAll('.bca-tab-btn');
+    var bcaContents = document.querySelectorAll('.bca-tab-content');
+
+    function activateBcaTab(tabName) {
+        if (!tabName) return;
+
+        /* deactivate all buttons */
+        bcaTabs.forEach(function (t) {
+            t.classList.remove('active', 'bca-tab-active');
+            t.setAttribute('aria-selected', 'false');
+        });
+
+        /* hide all content sections */
+        bcaContents.forEach(function (c) { c.classList.remove('active'); });
+
+        /* activate matching button */
+        var btn = document.querySelector('.bca-tab-btn[data-tab="' + tabName + '"]');
+        if (btn) {
+            btn.classList.add('active', 'bca-tab-active');
+            btn.setAttribute('aria-selected', 'true');
+        }
+
+        /* show matching content */
+        var content = document.querySelector('.bca-tab-content[data-content="' + tabName + '"]');
+        if (content) content.classList.add('active');
+
+        try { sessionStorage.setItem('progBcaTab', tabName); } catch (e) { }
+    }
+
+    /* tab button click — no hash, no scroll */
+    bcaTabs.forEach(function (tab) {
+        tab.addEventListener('click', function (e) {
+            e.preventDefault();
+            activateBcaTab(this.dataset.tab);
         });
     });
 
@@ -64,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (!sidebarLinks.length || !panels.length) {
         /* at least run default tab on page load */
-        activateTab('hod');
+        activateMbaTab('hod');
         return;
     }
 
@@ -83,8 +126,17 @@ document.addEventListener('DOMContentLoaded', function () {
         'mba-specialisation': { prog: 'mba', tab: 'special' },
         'mba-certification': { prog: 'mba', tab: 'cert' },
         'mba-parents-meet': { prog: 'mba', tab: 'parents' },
-        'bca': { prog: 'bca', tab: null },
-        'panel-bca': { prog: 'bca', tab: null },
+        'bca': { prog: 'bca', tab: 'bca-about' },
+        'panel-bca': { prog: 'bca', tab: 'bca-about' },
+        'bca-about-dept': { prog: 'bca', tab: 'bca-about' },
+        'bca-mission-focus': { prog: 'bca', tab: 'bca-mission' },
+        'bca-po-pso-peo': { prog: 'bca', tab: 'bca-co' },
+        'bca-faculty': { prog: 'bca', tab: 'bca-faculty' },
+        'bca-activities': { prog: 'bca', tab: 'bca-activities' },
+        'bca-syllabus': { prog: 'bca', tab: 'bca-syllabus' },
+        'bca-specialisation': { prog: 'bca', tab: 'bca-special' },
+        'bca-certification': { prog: 'bca', tab: 'bca-cert' },
+        'bca-parents-meet': { prog: 'bca', tab: 'bca-parents' },
         'bba': { prog: 'bba', tab: null },
         'panel-bba': { prog: 'bba', tab: null }
     };
@@ -109,7 +161,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function navigate(progId, tabName) {
         showProgramme(progId);
-        if (progId === 'mba') activateTab(tabName || 'hod');
+        if (progId === 'mba') activateMbaTab(tabName || 'hod');
+        if (progId === 'bca') activateBcaTab(tabName || 'bca-about');
     }
 
     /* sidebar clicks */
@@ -121,7 +174,10 @@ document.addEventListener('DOMContentLoaded', function () {
             if (progId === 'mba') {
                 try { savedTab = sessionStorage.getItem('progMbaTab'); } catch (e2) { }
             }
-            navigate(progId, savedTab || 'hod');
+            if (progId === 'bca') {
+                try { savedTab = sessionStorage.getItem('progBcaTab'); } catch (e2) { }
+            }
+            navigate(progId, savedTab || (progId === 'mba' ? 'hod' : progId === 'bca' ? 'bca-about' : null));
         });
     });
 
@@ -137,14 +193,17 @@ document.addEventListener('DOMContentLoaded', function () {
     if (fromHash) {
         navigate(fromHash.prog, fromHash.tab);
     } else {
-        var storedProg = null, storedTab = null;
+        var storedProg = null, storedMbaTab = null, storedBcaTab = null;
         try {
             storedProg = sessionStorage.getItem('progProgramme');
-            storedTab = sessionStorage.getItem('progMbaTab');
+            storedMbaTab = sessionStorage.getItem('progMbaTab');
+            storedBcaTab = sessionStorage.getItem('progBcaTab');
         } catch (e) { }
 
         var initProg = storedProg || 'mba';
-        var initTab = (initProg === 'mba') ? (storedTab || 'hod') : null;
+        var initTab = null;
+        if (initProg === 'mba') initTab = storedMbaTab || 'hod';
+        else if (initProg === 'bca') initTab = storedBcaTab || 'bca-about';
         navigate(initProg, initTab);
     }
 

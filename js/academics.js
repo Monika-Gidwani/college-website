@@ -14,10 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var sidebarLinks = document.querySelectorAll('.ac-sidebar__nav a[data-section]');
     var sections = document.querySelectorAll('.ac-section');
 
-    /* ── Library inner sub-nav: supports both old anchor links and new tab buttons ── */
-    var libNavLinks = document.querySelectorAll('.ac-lib-subnav a[data-lib]');
-    var libTabBtns = document.querySelectorAll('.ac-lib-tab[data-libtab]');
-    var libPanels = document.querySelectorAll('.ac-lib-panel');
+    /* ── Library inner sub-nav is no longer needed — sidebar drives it ── */
 
     if (!sidebarLinks.length || !sections.length) return;
 
@@ -36,7 +33,11 @@ document.addEventListener('DOMContentLoaded', function () {
         'exams': 'examination',
         'result': 'result',
         'results': 'result',
-        'library': 'library',
+        'library': 'library-books',
+        'library-books': 'library-books',
+        'library-digital': 'library-digital',
+        'library-rules': 'library-rules',
+        'library-timings': 'library-timings',
         'e-resources': 'e-resources',
         'eresources': 'e-resources'
     };
@@ -81,78 +82,13 @@ document.addEventListener('DOMContentLoaded', function () {
         link.addEventListener('click', function (e) {
             e.preventDefault();
             var id = link.getAttribute('data-section');
+            /* If clicking the parent 'Library' toggle, show library-books */
+            if (id === 'library') id = 'library-books';
             try { history.replaceState(null, '', '#' + id); } catch (e) { }
             showSection(id);
         });
     });
 
-    /* ---------------------------------------------------------
-       3. Library inner sub-navigation
-       Supports: old .ac-lib-subnav a[data-lib] links
-               + new .ac-lib-tab[data-libtab] button elements
-    --------------------------------------------------------- */
-    function showLibPanel(panelId) {
-        /* Hide all panels (handle both class naming conventions) */
-        libPanels.forEach(function (p) {
-            p.classList.remove('lib-visible', 'ac-lib-visible');
-        });
-
-        /* Reveal target panel */
-        var target = document.getElementById(panelId)
-            || document.getElementById('libtab-' + panelId);
-        if (target) {
-            target.classList.add('lib-visible');
-            target.classList.add('ac-lib-visible');
-        }
-
-        /* Update old anchor-style nav */
-        libNavLinks.forEach(function (a) {
-            var isActive = a.getAttribute('data-lib') === panelId;
-            a.classList.toggle('lib-active', isActive);
-            a.classList.toggle('ac-lib-active', isActive);
-        });
-
-        /* Update new tab-button nav */
-        libTabBtns.forEach(function (btn) {
-            var isActive = btn.getAttribute('data-libtab') === panelId;
-            btn.classList.toggle('mba-tab-active', isActive);
-            btn.classList.toggle('ac-lib-active', isActive);
-            btn.setAttribute('aria-selected', String(isActive));
-        });
-
-        try { sessionStorage.setItem('libraryPanel', panelId); } catch (e) { }
-    }
-
-    /* Attach old anchor-link handlers */
-    if (libNavLinks.length) {
-        libNavLinks.forEach(function (a) {
-            a.addEventListener('click', function (e) {
-                e.preventDefault();
-                showLibPanel(a.getAttribute('data-lib'));
-            });
-        });
-    }
-
-    /* Attach new tab-button handlers */
-    if (libTabBtns.length) {
-        libTabBtns.forEach(function (btn) {
-            btn.addEventListener('click', function () {
-                showLibPanel(btn.getAttribute('data-libtab'));
-            });
-        });
-
-        /* Default library panel on page load */
-        var storedPanel = null;
-        try { storedPanel = sessionStorage.getItem('libraryPanel'); } catch (e) { }
-        var firstTabPanel = libTabBtns[0] ? libTabBtns[0].getAttribute('data-libtab') : null;
-        showLibPanel(storedPanel || firstTabPanel);
-    } else if (libNavLinks.length) {
-        /* Old nav fallback */
-        var storedPanel2 = null;
-        try { storedPanel2 = sessionStorage.getItem('libraryPanel'); } catch (e) { }
-        var firstLibPanel = libNavLinks[0] ? libNavLinks[0].getAttribute('data-lib') : null;
-        showLibPanel(storedPanel2 || firstLibPanel);
-    }
 
     /* ---------------------------------------------------------
        4. hashchange listener

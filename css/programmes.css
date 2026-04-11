@@ -398,6 +398,60 @@
 }
 
 /* ================================================================
+   BCA TABS BAR — same visual design as MBA
+   ================================================================ */
+.bca-tabs-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    overflow: visible;
+    background: linear-gradient(135deg, var(--clr-nav-start) 0%, var(--clr-nav-end) 100%);
+    border-radius: 10px 10px 0 0;
+    padding: 0.55rem 0.65rem;
+    margin-bottom: 0;
+}
+
+.bca-tab-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(245, 236, 215, 0.12);
+    border-radius: 5px;
+    padding: 0.46rem 0.9rem;
+    font-family: var(--font-body);
+    font-size: 0.76rem;
+    font-weight: 500;
+    color: rgba(245, 236, 215, 0.78);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+    letter-spacing: 0.01em;
+    line-height: 1.4;
+}
+
+.bca-tab-btn:hover {
+    color: var(--clr-hover);
+    background: rgba(212, 160, 23, 0.15);
+    border-color: rgba(212, 160, 23, 0.35);
+}
+
+.bca-tab-btn.bca-tab-active,
+.bca-tab-btn.active {
+    color: var(--clr-hover);
+    font-weight: 600;
+    background: rgba(212, 160, 23, 0.22);
+    border-color: var(--clr-hover);
+}
+
+/* BCA tab content sections */
+.bca-tab-content {
+    display: none;
+    animation: progFadeIn 0.3s ease;
+}
+
+.bca-tab-content.active {
+    display: block;
+}
+
+/* ================================================================
    DESK LAYOUT (HOD's Desk)
    ================================================================ */
 .prog-desk {
@@ -614,6 +668,90 @@
 }
 
 /* ================================================================
+   FACULTY PROFILE CARDS
+   ================================================================ */
+.prog-faculty-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    margin-top: 1.25rem;
+}
+
+.prog-faculty-card {
+    background: rgba(74, 44, 23, 0.03);
+    border: 1px solid rgba(74, 44, 23, 0.1);
+    border-left: 4px solid var(--clr-hover);
+    border-radius: 0 8px 8px 0;
+    padding: 1.2rem 1.3rem;
+    transition: box-shadow 0.22s ease, transform 0.2s ease;
+}
+
+.prog-faculty-card:hover {
+    box-shadow: 0 6px 18px rgba(74, 44, 23, 0.1);
+    transform: translateY(-2px);
+}
+
+.prog-faculty-card .prog-sub-heading {
+    margin-bottom: 0.3rem;
+    font-size: 1.02rem;
+}
+
+.prog-faculty-meta {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--clr-nav-start);
+    line-height: 1.5;
+    margin: 0 0 0.2rem;
+}
+
+.prog-faculty-card .prog-body {
+    margin-top: 0.6rem;
+}
+
+.prog-faculty-card .prog-body p {
+    font-size: 0.85rem;
+    line-height: 1.7;
+}
+
+.prog-faculty-card__inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.prog-faculty-card__info {
+    flex: 1;
+    min-width: 0;
+}
+
+.prog-faculty-card__img {
+    width: 120px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid rgba(212, 160, 23, 0.3);
+    box-shadow: 0 4px 14px rgba(74, 44, 23, 0.15);
+    flex-shrink: 0;
+}
+
+/* Faculty placeholder (no photo) */
+.prog-faculty-card__placeholder {
+    width: 120px;
+    height: 140px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--clr-nav-start) 0%, var(--clr-nav-end) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.prog-faculty-card__placeholder span {
+    font-size: 2.5rem;
+    opacity: 0.6;
+}
+
+/* ================================================================
    SPECIALISATION CARDS
    ================================================================ */
 .prog-spec-grid {
@@ -807,6 +945,18 @@
         font-size: 0.72rem;
     }
 
+    /* BCA tab bar — mobile */
+    .bca-tabs-bar {
+        border-radius: 8px 8px 0 0;
+        padding: 0.45rem 0.5rem;
+        gap: 3px;
+    }
+
+    .bca-tab-btn {
+        padding: 0.38rem 0.7rem;
+        font-size: 0.72rem;
+    }
+
     /* Desk: stack on mobile */
     .prog-desk {
         grid-template-columns: 1fr;
@@ -834,6 +984,17 @@
     /* Info grid */
     .prog-info-grid {
         grid-template-columns: 1fr 1fr;
+    }
+
+    /* Faculty cards: image on top on mobile */
+    .prog-faculty-card__inner {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .prog-faculty-card__img {
+        width: 100px;
+        height: 120px;
     }
 }
 
