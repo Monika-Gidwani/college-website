@@ -302,6 +302,25 @@
     }
 
     /**
+     * Helper to load a component from a URL, falling back to the inline string on failure.
+     */
+    function loadComponent(containerId, url, fallbackHtml) {
+        return fetch(url)
+            .then(function (response) {
+                if (response.ok) {
+                    return response.text();
+                }
+                throw new Error('Failed to load component from ' + url);
+            })
+            .then(function (html) {
+                inject(containerId, html);
+            })
+            .catch(function () {
+                inject(containerId, fallbackHtml);
+            });
+    }
+
+    /**
      * Mark the active nav link based on the current page filename.
      */
     function markActiveNavLink() {
@@ -348,35 +367,37 @@
     }
 
     /**
-     * Main boot: inject all components synchronously — no fetch needed.
+     * Main boot: inject all components dynamically — fallback to inline strings if needed.
      */
     function boot() {
-        inject('header-placeholder', HEADER_HTML);
-        inject('navbar-placeholder', NAVBAR_HTML);
-        inject('footer-placeholder', FOOTER_HTML);
+        var p1 = loadComponent('header-placeholder', '../components/header.html', HEADER_HTML);
+        var p2 = loadComponent('navbar-placeholder', '../components/navbar.html', NAVBAR_HTML);
+        var p3 = loadComponent('footer-placeholder', '../components/footer.html', FOOTER_HTML);
 
-        reinitNavbar();
+        Promise.all([p1, p2, p3]).then(function () {
+            reinitNavbar();
 
-        // Call any page-specific initialisation
-        if (typeof window.pageInit === 'function') {
-            window.pageInit();
-        }
-
-        // After injecting header/navbar above the body content, the viewport
-        // may be stuck below them. Scroll to top, or to the hash target.
-        setTimeout(function () {
-            var hash = window.location.hash;
-            if (hash) {
-                var target = document.querySelector(hash);
-                if (target) {
-                    target.scrollIntoView({ behavior: 'auto' });
-                }
-            } else {
-                window.scrollTo(0, 0);
+            // Call any page-specific initialisation
+            if (typeof window.pageInit === 'function') {
+                window.pageInit();
             }
-            // Fade in the page smoothly
-            document.body.classList.add('loader-ready');
-        }, 0);
+
+            // After injecting header/navbar above the body content, the viewport
+            // may be stuck below them. Scroll to top, or to the hash target.
+            setTimeout(function () {
+                var hash = window.location.hash;
+                if (hash) {
+                    var target = document.querySelector(hash);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'auto' });
+                    }
+                } else {
+                    window.scrollTo(0, 0);
+                }
+                // Fade in the page smoothly
+                document.body.classList.add('loader-ready');
+            }, 0);
+        });
     }
 
     // Start as soon as DOM is ready
