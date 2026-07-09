@@ -1,0 +1,142 @@
+/* =====================================================
+   feedback.css — Consistent with site design
+   ===================================================== */
+
+.fb-page {
+    background-color: var(--clr-bg);
+    min-height: calc(100vh - 200px);
+    padding: 2.25rem 0 3rem;
+}
+
+.fb-page-title { text-align: center; margin-bottom: 2rem; }
+
+.fb-page-title h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 2.8vw, 1.85rem);
+    font-weight: 700;
+    color: var(--clr-heading);
+    letter-spacing: 0.015em;
+    margin-bottom: 0.4rem;
+}
+
+.fb-page-title__bar {
+    display: block; width: 64px; height: 3px;
+    background: linear-gradient(90deg, transparent, var(--clr-hover), transparent);
+    border-radius: 2px; margin: 0 auto 0.45rem;
+}
+
+.fb-page-title__sub {
+    font-family: var(--font-body); font-size: 0.82rem;
+    color: var(--clr-text); opacity: 0.6;
+}
+
+.fb-breadcrumb {
+    font-family: var(--font-body); font-size: 0.78rem;
+    color: var(--clr-text); opacity: 0.55;
+    margin-bottom: 0.5rem; letter-spacing: 0.02em;
+}
+
+.fb-breadcrumb a { color: var(--clr-nav-start); text-decoration: none; font-weight: 500; }
+.fb-breadcrumb a:hover { color: var(--clr-hover); text-decoration: underline; }
+
+.fb-container { max-width: 800px; width: 92%; margin-inline: auto; }
+
+.fb-form-card {
+    background: #fff8f0; border-radius: 10px;
+    border: 1px solid rgba(74, 44, 23, 0.1);
+    box-shadow: 0 4px 18px rgba(74, 44, 23, 0.09);
+    padding: 2.2rem 2.4rem;
+    border-top: 4px solid var(--clr-hover);
+}
+
+.fb-form-card__heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 700; color: var(--clr-heading);
+    margin: 0 0 0.5rem;
+}
+
+.fb-form-card__desc {
+    font-family: var(--font-body); font-size: 0.82rem;
+    color: var(--clr-text); opacity: 0.7;
+    margin: 0 0 1.75rem; line-height: 1.65;
+}
+
+.fb-form-group { margin-bottom: 1.25rem; }
+
+.fb-form-group label {
+    display: block; font-family: var(--font-body);
+    font-size: 0.82rem; font-weight: 600;
+    color: var(--clr-heading); margin-bottom: 0.4rem;
+}
+
+.fb-form-group input,
+.fb-form-group select,
+.fb-form-group textarea {
+    width: 100%; padding: 0.62rem 0.9rem;
+    border: 1.5px solid rgba(74, 44, 23, 0.18);
+    border-radius: 7px; font-family: var(--font-body);
+    font-size: 0.88rem; color: var(--clr-text);
+    background: var(--clr-bg);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+}
+
+.fb-form-group input:focus,
+.fb-form-group select:focus,
+.fb-form-group textarea:focus {
+    outline: none; border-color: var(--clr-hover);
+    box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.15);
+    background: #fff8f0;
+}
+
+.fb-form-group textarea { min-height: 120px; resize: vertical; }
+
+.fb-rating { display: flex; gap: 0.4rem; margin-top: 0.3rem; }
+.fb-rating input[type="radio"] { display: none; }
+
+.fb-rating label {
+    font-size: 1.8rem; cursor: pointer;
+    color: rgba(74, 44, 23, 0.2);
+    transition: color 0.15s ease; margin: 0;
+}
+
+.fb-rating label:hover,
+.fb-rating label:hover ~ label,
+.fb-rating input:checked ~ label { color: var(--clr-hover); }
+.fb-rating:hover label { color: var(--clr-hover); }
+.fb-rating label:hover ~ label { color: rgba(74, 44, 23, 0.2); }
+
+.fb-submit-btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.72rem 2rem;
+    background: linear-gradient(135deg, var(--clr-nav-start), var(--clr-nav-end));
+    color: var(--clr-hover); border: none; border-radius: 7px;
+    font-family: var(--font-body); font-size: 0.9rem;
+    font-weight: 600; cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.15s ease;
+    margin-top: 0.5rem; letter-spacing: 0.02em;
+}
+
+.fb-submit-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+
+.fb-coming-soon {
+    display: flex; flex-direction: column;
+    align-items: center; text-align: center;
+    padding: 3rem 2rem; gap: 1rem;
+}
+
+.fb-coming-soon__icon { font-size: 3.5rem; }
+.fb-coming-soon__title { font-family: var(--font-heading); font-size: 1.5rem; color: var(--clr-heading); font-weight: 700; }
+.fb-coming-soon__text { font-family: var(--font-body); font-size: 0.9rem; color: var(--clr-text); opacity: 0.7; max-width: 460px; line-height: 1.7; }
+
+@media (max-width: 768px) {
+    .fb-container { width: 94%; }
+    .fb-form-card { padding: 1.6rem 1.4rem; }
+}
+
+@media (max-width: 640px) {
+    .fb-page { padding: 1.5rem 0 2rem; }
+    .fb-form-card { padding: 1.25rem; }
+    .fb-submit-btn { width: 100%; justify-content: center; }
+}

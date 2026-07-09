@@ -1,232 +1,621 @@
 <!-- ===================================================
      MULTI-LEVEL STICKY NAVIGATION — components/navbar.html
-     Loaded automatically by js/loader.js
-     NOTE: All page links are relative to the pages/ folder
+     Loaded automatically by js/loader.js (fetch-based, fully dynamic)
+     NOTE: All hrefs use ROOT-RELATIVE paths (/pages/...)
+           so they resolve correctly from ANY page depth.
 =================================================== -->
-<nav class="snav" id="siteNav" role="navigation" aria-label="Main site navigation">
-    <div class="snav-inner">
+<nav
+  class="snav"
+  id="siteNav"
+  role="navigation"
+  aria-label="Main site navigation"
+>
+  <div class="snav-inner">
+    <!-- Mobile hamburger -->
+    <button
+      class="snav-hamburger"
+      id="snavHamburger"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      aria-controls="snavMenu"
+    >
+      <span class="snav-line"></span>
+      <span class="snav-line"></span>
+      <span class="snav-line"></span>
+    </button>
 
-        <!-- Mobile hamburger -->
-        <button class="snav-hamburger" id="snavHamburger" aria-label="Toggle navigation menu" aria-expanded="false"
-            aria-controls="snavMenu">
-            <span class="snav-line"></span>
-            <span class="snav-line"></span>
-            <span class="snav-line"></span>
-        </button>
+    <div class="snav-menu" id="snavMenu">
+      <!-- ══ ROW 1 ══ -->
+      <ul class="snav-row" role="list" aria-label="Primary navigation">
+        <!-- Home -->
+        <li class="snav-item">
+          <a href="/pages/home.html" class="snav-link" data-page="index"
+            >Home</a
+          >
+        </li>
 
-        <div class="snav-menu" id="snavMenu">
+        <!-- About Us -->
+        <li class="snav-item has-drop">
+          <a href="/pages/about.html" class="snav-link" data-page="about"
+            >About Us
+            <span class="snav-caret" aria-hidden="true">&#9660;</span></a
+          >
+          <ul class="snav-drop" role="list">
+            <li>
+              <a
+                href="/pages/about/institute-information.html"
+                class="snav-drop-link"
+                >Institute Information</a
+              >
+            </li>
+            <li>
+              <a href="/pages/about/vision-mission.html" class="snav-drop-link"
+                >Vision and Mission</a
+              >
+            </li>
+            <li>
+              <a href="/pages/about/goals-quality.html" class="snav-drop-link"
+                >Goals and Quality Policy</a
+              >
+            </li>
+            <li>
+              <a href="/pages/about/core-values.html" class="snav-drop-link"
+                >Core Values</a
+              >
+            </li>
+            <li>
+              <a href="/pages/about/governing-body.html" class="snav-drop-link"
+                >Governing Body</a
+              >
+            </li>
+            <li>
+              <a href="/pages/about/policies.html" class="snav-drop-link"
+                >Policies</a
+              >
+            </li>
+            <li>
+              <a
+                href="/pages/about/principal-secretary.html"
+                class="snav-drop-link"
+                >Principal and Secretary Desk</a
+              >
+            </li>
+          </ul>
+        </li>
 
-            <!-- ══ ROW 1 ══ -->
-            <ul class="snav-row" role="list" aria-label="Primary navigation">
-
-                <!-- Home -->
-                <li class="snav-item">
-                    <a href="home.html" class="snav-link" data-page="index">Home</a>
+        <!-- Programmes -->
+        <li class="snav-item has-drop">
+          <a
+            href="/pages/programmes.html"
+            class="snav-link"
+            data-page="programmes"
+            >Programmes
+            <span class="snav-caret" aria-hidden="true">&#9660;</span></a
+          >
+          <ul class="snav-drop" role="list">
+            <li class="has-subdrop">
+              <a href="/pages/programmes/mba.html" class="snav-drop-link"
+                >MBA
+                <span class="snav-subcaret" aria-hidden="true">&#8250;</span></a
+              >
+              <ul class="snav-subdrop" role="list">
+                <li>
+                  <a href="/pages/programmes/mba.html" class="snav-drop-link"
+                    >HOD's Desk</a
+                  >
                 </li>
-
-                <!-- About Us -->
-                <li class="snav-item has-drop">
-                    <a href="#" class="snav-link" data-page="about">About Us <span class="snav-caret"
-                            aria-hidden="true">&#9660;</span></a>
-                    <ul class="snav-drop" role="list">
-                        <li><a href="about.html#institute-information" class="snav-drop-link">Institute
-                                Information</a></li>
-                        <li><a href="about.html#vision-mission" class="snav-drop-link">Vision and Mission</a></li>
-                        <li><a href="about.html#goals-quality" class="snav-drop-link">Goals and Quality Policy</a>
-                        </li>
-                        <li><a href="about.html#core-values" class="snav-drop-link">Core Values</a></li>
-                        <li><a href="about.html#governing-body" class="snav-drop-link">Governing Body</a></li>
-                        <li><a href="about.html#policies" class="snav-drop-link">Policies</a></li>
-                        <li><a href="about.html#principal-secretary" class="snav-drop-link">Principal and Secretary
-                                Desk</a></li>
-                    </ul>
+                <li>
+                  <a href="/pages/programmes/mba.html" class="snav-drop-link"
+                    >About Department</a
+                  >
                 </li>
-
-                <!-- Programmes -->
-                <li class="snav-item has-drop">
-                    <a href="programmes.html" class="snav-link" data-page="programmes">Programmes <span
-                            class="snav-caret" aria-hidden="true">&#9660;</span></a>
-                    <ul class="snav-drop" role="list">
-                        <li class="has-subdrop">
-                            <a href="programmes.html#mba-hods-desk" class="snav-drop-link">MBA <span
-                                    class="snav-subcaret" aria-hidden="true">&#8250;</span></a>
-                            <ul class="snav-subdrop" role="list">
-                                <li><a href="programmes.html#mba-hods-desk" class="snav-drop-link">HOD's Desk</a>
-                                </li>
-                                <li><a href="programmes.html#mba-about-dept" class="snav-drop-link">About
-                                        Department</a></li>
-                                <li><a href="programmes.html#mba-vision-mission" class="snav-drop-link">Vision and
-                                        Mission</a></li>
-                                <li><a href="programmes.html#mba-co-po-pso-peo" class="snav-drop-link">CO, PO, PSO,
-                                        PEO</a></li>
-                                <li><a href="programmes.html#mba-faculty" class="snav-drop-link">Faculty</a></li>
-                                <li><a href="programmes.html#mba-infrastructure"
-                                        class="snav-drop-link">Infrastructure</a></li>
-                                <li><a href="programmes.html#mba-syllabus" class="snav-drop-link">Syllabus</a></li>
-                                <li><a href="programmes.html#mba-specialisation"
-                                        class="snav-drop-link">Specialisation</a></li>
-                                <li><a href="programmes.html#mba-certification" class="snav-drop-link">Certification
-                                        Course</a></li>
-                                <li><a href="programmes.html#mba-parents-meet" class="snav-drop-link">Parents Meet
-                                        &amp; Orientation Program</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="programmes.html#bca" class="snav-drop-link">BCA Course</a></li>
-                        <li><a href="programmes.html#bba" class="snav-drop-link">BBA Course</a></li>
-                    </ul>
+                <li>
+                  <a href="/pages/programmes/mba.html" class="snav-drop-link"
+                    >Vision and Mission</a
+                  >
                 </li>
-
-                <!-- Academics -->
-                <li class="snav-item has-drop">
-                    <a href="academics.html" class="snav-link" data-page="academics">Academics <span class="snav-caret"
-                            aria-hidden="true">&#9660;</span></a>
-                    <ul class="snav-drop" role="list">
-                        <li><a href="academics.html#academic-calendar" class="snav-drop-link">Academic Calendar</a>
-                        </li>
-                        <li><a href="academics.html#time-table" class="snav-drop-link">Time Table (Theory,
-                                Practical)</a></li>
-                        <li><a href="academics.html#examination" class="snav-drop-link">Examination</a></li>
-                        <li><a href="academics.html#result" class="snav-drop-link">Result</a></li>
-                        <li><a href="academics.html#library" class="snav-drop-link">Library</a></li>
-                        <li><a href="academics.html#e-resources" class="snav-drop-link">E-Resources</a></li>
-                    </ul>
+                <li>
+                  <a href="/pages/programmes/mba.html" class="snav-drop-link"
+                    >CO, PO, PSO, PEO</a
+                  >
                 </li>
-
-                <!-- Syllabus -->
-                <li class="snav-item has-drop">
-                    <a href="syllabus.html" class="snav-link" data-page="syllabus">
-                        Syllabus <span class="snav-caret" aria-hidden="true">&#9660;</span>
-                    </a>
-                    <ul class="snav-drop" role="list">
-                        <li class="has-subdrop">
-                            <a href="syllabus.html#bca1" class="snav-drop-link">
-                                BCA <span class="snav-subcaret" aria-hidden="true">&#8250;</span>
-                            </a>
-                            <ul class="snav-subdrop" role="list">
-                                <li><a href="syllabus.html#bca1" class="snav-drop-link">BCA I</a></li>
-                                <li><a href="syllabus.html#bca2" class="snav-drop-link">BCA II</a></li>
-                                <li><a href="syllabus.html#bca3" class="snav-drop-link">BCA III</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                <li>
+                  <a href="/pages/programmes/mba.html" class="snav-drop-link"
+                    >Faculty</a
+                  >
                 </li>
-
-                <!-- Events and Activities -->
-                <li class="snav-item">
-                    <a href="#" class="snav-link">Events &amp; Activities</a>
+                <li>
+                  <a href="/pages/programmes/mba.html" class="snav-drop-link"
+                    >Infrastructure</a
+                  >
                 </li>
-
-                <!-- Important Links -->
-                <li class="snav-item has-drop">
-                    <a href="#" class="snav-link">Important Links <span class="snav-caret"
-                            aria-hidden="true">&#9660;</span></a>
-                    <ul class="snav-drop drop-left" role="list">
-                        <li><a href="#" class="snav-drop-link">Annual Report</a></li>
-                        <li><a href="#" class="snav-drop-link">Institute Development Plan</a></li>
-                        <li class="has-subdrop">
-                            <a href="#" class="snav-drop-link">Statutory Committee <span class="snav-subcaret"
-                                    aria-hidden="true">&#8250;</span></a>
-                            <ul class="snav-subdrop subdrop-left" role="list">
-                                <li><a href="#" class="snav-drop-link">Anti-Ragging Committee</a></li>
-                                <li><a href="#" class="snav-drop-link">Internal Committee</a></li>
-                                <li><a href="#" class="snav-drop-link">College Development Committee</a></li>
-                                <li><a href="#" class="snav-drop-link">IQAC</a></li>
-                                <li><a href="#" class="snav-drop-link">Grievance Redressal Committee</a></li>
-                                <li><a href="#" class="snav-drop-link">SC/ST Committee</a></li>
-                                <li><a href="#" class="snav-drop-link">Staff Grievance Committee</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#" class="snav-drop-link">Strategic Management</a></li>
-                        <li><a href="#" class="snav-drop-link">Organization Chart</a></li>
-                        <li><a href="#" class="snav-drop-link">Mandatory Disclosure</a></li>
-                        <li><a href="#" class="snav-drop-link">Statement of Accounts</a></li>
-                        <li><a href="#" class="snav-drop-link">Approvals</a></li>
-                        <li><a href="#" class="snav-drop-link">RTI</a></li>
-                        <li><a href="#" class="snav-drop-link">Online Grievance</a></li>
-                    </ul>
+                <li>
+                  <a href="/pages/programmes/mba.html" class="snav-drop-link"
+                    >Syllabus</a
+                  >
                 </li>
-
-                <!-- Accreditation -->
-                <li class="snav-item has-drop">
-                    <a href="#" class="snav-link">Accreditation <span class="snav-caret"
-                            aria-hidden="true">&#9660;</span></a>
-                    <ul class="snav-drop drop-left" role="list">
-                        <li><a href="#" class="snav-drop-link">IQAC</a></li>
-                        <li><a href="#" class="snav-drop-link">NAAC</a></li>
-                        <li><a href="#" class="snav-drop-link">Best Practices</a></li>
-                        <li><a href="#" class="snav-drop-link">E-Learning</a></li>
-                    </ul>
+                <li>
+                  <a href="/pages/programmes/mba.html" class="snav-drop-link"
+                    >Specialisation</a
+                  >
                 </li>
-
-                <!-- Training & Placement -->
-                <li class="snav-item">
-                    <a href="home.html#placement" class="snav-link">Training &amp; Placement</a>
+                <li>
+                  <a href="/pages/programmes/mba.html" class="snav-drop-link"
+                    >Certification Course</a
+                  >
                 </li>
-
-            </ul>
-            <!-- /row 1 -->
-
-            <!-- Row divider -->
-            <div class="snav-divider" aria-hidden="true"></div>
-
-            <!-- ══ ROW 2 ══ -->
-            <ul class="snav-row" role="list" aria-label="Secondary navigation">
-
-                <!-- Infrastructures -->
-                <li class="snav-item has-drop">
-                    <a href="infrastructure.html" class="snav-link" data-page="infrastructure">Infrastructures <span class="snav-caret" aria-hidden="true">&#9660;</span></a>
-                    <ul class="snav-drop" role="list">
-                        <li><a href="infrastructure.html#classrooms" class="snav-drop-link">Class Rooms with Audio Visual Aids</a></li>
-                        <li><a href="infrastructure.html#library" class="snav-drop-link">Library</a></li>
-                        <li><a href="infrastructure.html#computer-lab" class="snav-drop-link">Computer Lab</a></li>
-                        <li><a href="infrastructure.html#conference-room" class="snav-drop-link">Conference Room</a></li>
-                        <li><a href="infrastructure.html#hostel" class="snav-drop-link">Hostel Facility</a></li>
-                        <li><a href="infrastructure.html#gymnasium" class="snav-drop-link">Gymnasium</a></li>
-                    </ul>
+                <li>
+                  <a href="/pages/programmes/mba.html" class="snav-drop-link"
+                    >Parents Meet &amp; Orientation Program</a
+                  >
                 </li>
-
-                <!-- Alumni -->
-                <li class="snav-item">
-                    <a href="#" class="snav-link">Alumni</a>
+              </ul>
+            </li>
+            <li class="has-subdrop">
+              <a href="/pages/programmes/bca.html" class="snav-drop-link"
+                >BCA
+                <span class="snav-subcaret" aria-hidden="true">&#8250;</span></a
+              >
+              <ul class="snav-subdrop" role="list">
+                <li>
+                  <a href="/pages/programmes/bca.html" class="snav-drop-link"
+                    >About Department</a
+                  >
                 </li>
-
-                <!-- Achievements & Awards -->
-                <li class="snav-item">
-                    <a href="#" class="snav-link">Achievements &amp; Awards</a>
+                <li>
+                  <a href="/pages/programmes/bca.html" class="snav-drop-link"
+                    >Mission &amp; Focus</a
+                  >
                 </li>
-
-                <!-- Feedback -->
-                <li class="snav-item has-drop">
-                    <a href="#" class="snav-link">Feedback <span class="snav-caret"
-                            aria-hidden="true">&#9660;</span></a>
-                    <ul class="snav-drop" role="list">
-                        <li><a href="#" class="snav-drop-link">Student Feedback</a></li>
-                        <li><a href="#" class="snav-drop-link">Student Satisfaction Survey</a></li>
-                        <li><a href="#" class="snav-drop-link">Student Feedback About Teacher</a></li>
-                        <li><a href="#" class="snav-drop-link">Parents Feedback</a></li>
-                        <li><a href="#" class="snav-drop-link">Alumni Feedback</a></li>
-                    </ul>
+                <li>
+                  <a href="/pages/programmes/bca.html" class="snav-drop-link"
+                    >PO, PSO, PEO</a
+                  >
                 </li>
-
-                <!-- Tenders -->
-                <li class="snav-item">
-                    <a href="#" class="snav-link">Tenders</a>
+                <li>
+                  <a href="/pages/programmes/bca.html" class="snav-drop-link"
+                    >Faculty</a
+                  >
                 </li>
-
-                <!-- Contact Us -->
-                <li class="snav-item">
-                    <a href="#" class="snav-link">Contact Us</a>
+                <li>
+                  <a href="/pages/programmes/bca.html" class="snav-drop-link"
+                    >Activities</a
+                  >
                 </li>
-
-                <!-- Notification & Circulars -->
-                <li class="snav-item">
-                    <a href="#" class="snav-link">Notification &amp; Circulars</a>
+                <li>
+                  <a href="/pages/programmes/bca.html" class="snav-drop-link"
+                    >Syllabus</a
+                  >
                 </li>
+                <li>
+                  <a href="/pages/programmes/bca.html" class="snav-drop-link"
+                    >Specialisation</a
+                  >
+                </li>
+                <li>
+                  <a href="/pages/programmes/bca.html" class="snav-drop-link"
+                    >Certification Course</a
+                  >
+                </li>
+                <li>
+                  <a href="/pages/programmes/bca.html" class="snav-drop-link"
+                    >Parents Meet &amp; Orientation</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="/pages/programmes/bba.html" class="snav-drop-link"
+                >BBA Course</a
+              >
+            </li>
+          </ul>
+        </li>
 
-            </ul>
-            <!-- /row 2 -->
+        <!-- Academics -->
+        <li class="snav-item has-drop">
+          <a
+            href="/pages/academics.html"
+            class="snav-link"
+            data-page="academics"
+            >Academics
+            <span class="snav-caret" aria-hidden="true">&#9660;</span></a
+          >
+          <ul class="snav-drop" role="list">
+            <li>
+              <a
+                href="/pages/academics/academic-calendar.html"
+                class="snav-drop-link"
+                >Academic Calendar</a
+              >
+            </li>
+            <li>
+              <a href="/pages/academics/time-table.html" class="snav-drop-link"
+                >Time Table (Theory, Practical)</a
+              >
+            </li>
+            <li>
+              <a href="/pages/academics/examination.html" class="snav-drop-link"
+                >Examination</a
+              >
+            </li>
+            <li>
+              <a href="/pages/academics/result.html" class="snav-drop-link"
+                >Result</a
+              >
+            </li>
+            <li>
+              <a href="/pages/academics/library.html" class="snav-drop-link"
+                >Library</a
+              >
+            </li>
+            <li>
+              <a href="/pages/academics/e-resources.html" class="snav-drop-link"
+                >E-Resources</a
+              >
+            </li>
+          </ul>
+        </li>
 
-        </div><!-- /snav-menu -->
-    </div><!-- /snav-inner -->
+        <!-- Syllabus -->
+        <li class="snav-item has-drop">
+          <a href="/pages/syllabus.html" class="snav-link" data-page="syllabus">
+            Syllabus <span class="snav-caret" aria-hidden="true">&#9660;</span>
+          </a>
+          <ul class="snav-drop" role="list">
+            <li class="has-subdrop">
+              <a href="/pages/syllabus/bca1.html" class="snav-drop-link">
+                BCA
+                <span class="snav-subcaret" aria-hidden="true">&#8250;</span>
+              </a>
+              <ul class="snav-subdrop" role="list">
+                <li>
+                  <a href="/pages/syllabus/bca1.html" class="snav-drop-link"
+                    >BCA I</a
+                  >
+                </li>
+                <li>
+                  <a href="/pages/syllabus/bca2.html" class="snav-drop-link"
+                    >BCA II</a
+                  >
+                </li>
+                <li>
+                  <a href="/pages/syllabus/bca3.html" class="snav-drop-link"
+                    >BCA III</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <!-- Events and Activities -->
+        <li class="snav-item">
+          <a href="/pages/events.html" class="snav-link" data-page="events"
+            >Events &amp; Activities</a
+          >
+        </li>
+
+        <!-- Important Links -->
+        <li class="snav-item has-drop">
+          <a href="#" class="snav-link"
+            >Important Links
+            <span class="snav-caret" aria-hidden="true">&#9660;</span></a
+          >
+          <ul class="snav-drop drop-left" role="list">
+            <li>
+              <a
+                href="/pages/important-links/annual-report.html"
+                class="snav-drop-link"
+                >Annual Report</a
+              >
+            </li>
+            <li>
+              <a href="/pages/important-links/idp.html" class="snav-drop-link"
+                >Institute Development Plan</a
+              >
+            </li>
+            <li class="has-subdrop">
+              <a href="#" class="snav-drop-link"
+                >Statutory Committee
+                <span class="snav-subcaret" aria-hidden="true">&#8250;</span></a
+              >
+              <ul class="snav-subdrop subdrop-left" role="list">
+                <li>
+                  <a
+                    href="/pages/important-links/anti-ragging.html"
+                    class="snav-drop-link"
+                    >Anti-Ragging Committee</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/pages/important-links/internal-committee.html"
+                    class="snav-drop-link"
+                    >Internal Committee</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/pages/important-links/cdc.html"
+                    class="snav-drop-link"
+                    >College Development Committee</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/pages/important-links/iqac.html"
+                    class="snav-drop-link"
+                    >IQAC</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/pages/important-links/grievance.html"
+                    class="snav-drop-link"
+                    >Grievance Redressal Committee</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/pages/important-links/scst-committee.html"
+                    class="snav-drop-link"
+                    >SC/ST Committee</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/pages/important-links/staff-grievance.html"
+                    class="snav-drop-link"
+                    >Staff Grievance Committee</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a
+                href="/pages/important-links/strategic-management.html"
+                class="snav-drop-link"
+                >Strategic Management</a
+              >
+            </li>
+            <li>
+              <a
+                href="/pages/important-links/org-chart.html"
+                class="snav-drop-link"
+                >Organization Chart</a
+              >
+            </li>
+            <li>
+              <a
+                href="/pages/important-links/mandatory-disclosure.html"
+                class="snav-drop-link"
+                >Mandatory Disclosure</a
+              >
+            </li>
+            <li>
+              <a
+                href="/pages/important-links/statement-of-accounts.html"
+                class="snav-drop-link"
+                >Statement of Accounts</a
+              >
+            </li>
+            <li>
+              <a
+                href="/pages/important-links/approvals.html"
+                class="snav-drop-link"
+                >Approvals</a
+              >
+            </li>
+            <li>
+              <a href="/pages/important-links/rti.html" class="snav-drop-link"
+                >RTI</a
+              >
+            </li>
+            <li>
+              <a
+                href="/pages/important-links/online-grievance.html"
+                class="snav-drop-link"
+                >Online Grievance</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <!-- Accreditation -->
+        <li class="snav-item has-drop">
+          <a href="#" class="snav-link"
+            >Accreditation
+            <span class="snav-caret" aria-hidden="true">&#9660;</span></a
+          >
+          <ul class="snav-drop drop-left" role="list">
+            <li>
+              <a href="/pages/accreditation/iqac.html" class="snav-drop-link"
+                >IQAC</a
+              >
+            </li>
+            <li>
+              <a href="/pages/accreditation/naac.html" class="snav-drop-link"
+                >NAAC</a
+              >
+            </li>
+            <li>
+              <a
+                href="/pages/accreditation/best-practices.html"
+                class="snav-drop-link"
+                >Best Practices</a
+              >
+            </li>
+            <li>
+              <a
+                href="/pages/accreditation/e-learning.html"
+                class="snav-drop-link"
+                >E-Learning</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <!-- Training & Placement -->
+        <li class="snav-item">
+          <a
+            href="/pages/placement.html"
+            class="snav-link"
+            data-page="placement"
+            >Training &amp; Placement</a
+          >
+        </li>
+      </ul>
+      <!-- /row 1 -->
+
+      <!-- Row divider -->
+      <div class="snav-divider" aria-hidden="true"></div>
+
+      <!-- ══ ROW 2 ══ -->
+      <ul class="snav-row" role="list" aria-label="Secondary navigation">
+        <!-- Infrastructures -->
+        <li class="snav-item has-drop">
+          <a
+            href="/pages/infrastructure.html"
+            class="snav-link"
+            data-page="infrastructure"
+            >Infrastructures
+            <span class="snav-caret" aria-hidden="true">&#9660;</span></a
+          >
+          <ul class="snav-drop" role="list">
+            <li>
+              <a
+                href="/pages/infrastructure/classrooms.html"
+                class="snav-drop-link"
+                >Class Rooms with Audio Visual Aids</a
+              >
+            </li>
+            <li>
+              <a
+                href="/pages/infrastructure/library.html"
+                class="snav-drop-link"
+                >Library</a
+              >
+            </li>
+            <li>
+              <a
+                href="/pages/infrastructure/computer-lab.html"
+                class="snav-drop-link"
+                >Computer Lab</a
+              >
+            </li>
+            <li>
+              <a
+                href="/pages/infrastructure/conference-room.html"
+                class="snav-drop-link"
+                >Conference Room</a
+              >
+            </li>
+            <li>
+              <a href="/pages/infrastructure/hostel.html" class="snav-drop-link"
+                >Hostel Facility</a
+              >
+            </li>
+            <li>
+              <a
+                href="/pages/infrastructure/gymnasium.html"
+                class="snav-drop-link"
+                >Gymnasium</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <!-- Alumni -->
+        <li class="snav-item">
+          <a href="/pages/alumni.html" class="snav-link" data-page="alumni"
+            >Alumni</a
+          >
+        </li>
+
+        <!-- Achievements & Awards -->
+        <li class="snav-item">
+          <a
+            href="/pages/achievements.html"
+            class="snav-link"
+            data-page="achievements"
+            >Achievements &amp; Awards</a
+          >
+        </li>
+
+        <!-- Feedback -->
+        <li class="snav-item has-drop">
+          <a href="#" class="snav-link"
+            >Feedback
+            <span class="snav-caret" aria-hidden="true">&#9660;</span></a
+          >
+          <ul class="snav-drop" role="list">
+            <li>
+              <a
+                href="/pages/feedback/student-feedback.html"
+                class="snav-drop-link"
+                >Student Feedback</a
+              >
+            </li>
+            <li>
+              <a
+                href="/pages/feedback/student-satisfaction.html"
+                class="snav-drop-link"
+                >Student Satisfaction Survey</a
+              >
+            </li>
+            <li>
+              <a
+                href="/pages/feedback/teacher-feedback.html"
+                class="snav-drop-link"
+                >Student Feedback About Teacher</a
+              >
+            </li>
+            <li>
+              <a
+                href="/pages/feedback/parents-feedback.html"
+                class="snav-drop-link"
+                >Parents Feedback</a
+              >
+            </li>
+            <li>
+              <a
+                href="/pages/feedback/alumni-feedback.html"
+                class="snav-drop-link"
+                >Alumni Feedback</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <!-- Tenders -->
+        <li class="snav-item">
+          <a href="/pages/tenders.html" class="snav-link" data-page="tenders"
+            >Tenders</a
+          >
+        </li>
+
+        <!-- Contact Us -->
+        <li class="snav-item">
+          <a href="/pages/contact.html" class="snav-link" data-page="contact"
+            >Contact Us</a
+          >
+        </li>
+
+        <!-- Notification & Circulars -->
+        <li class="snav-item">
+          <a
+            href="/pages/notifications.html"
+            class="snav-link"
+            data-page="notifications"
+            >Notification &amp; Circulars</a
+          >
+        </li>
+      </ul>
+      <!-- /row 2 -->
+    </div>
+    <!-- /snav-menu -->
+  </div>
+  <!-- /snav-inner -->
 </nav>
 <!-- /snav -->

@@ -1,0 +1,232 @@
+/* ================================================================
+   alumni.css — HN College of Management, Solapur
+   Alumni Page — consistent with site design
+   ================================================================ */
+
+/* ── Page Wrapper ── */
+.alumni-page {
+    background-color: var(--clr-bg);
+    min-height: calc(100vh - 200px);
+    padding: 2.25rem 0 3rem;
+}
+
+/* ── Page Title ── */
+.alumni-page-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.alumni-page-title h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 2.8vw, 1.85rem);
+    font-weight: 700;
+    color: var(--clr-heading);
+    letter-spacing: 0.015em;
+    margin-bottom: 0.4rem;
+}
+
+.alumni-page-title__bar {
+    display: block;
+    width: 64px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--clr-hover), transparent);
+    border-radius: 2px;
+    margin: 0 auto 0.45rem;
+}
+
+.alumni-page-title__sub {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--clr-text);
+    opacity: 0.6;
+}
+
+/* ── Container ── */
+.alumni-container {
+    max-width: 1160px;
+    width: 92%;
+    margin-inline: auto;
+}
+
+/* ── Section Card ── */
+.alumni-card {
+    background: #fff8f0;
+    border-radius: 10px;
+    border: 1px solid rgba(74, 44, 23, 0.1);
+    box-shadow: 0 4px 18px rgba(74, 44, 23, 0.08);
+    padding: 1.75rem;
+    margin-bottom: 1.75rem;
+}
+
+.alumni-card__heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+    font-weight: 700;
+    color: var(--clr-heading);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--clr-hover);
+}
+
+/* ── Alumni Grid ── */
+.alumni-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.25rem;
+}
+
+/* ── Alumni Member Card ── */
+.alumni-member {
+    background: var(--clr-bg);
+    border: 1px solid rgba(74, 44, 23, 0.12);
+    border-radius: 10px;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+    transition: box-shadow 0.22s ease, transform 0.22s ease;
+}
+
+.alumni-member:hover {
+    box-shadow: 0 6px 22px rgba(74, 44, 23, 0.15);
+    transform: translateY(-3px);
+}
+
+.alumni-member__avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--clr-nav-start), var(--clr-nav-end));
+    margin: 0 auto 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: var(--clr-hover);
+    border: 3px solid var(--clr-hover);
+}
+
+.alumni-member__name {
+    font-family: var(--font-heading);
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--clr-heading);
+    margin-bottom: 0.25rem;
+}
+
+.alumni-member__batch {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--clr-hover);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+}
+
+.alumni-member__role {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    color: var(--clr-text);
+    opacity: 0.78;
+    line-height: 1.4;
+}
+
+/* ── Testimonial ── */
+.alumni-testimonial {
+    background: var(--clr-bg);
+    border-left: 4px solid var(--clr-hover);
+    border-radius: 0 8px 8px 0;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.alumni-testimonial__quote {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--clr-text);
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 0.75rem;
+}
+
+.alumni-testimonial__author {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--clr-heading);
+}
+
+/* ── Registration CTA ── */
+.alumni-cta {
+    background: linear-gradient(135deg, var(--clr-nav-start) 0%, var(--clr-nav-end) 100%);
+    border-radius: 10px;
+    padding: 2.25rem;
+    text-align: center;
+    margin-bottom: 1.75rem;
+}
+
+.alumni-cta__title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+    font-weight: 700;
+    color: var(--clr-hover);
+    margin-bottom: 0.5rem;
+}
+
+.alumni-cta__text {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--clr-nav-text);
+    opacity: 0.88;
+    max-width: 520px;
+    margin-inline: auto;
+    margin-bottom: 1.25rem;
+    line-height: 1.65;
+}
+
+.alumni-cta__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--clr-hover);
+    color: var(--clr-heading);
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    font-weight: 700;
+    padding: 0.65rem 1.75rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: opacity 0.2s ease, transform 0.15s ease;
+}
+
+.alumni-cta__btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .alumni-container {
+        width: 94%;
+    }
+
+    .alumni-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .alumni-page {
+        padding: 1.5rem 0 2rem;
+    }
+
+    .alumni-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.85rem;
+    }
+
+    .alumni-card {
+        padding: 1.25rem;
+    }
+}

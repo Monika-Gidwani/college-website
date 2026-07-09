@@ -1,0 +1,231 @@
+/* =====================================================
+   important-links.css
+   Shared styles for all Important Links sub-pages
+   Consistent with site design (about.css / infrastructure.css)
+   ===================================================== */
+
+/* ── Page Wrapper ── */
+.il-page {
+    background-color: var(--clr-bg);
+    min-height: calc(100vh - 200px);
+    padding: 2.25rem 0 3rem;
+}
+
+/* ── Page Title (centered — matches about/infra pattern) ── */
+.il-page-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.il-page-title h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 2.8vw, 1.85rem);
+    font-weight: 700;
+    color: var(--clr-heading);
+    letter-spacing: 0.015em;
+    margin-bottom: 0.4rem;
+}
+
+.il-page-title__bar {
+    display: block;
+    width: 64px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--clr-hover), transparent);
+    border-radius: 2px;
+    margin: 0 auto 0.45rem;
+}
+
+.il-page-title__sub {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--clr-text);
+    opacity: 0.6;
+}
+
+/* ── Breadcrumb ── */
+.il-breadcrumb {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    color: var(--clr-text);
+    opacity: 0.55;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.02em;
+}
+
+.il-breadcrumb a {
+    color: var(--clr-nav-start);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.il-breadcrumb a:hover {
+    color: var(--clr-hover);
+    text-decoration: underline;
+}
+
+/* ── Content Container ── */
+.il-container {
+    max-width: 1000px;
+    width: 92%;
+    margin-inline: auto;
+}
+
+/* ── Card ── */
+.il-card {
+    background: #fff8f0;
+    border-radius: 10px;
+    border: 1px solid rgba(74, 44, 23, 0.1);
+    box-shadow: 0 4px 18px rgba(74, 44, 23, 0.09);
+    padding: 2.2rem 2.4rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--clr-hover);
+    transition: box-shadow 0.2s ease;
+}
+
+.il-card:hover {
+    box-shadow: 0 6px 28px rgba(74, 44, 23, 0.14);
+}
+
+.il-card__heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 700;
+    color: var(--clr-heading);
+    margin: 0 0 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid rgba(212, 160, 23, 0.35);
+    position: relative;
+}
+
+.il-card__heading::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 48px;
+    height: 2px;
+    background: var(--clr-hover);
+    border-radius: 2px;
+}
+
+.il-card__body {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--clr-text);
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+/* ── Coming Soon Banner ── */
+.il-coming-soon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    gap: 1rem;
+}
+
+.il-coming-soon__icon {
+    font-size: 3.5rem;
+    line-height: 1;
+}
+
+.il-coming-soon__title {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--clr-heading);
+    font-weight: 700;
+}
+
+.il-coming-soon__text {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--clr-text);
+    opacity: 0.7;
+    max-width: 480px;
+    line-height: 1.7;
+}
+
+/* ── Download Button ── */
+.il-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.5rem;
+    background: linear-gradient(135deg, var(--clr-nav-start), var(--clr-nav-end));
+    color: var(--clr-hover);
+    border-radius: 7px;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s ease, transform 0.15s ease;
+    margin-top: 1rem;
+    letter-spacing: 0.02em;
+}
+
+.il-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* ── Committee Member List ── */
+.il-member-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+}
+
+.il-member-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(74, 44, 23, 0.08);
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: var(--clr-text);
+}
+
+.il-member-list li:last-child {
+    border-bottom: none;
+}
+
+.il-member-list__role {
+    font-weight: 600;
+    color: var(--clr-nav-start);
+    min-width: 160px;
+    flex-shrink: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .il-container {
+        width: 94%;
+    }
+
+    .il-card {
+        padding: 1.6rem 1.4rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .il-page {
+        padding: 1.5rem 0 2rem;
+    }
+
+    .il-card {
+        padding: 1.25rem;
+    }
+
+    .il-member-list li {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .il-member-list__role {
+        min-width: unset;
+    }
+}

@@ -1,282 +1,76 @@
 /**
- * loader.js — Component Loader for College Website
+ * loader.js — Dynamic Component Loader for HNCC College Website
  *
- * Embeds header, navbar, and footer HTML directly as inline strings.
- * This avoids fetch/XHR CORS issues when opening pages via file:// protocol.
+ * Fetches header, navbar, and footer HTML from the components/ directory.
+ * This makes the loader fully dynamic: editing a component file and refreshing
+ * the page will immediately reflect the change — no copy-pasting required.
  *
- * Usage: Each page must have these placeholder divs:
- *   <div id="header-placeholder"></div>
- *   <div id="navbar-placeholder"></div>
- *   <div id="footer-placeholder"></div>
+ * REQUIREMENTS:
+ *   - Pages must be served via a local HTTP server (e.g. VS Code Live Server,
+ *     npx serve, or any web server). Opening via file:// will NOT work because
+ *     browsers block fetch() requests on the file:// protocol.
  *
- * MAINTENANCE: If you edit components/header.html, navbar.html, or footer.html,
- * you must also update the corresponding string below.
+ * USAGE:
+ *   Each page must include these placeholder divs:
+ *     <div id="header-placeholder"></div>
+ *     <div id="navbar-placeholder"></div>
+ *     <div id="footer-placeholder"></div>
+ *
+ *   Then load this script:
+ *     <script src="../js/loader.js"></script>
+ *
+ * COMPONENT FILES (edit these — changes apply to ALL pages automatically):
+ *   components/header.html
+ *   components/navbar.html
+ *   components/footer.html
  */
 
 (function () {
     'use strict';
 
     /* ══════════════════════════════════════════════════════════════
-       HEADER HTML
+       RESOLVE COMPONENT BASE PATH
+       Components live at: <root>/components/
+       Pages can be at:    <root>/pages/         → ../components/
+                           <root>/pages/sub/     → ../../components/
+       We resolve relative to the current page's location.
        ══════════════════════════════════════════════════════════════ */
-    var HEADER_HTML = [
-        '<header class="site-header" role="banner">',
-        '  <div class="header-inner">',
-        '    <div class="logo-col" aria-label="College Logo">',
-        '      <img src="../assets/logo.png" alt="Hirachand Nemchand College of Management Logo" class="college-logo" loading="eager" onerror="this.src=\'../assets/logo-fallback.svg\'" />',
-        '    </div>',
-        '    <div class="header-text-col">',
-        '      <p class="sanskrit-motto" lang="mr">|| शिक्षण हाच धर्म ||</p>',
-        '      <p class="trust-name">Shri Hirachand Nemchand Mafatal Punamchand Educational Trust, Solapur</p>',
-        '      <h1 class="college-name">Hirachand Nemchand College of Management, Solapur</h1>',
-        '      <p class="dept-name">Department of Management Studies</p>',
-        '      <p class="college-details">',
-        '        <span class="detail-bold">Autonomous College</span>',
-        '        <span class="divider" aria-hidden="true">|</span>',
-        '        <span>Affiliated to P.A.H Solapur University, Solapur</span>',
-        '        <span class="divider" aria-hidden="true">|</span>',
-        '        <span>Solapur, Maharashtra – 413 006</span>',
-        '        <span class="divider" aria-hidden="true">|</span>',
-        '        <span class="naac-badge">NAAC Re-accredited \'A\' Grade</span>',
-        '        <span class="divider" aria-hidden="true">|</span>',
-        '        <span class="email-info">&#9993;&nbsp;<a href="mailto:hnccsolapur@gmail.com">hnccsolapur@gmail.com</a></span>',
-        '      </p>',
-        '    </div>',
-        '  </div>',
-        '</header>'
-    ].join('\n');
 
+    /**
+     * Walk up from the current page URL to find the components/ directory.
+     * Strategy: count how many directories deep we are from the project root,
+     * then prefix with the correct number of "../".
+     *
+     * The root is identified by the presence of the "components" folder one
+     * level up (for pages/) or two levels up (for pages/sub/).
+     */
+    function resolveComponentsBase() {
+        var path = window.location.pathname;
+        // Normalise slashes
+        path = path.replace(/\\/g, '/');
 
-    /* ══════════════════════════════════════════════════════════════
-       NAVBAR HTML
-       ══════════════════════════════════════════════════════════════ */
-    var NAVBAR_HTML = [
-        '<nav class="snav" id="siteNav" role="navigation" aria-label="Main site navigation">',
-        '  <div class="snav-inner">',
-        '    <button class="snav-hamburger" id="snavHamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="snavMenu">',
-        '      <span class="snav-line"></span>',
-        '      <span class="snav-line"></span>',
-        '      <span class="snav-line"></span>',
-        '    </button>',
-        '    <div class="snav-menu" id="snavMenu">',
-        '',
-        '      <!-- ROW 1 -->',
-        '      <ul class="snav-row" role="list" aria-label="Primary navigation">',
-        '',
-        '        <!-- Home -->',
-        '        <li class="snav-item">',
-        '          <a href="home.html" class="snav-link" data-page="index">Home</a>',
-        '        </li>',
-        '',
-        '        <!-- About Us -->',
-        '        <li class="snav-item has-drop">',
-        '          <a href="#" class="snav-link" data-page="about">About Us <span class="snav-caret" aria-hidden="true">&#9660;</span></a>',
-        '          <ul class="snav-drop" role="list">',
-        '            <li><a href="about.html#institute-information" class="snav-drop-link">Institute Information</a></li>',
-        '            <li><a href="about.html#vision-mission" class="snav-drop-link">Vision and Mission</a></li>',
-        '            <li><a href="about.html#goals-quality" class="snav-drop-link">Goals and Quality Policy</a></li>',
-        '            <li><a href="about.html#core-values" class="snav-drop-link">Core Values</a></li>',
-        '            <li><a href="about.html#governing-body" class="snav-drop-link">Governing Body</a></li>',
-        '            <li><a href="about.html#policies" class="snav-drop-link">Policies</a></li>',
-        '            <li><a href="about.html#principal-secretary" class="snav-drop-link">Principal and Secretary Desk</a></li>',
-        '          </ul>',
-        '        </li>',
-        '',
-        '        <!-- Programmes -->',
-        '        <li class="snav-item has-drop">',
-        '          <a href="programmes.html" class="snav-link" data-page="programmes">Programmes <span class="snav-caret" aria-hidden="true">&#9660;</span></a>',
-        '          <ul class="snav-drop" role="list">',
-        '            <li class="has-subdrop">',
-        '              <a href="programmes.html#mba-hods-desk" class="snav-drop-link">MBA <span class="snav-subcaret" aria-hidden="true">&#8250;</span></a>',
-        '              <ul class="snav-subdrop" role="list">',
-        '                <li><a href="programmes.html#mba-hods-desk" class="snav-drop-link">HOD\'s Desk</a></li>',
-        '                <li><a href="programmes.html#mba-about-dept" class="snav-drop-link">About Department</a></li>',
-        '                <li><a href="programmes.html#mba-vision-mission" class="snav-drop-link">Vision and Mission</a></li>',
-        '                <li><a href="programmes.html#mba-co-po-pso-peo" class="snav-drop-link">CO, PO, PSO, PEO</a></li>',
-        '                <li><a href="programmes.html#mba-faculty" class="snav-drop-link">Faculty</a></li>',
-        '                <li><a href="programmes.html#mba-infrastructure" class="snav-drop-link">Infrastructure</a></li>',
-        '                <li><a href="programmes.html#mba-syllabus" class="snav-drop-link">Syllabus</a></li>',
-        '                <li><a href="programmes.html#mba-specialisation" class="snav-drop-link">Specialisation</a></li>',
-        '                <li><a href="programmes.html#mba-certification" class="snav-drop-link">Certification Course</a></li>',
-        '                <li><a href="programmes.html#mba-parents-meet" class="snav-drop-link">Parents Meet &amp; Orientation Program</a></li>',
-        '              </ul>',
-        '            </li>',
-        '            <li><a href="programmes.html#bca" class="snav-drop-link">BCA Course</a></li>',
-        '            <li><a href="programmes.html#bba" class="snav-drop-link">BBA Course</a></li>',
-        '          </ul>',
-        '        </li>',
-        '',
-        '        <!-- Academics -->',
-        '        <li class="snav-item has-drop">',
-        '          <a href="academics.html" class="snav-link" data-page="academics">Academics <span class="snav-caret" aria-hidden="true">&#9660;</span></a>',
-        '          <ul class="snav-drop" role="list">',
-        '            <li><a href="academics.html#academic-calendar" class="snav-drop-link">Academic Calendar</a></li>',
-        '            <li><a href="academics.html#time-table" class="snav-drop-link">Time Table (Theory, Practical)</a></li>',
-        '            <li><a href="academics.html#examination" class="snav-drop-link">Examination</a></li>',
-        '            <li><a href="academics.html#result" class="snav-drop-link">Result</a></li>',
-        '            <li><a href="academics.html#library" class="snav-drop-link">Library</a></li>',
-        '            <li><a href="academics.html#e-resources" class="snav-drop-link">E-Resources</a></li>',
-        '          </ul>',
-        '        </li>',
-        '',
-        '        <!-- Syllabus -->',
-        '        <li class="snav-item has-drop">',
-        '          <a href="syllabus.html" class="snav-link" data-page="syllabus">Syllabus <span class="snav-caret" aria-hidden="true">&#9660;</span></a>',
-        '          <ul class="snav-drop" role="list">',
-        '            <li class="has-subdrop">',
-        '              <a href="syllabus.html#bca1" class="snav-drop-link">BCA <span class="snav-subcaret" aria-hidden="true">&#8250;</span></a>',
-        '              <ul class="snav-subdrop" role="list">',
-        '                <li><a href="syllabus.html#bca1" class="snav-drop-link">BCA I</a></li>',
-        '                <li><a href="syllabus.html#bca2" class="snav-drop-link">BCA II</a></li>',
-        '                <li><a href="syllabus.html#bca3" class="snav-drop-link">BCA III</a></li>',
-        '              </ul>',
-        '            </li>',
-        '          </ul>',
-        '        </li>',
-        '',
-        '        <!-- Events and Activities -->',
-        '        <li class="snav-item">',
-        '          <a href="#" class="snav-link">Events &amp; Activities</a>',
-        '        </li>',
-        '',
-        '        <!-- Important Links -->',
-        '        <li class="snav-item has-drop">',
-        '          <a href="#" class="snav-link">Important Links <span class="snav-caret" aria-hidden="true">&#9660;</span></a>',
-        '          <ul class="snav-drop drop-left" role="list">',
-        '            <li><a href="#" class="snav-drop-link">Annual Report</a></li>',
-        '            <li><a href="#" class="snav-drop-link">Institute Development Plan</a></li>',
-        '            <li class="has-subdrop">',
-        '              <a href="#" class="snav-drop-link">Statutory Committee <span class="snav-subcaret" aria-hidden="true">&#8250;</span></a>',
-        '              <ul class="snav-subdrop subdrop-left" role="list">',
-        '                <li><a href="#" class="snav-drop-link">Anti-Ragging Committee</a></li>',
-        '                <li><a href="#" class="snav-drop-link">Internal Committee</a></li>',
-        '                <li><a href="#" class="snav-drop-link">College Development Committee</a></li>',
-        '                <li><a href="#" class="snav-drop-link">IQAC</a></li>',
-        '                <li><a href="#" class="snav-drop-link">Grievance Redressal Committee</a></li>',
-        '                <li><a href="#" class="snav-drop-link">SC/ST Committee</a></li>',
-        '                <li><a href="#" class="snav-drop-link">Staff Grievance Committee</a></li>',
-        '              </ul>',
-        '            </li>',
-        '            <li><a href="#" class="snav-drop-link">Strategic Management</a></li>',
-        '            <li><a href="#" class="snav-drop-link">Organization Chart</a></li>',
-        '            <li><a href="#" class="snav-drop-link">Mandatory Disclosure</a></li>',
-        '            <li><a href="#" class="snav-drop-link">Statement of Accounts</a></li>',
-        '            <li><a href="#" class="snav-drop-link">Approvals</a></li>',
-        '            <li><a href="#" class="snav-drop-link">RTI</a></li>',
-        '            <li><a href="#" class="snav-drop-link">Online Grievance</a></li>',
-        '          </ul>',
-        '        </li>',
-        '',
-        '        <!-- Accreditation -->',
-        '        <li class="snav-item has-drop">',
-        '          <a href="#" class="snav-link">Accreditation <span class="snav-caret" aria-hidden="true">&#9660;</span></a>',
-        '          <ul class="snav-drop drop-left" role="list">',
-        '            <li><a href="#" class="snav-drop-link">IQAC</a></li>',
-        '            <li><a href="#" class="snav-drop-link">NAAC</a></li>',
-        '            <li><a href="#" class="snav-drop-link">Best Practices</a></li>',
-        '            <li><a href="#" class="snav-drop-link">E-Learning</a></li>',
-        '          </ul>',
-        '        </li>',
-        '',
-        '        <!-- Training & Placement -->',
-        '        <li class="snav-item">',
-        '          <a href="home.html#placement" class="snav-link">Training &amp; Placement</a>',
-        '        </li>',
-        '',
-        '      </ul>',
-        '',
-        '      <div class="snav-divider" aria-hidden="true"></div>',
-        '',
-        '      <!-- ROW 2 -->',
-        '      <ul class="snav-row" role="list" aria-label="Secondary navigation">',
-        '',
-        '        <!-- Infrastructures -->',
-        '        <li class="snav-item has-drop">',
-        '          <a href="infrastructure.html" class="snav-link" data-page="infrastructure">Infrastructures <span class="snav-caret" aria-hidden="true">&#9660;</span></a>',
-        '          <ul class="snav-drop" role="list">',
-        '            <li><a href="infrastructure.html#classrooms" class="snav-drop-link">Class Rooms with Audio Visual Aids</a></li>',
-        '            <li><a href="infrastructure.html#library" class="snav-drop-link">Library</a></li>',
-        '            <li><a href="infrastructure.html#computer-lab" class="snav-drop-link">Computer Lab</a></li>',
-        '            <li><a href="infrastructure.html#conference-room" class="snav-drop-link">Conference Room</a></li>',
-        '            <li><a href="infrastructure.html#hostel" class="snav-drop-link">Hostel Facility</a></li>',
-        '            <li><a href="infrastructure.html#gymnasium" class="snav-drop-link">Gymnasium</a></li>',
-        '          </ul>',
-        '        </li>',
-        '',
-        '        <!-- Alumni -->',
-        '        <li class="snav-item"><a href="#" class="snav-link">Alumni</a></li>',
-        '',
-        '        <!-- Achievements & Awards -->',
-        '        <li class="snav-item"><a href="#" class="snav-link">Achievements &amp; Awards</a></li>',
-        '',
-        '        <!-- Feedback -->',
-        '        <li class="snav-item has-drop">',
-        '          <a href="#" class="snav-link">Feedback <span class="snav-caret" aria-hidden="true">&#9660;</span></a>',
-        '          <ul class="snav-drop" role="list">',
-        '            <li><a href="#" class="snav-drop-link">Student Feedback</a></li>',
-        '            <li><a href="#" class="snav-drop-link">Student Satisfaction Survey</a></li>',
-        '            <li><a href="#" class="snav-drop-link">Student Feedback About Teacher</a></li>',
-        '            <li><a href="#" class="snav-drop-link">Parents Feedback</a></li>',
-        '            <li><a href="#" class="snav-drop-link">Alumni Feedback</a></li>',
-        '          </ul>',
-        '        </li>',
-        '',
-        '        <!-- Tenders -->',
-        '        <li class="snav-item"><a href="#" class="snav-link">Tenders</a></li>',
-        '',
-        '        <!-- Contact Us -->',
-        '        <li class="snav-item"><a href="#" class="snav-link">Contact Us</a></li>',
-        '',
-        '        <!-- Notification & Circulars -->',
-        '        <li class="snav-item"><a href="#" class="snav-link">Notification &amp; Circulars</a></li>',
-        '',
-        '      </ul>',
-        '    </div>',
-        '  </div>',
-        '</nav>'
-    ].join('\n');
+        // Count directory depth from root by detecting known segments
+        // pages/          → depth 1 → prefix "../"
+        // pages/sub/      → depth 2 → prefix "../../"
+        // Detect by finding "pages" in path
+        var pagesIdx = path.lastIndexOf('/pages/');
+        if (pagesIdx !== -1) {
+            // Everything after /pages/
+            var afterPages = path.substring(pagesIdx + 7); // strip '/pages/'
+            // Count additional sub-directory segments
+            var extraDepth = afterPages.split('/').length - 1;
+            var prefix = '../';
+            for (var i = 0; i < extraDepth; i++) {
+                prefix += '../';
+            }
+            return prefix + 'components/';
+        }
 
+        // Fallback: try one level up
+        return '../components/';
+    }
 
-    /* ══════════════════════════════════════════════════════════════
-       FOOTER HTML
-       ══════════════════════════════════════════════════════════════ */
-    var FOOTER_HTML = [
-        '<footer class="site-footer" role="contentinfo">',
-        '  <div class="footer-inner">',
-        '    <div class="footer-col footer-col--about">',
-        '      <h3 class="footer-heading">HN College of Management</h3>',
-        '      <p class="footer-text">',
-        '        Hirachand Nemchand College of Management, Solapur — Autonomous &amp; NAAC Re-accredited \'A\' Grade.',
-        '        Affiliated to P.A.H. Solapur University.',
-        '      </p>',
-        '    </div>',
-        '    <div class="footer-col footer-col--links">',
-        '      <h3 class="footer-heading">Quick Links</h3>',
-        '      <ul class="footer-links">',
-        '        <li><a href="home.html">Home</a></li>',
-        '        <li><a href="about.html">About Us</a></li>',
-        '        <li><a href="programmes.html">Programmes</a></li>',
-        '        <li><a href="academics.html">Academics</a></li>',
-        '        <li><a href="home.html#placement">Placement Cell</a></li>',
-        '        <li><a href="#">IQAC</a></li>',
-        '        <li><a href="#">Alumni</a></li>',
-        '      </ul>',
-        '    </div>',
-        '    <div class="footer-col footer-col--contact">',
-        '      <h3 class="footer-heading">Contact</h3>',
-        '      <address class="footer-address">',
-        '        <p>HN College of Management</p>',
-        '        <p>Solapur, Maharashtra – 413 006</p>',
-        '        <p><a href="mailto:hnccsolapur@gmail.com">hnccsolapur@gmail.com</a></p>',
-        '      </address>',
-        '    </div>',
-        '  </div>',
-        '  <div class="footer-bottom">',
-        '    <p>&copy; 2026 Hirachand Nemchand College of Management, Solapur. All rights reserved.</p>',
-        '  </div>',
-        '</footer>'
-    ].join('\n');
-
+    var COMPONENTS_BASE = resolveComponentsBase();
 
     /* ══════════════════════════════════════════════════════════════
        PRELOAD: Hide body until components are injected
@@ -290,35 +84,58 @@
 
 
     /* ══════════════════════════════════════════════════════════════
-       INJECT COMPONENTS
+       FETCH & INJECT
        ══════════════════════════════════════════════════════════════ */
 
     /**
-     * Inject HTML string into a placeholder element.
+     * Inject an HTML string into a placeholder element.
+     * @param {string} containerId  — id of the placeholder div
+     * @param {string} html         — HTML string to inject
      */
     function inject(containerId, html) {
         var el = document.getElementById(containerId);
-        if (el) el.innerHTML = html;
+        if (el) {
+            el.innerHTML = html;
+        }
     }
 
     /**
-     * Helper to load a component from a URL, falling back to the inline string on failure.
+     * Fetch a component HTML file and inject it into the matching placeholder.
+     * @param {string} containerId  — id of the placeholder div
+     * @param {string} filename     — filename inside components/ (e.g. 'navbar.html')
+     * @returns {Promise}
      */
-    function loadComponent(containerId, url, fallbackHtml) {
+    function loadComponent(containerId, filename) {
+        var url = COMPONENTS_BASE + filename;
         return fetch(url)
             .then(function (response) {
-                if (response.ok) {
-                    return response.text();
+                if (!response.ok) {
+                    throw new Error(
+                        'HTTP ' + response.status + ' loading ' + url
+                    );
                 }
-                throw new Error('Failed to load component from ' + url);
+                return response.text();
             })
             .then(function (html) {
                 inject(containerId, html);
             })
-            .catch(function () {
-                inject(containerId, fallbackHtml);
+            .catch(function (err) {
+                console.error('[loader.js] Failed to load component:', url, err);
+                inject(
+                    containerId,
+                    '<p style="color:red;padding:8px;font-family:sans-serif;">' +
+                    '⚠ Component not loaded (<code>' + filename + '</code>). ' +
+                    'Make sure you are running the site via a local HTTP server ' +
+                    '(e.g. VS Code Live Server).' +
+                    '</p>'
+                );
             });
     }
+
+
+    /* ══════════════════════════════════════════════════════════════
+       ACTIVE NAV LINK
+       ══════════════════════════════════════════════════════════════ */
 
     /**
      * Mark the active nav link based on the current page filename.
@@ -333,13 +150,49 @@
         if (!currentPage || currentPage === '') currentPage = 'index.html';
 
         var pageMap = {
-            'index.html': 'index',
-            'home.html': 'index',
-            'about.html': 'about',
-            'programmes.html': 'programmes',
-            'academics.html': 'academics',
-            'syllabus.html': 'syllabus',
-            'infrastructure.html': 'infrastructure'
+            'index.html':          'index',
+            'home.html':           'index',
+            'about.html':          'about',
+            'programmes.html':     'programmes',
+            'academics.html':      'academics',
+            'syllabus.html':       'syllabus',
+            'infrastructure.html': 'infrastructure',
+            'events.html':         'events',
+            'alumni.html':         'alumni',
+            'achievements.html':   'achievements',
+            'tenders.html':        'tenders',
+            'contact.html':        'contact',
+            'notifications.html':  'notifications',
+            'placement.html':      'placement',
+            /* ── About sub-pages ── */
+            'institute-information.html': 'about',
+            'vision-mission.html':        'about',
+            'goals-quality.html':         'about',
+            'core-values.html':           'about',
+            'governing-body.html':        'about',
+            'policies.html':              'about',
+            'principal-secretary.html':   'about',
+            /* ── Programmes sub-pages ── */
+            'mba.html': 'programmes',
+            'bca.html': 'programmes',
+            'bba.html': 'programmes',
+            /* ── Academics sub-pages ── */
+            'academic-calendar.html': 'academics',
+            'time-table.html':        'academics',
+            'examination.html':       'academics',
+            'result.html':            'academics',
+            'library.html':           'academics',
+            'e-resources.html':       'academics',
+            /* ── Infrastructure sub-pages ── */
+            'classrooms.html':     'infrastructure',
+            'computer-lab.html':   'infrastructure',
+            'conference-room.html':'infrastructure',
+            'hostel.html':         'infrastructure',
+            'gymnasium.html':      'infrastructure',
+            /* ── Syllabus sub-pages ── */
+            'bca1.html': 'syllabus',
+            'bca2.html': 'syllabus',
+            'bca3.html': 'syllabus'
         };
 
         var dataPage = pageMap[currentPage] || currentPage.replace('.html', '');
@@ -354,6 +207,11 @@
         }
     }
 
+
+    /* ══════════════════════════════════════════════════════════════
+       NAVBAR RE-INIT
+       ══════════════════════════════════════════════════════════════ */
+
     /**
      * Re-initialise navbar.js dropdown behaviour after navbar HTML is injected.
      */
@@ -366,24 +224,28 @@
         markActiveNavLink();
     }
 
+
+    /* ══════════════════════════════════════════════════════════════
+       BOOT
+       ══════════════════════════════════════════════════════════════ */
+
     /**
-     * Main boot: inject all components dynamically — fallback to inline strings if needed.
+     * Main boot: fetch all three components, then reveal the page.
      */
     function boot() {
-        var p1 = loadComponent('header-placeholder', '../components/header.html', HEADER_HTML);
-        var p2 = loadComponent('navbar-placeholder', '../components/navbar.html', NAVBAR_HTML);
-        var p3 = loadComponent('footer-placeholder', '../components/footer.html', FOOTER_HTML);
+        var p1 = loadComponent('header-placeholder', 'header.html');
+        var p2 = loadComponent('navbar-placeholder', 'navbar.html');
+        var p3 = loadComponent('footer-placeholder', 'footer.html');
 
         Promise.all([p1, p2, p3]).then(function () {
             reinitNavbar();
 
-            // Call any page-specific initialisation
+            // Call any page-specific initialisation hook
             if (typeof window.pageInit === 'function') {
                 window.pageInit();
             }
 
-            // After injecting header/navbar above the body content, the viewport
-            // may be stuck below them. Scroll to top, or to the hash target.
+            // After injecting header/navbar, scroll to the correct position
             setTimeout(function () {
                 var hash = window.location.hash;
                 if (hash) {
@@ -400,7 +262,7 @@
         });
     }
 
-    // Start as soon as DOM is ready
+    // Start as soon as the DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', boot);
     } else {

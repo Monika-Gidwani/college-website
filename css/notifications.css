@@ -1,0 +1,236 @@
+/* ================================================================
+   notifications.css — HN College of Management, Solapur
+   Notifications & Circulars Page — consistent with site design
+   ================================================================ */
+
+/* ── Page Wrapper ── */
+.notif-page {
+    background-color: var(--clr-bg);
+    min-height: calc(100vh - 200px);
+    padding: 2.25rem 0 3rem;
+}
+
+/* ── Page Title ── */
+.notif-page-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.notif-page-title h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 2.8vw, 1.85rem);
+    font-weight: 700;
+    color: var(--clr-heading);
+    letter-spacing: 0.015em;
+    margin-bottom: 0.4rem;
+}
+
+.notif-page-title__bar {
+    display: block;
+    width: 64px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--clr-hover), transparent);
+    border-radius: 2px;
+    margin: 0 auto 0.45rem;
+}
+
+.notif-page-title__sub {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--clr-text);
+    opacity: 0.6;
+}
+
+/* ── Container ── */
+.notif-container {
+    max-width: 1000px;
+    width: 92%;
+    margin-inline: auto;
+}
+
+/* ── Filter Row ── */
+.notif-filters {
+    display: flex;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    align-items: center;
+}
+
+.notif-filter-btn {
+    padding: 0.4rem 1rem;
+    border: 1.5px solid rgba(74, 44, 23, 0.25);
+    background: #fff8f0;
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--clr-heading);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.notif-filter-btn:hover,
+.notif-filter-btn.active {
+    background: var(--clr-nav-start);
+    color: var(--clr-hover);
+    border-color: var(--clr-nav-start);
+}
+
+/* ── Card Wrapper ── */
+.notif-card {
+    background: #fff8f0;
+    border-radius: 10px;
+    border: 1px solid rgba(74, 44, 23, 0.1);
+    box-shadow: 0 4px 18px rgba(74, 44, 23, 0.08);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.notif-card__header {
+    background: linear-gradient(90deg, var(--clr-nav-start), var(--clr-nav-end));
+    padding: 0.65rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.notif-card__header-title {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--clr-hover);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* ── Notification Item ── */
+.notif-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 1.25rem;
+    border-bottom: 1px solid rgba(74, 44, 23, 0.07);
+    transition: background 0.15s ease;
+}
+
+.notif-item:last-child {
+    border-bottom: none;
+}
+
+.notif-item:hover {
+    background: rgba(212, 160, 23, 0.06);
+}
+
+.notif-item__date {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--clr-bg);
+    border: 1px solid rgba(74, 44, 23, 0.12);
+    border-radius: 7px;
+    padding: 0.35rem 0.6rem;
+    min-width: 44px;
+    text-align: center;
+}
+
+.notif-item__day {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--clr-heading);
+    line-height: 1;
+}
+
+.notif-item__month {
+    font-family: var(--font-body);
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: var(--clr-hover);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.notif-item__body {
+    flex: 1;
+    min-width: 0;
+}
+
+.notif-item__tag {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.45rem;
+    border-radius: 3px;
+    margin-bottom: 0.25rem;
+    background: rgba(212, 160, 23, 0.12);
+    color: var(--clr-nav-start);
+    border: 1px solid rgba(212, 160, 23, 0.3);
+}
+
+.notif-item__title {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--clr-heading);
+    line-height: 1.4;
+    margin: 0;
+}
+
+.notif-item__actions {
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.notif-item__download {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--clr-accent);
+    border: 1.5px solid var(--clr-accent);
+    border-radius: 5px;
+    padding: 0.28rem 0.7rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.notif-item__download:hover {
+    background: var(--clr-accent);
+    color: #fff;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .notif-container {
+        width: 94%;
+    }
+}
+
+@media (max-width: 640px) {
+    .notif-page {
+        padding: 1.5rem 0 2rem;
+    }
+
+    .notif-item {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .notif-item__actions {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .notif-item__download {
+        width: 100%;
+        justify-content: center;
+    }
+}

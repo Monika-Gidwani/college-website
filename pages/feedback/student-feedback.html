@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Student Feedback — HN College of Management, Solapur." />
+    <title>Student Feedback — HN College of Management, Solapur</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../css/base.css" />
+    <link rel="stylesheet" href="../../css/header.css" />
+    <link rel="stylesheet" href="../../css/layout.css" />
+    <link rel="stylesheet" href="../../css/navbar.css" />
+    <link rel="stylesheet" href="../../css/components.css" />
+    <link rel="stylesheet" href="../../css/feedback.css" />
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <div id="navbar-placeholder"></div>
+
+    <main class="fb-page" id="student-feedback-main">
+        <div class="fb-page-title">
+            <p class="fb-breadcrumb"><a href="../home.html">Home</a> › Feedback › Student Feedback</p>
+            <h2>Student Feedback</h2><span class="fb-page-title__bar"></span>
+            <p class="fb-page-title__sub">Help us improve — share your experience about the institution, facilities and overall academic environment.</p>
+        </div>
+        <div class="fb-container">
+            <div class="fb-form-card">
+                <h3 class="fb-form-card__heading">Student Feedback Form</h3>
+                <p class="fb-form-card__desc">Your feedback is confidential and will be used solely to improve institutional quality.</p>
+
+                <form id="studentFeedbackForm" action="#" method="POST" novalidate>
+                    <div class="fb-form-group">
+                        <label for="sfStudentName">Full Name</label>
+                        <input type="text" id="sfStudentName" name="student_name" placeholder="Your full name" />
+                    </div>
+                    <div class="fb-form-group">
+                        <label for="sfCourse">Course &amp; Year</label>
+                        <select id="sfCourse" name="course">
+                            <option value="" disabled selected>Select your course</option>
+                            <option value="mba-1">MBA – First Year</option>
+                            <option value="mba-2">MBA – Second Year</option>
+                            <option value="bca-1">BCA – First Year</option>
+                            <option value="bca-2">BCA – Second Year</option>
+                            <option value="bca-3">BCA – Third Year</option>
+                            <option value="bba-1">BBA – First Year</option>
+                            <option value="bba-2">BBA – Second Year</option>
+                            <option value="bba-3">BBA – Third Year</option>
+                        </select>
+                    </div>
+                    <div class="fb-form-group">
+                        <label>Overall Rating</label>
+                        <div class="fb-rating" id="studentRating" role="radiogroup" aria-label="Overall rating">
+                            <input type="radio" id="star5" name="rating" value="5" />
+                            <label for="star5" title="Excellent">★</label>
+                            <input type="radio" id="star4" name="rating" value="4" />
+                            <label for="star4" title="Good">★</label>
+                            <input type="radio" id="star3" name="rating" value="3" />
+                            <label for="star3" title="Average">★</label>
+                            <input type="radio" id="star2" name="rating" value="2" />
+                            <label for="star2" title="Below Average">★</label>
+                            <input type="radio" id="star1" name="rating" value="1" />
+                            <label for="star1" title="Poor">★</label>
+                        </div>
+                    </div>
+                    <div class="fb-form-group">
+                        <label for="sfComments">Comments &amp; Suggestions</label>
+                        <textarea id="sfComments" name="comments" placeholder="Share your thoughts, suggestions or concerns…"></textarea>
+                    </div>
+                    <button type="submit" class="fb-submit-btn" id="sfSubmitBtn">
+                        ✉ Submit Feedback
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="../../js/loader.js"></script>
+    <script src="../../js/navbar.js"></script>
+    <script src="../../js/main.js"></script>
+</body>
+</html>

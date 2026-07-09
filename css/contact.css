@@ -1,0 +1,287 @@
+/* ================================================================
+   contact.css — HN College of Management, Solapur
+   Contact Us Page — consistent with site design
+   ================================================================ */
+
+/* ── Page Wrapper ── */
+.contact-page {
+    background-color: var(--clr-bg);
+    min-height: calc(100vh - 200px);
+    padding: 2.25rem 0 3rem;
+}
+
+/* ── Page Title ── */
+.contact-page-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.contact-page-title h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 2.8vw, 1.85rem);
+    font-weight: 700;
+    color: var(--clr-heading);
+    letter-spacing: 0.015em;
+    margin-bottom: 0.4rem;
+}
+
+.contact-page-title__bar {
+    display: block;
+    width: 64px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--clr-hover), transparent);
+    border-radius: 2px;
+    margin: 0 auto 0.45rem;
+}
+
+.contact-page-title__sub {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--clr-text);
+    opacity: 0.6;
+}
+
+/* ── Container ── */
+.contact-pg-container {
+    max-width: 1160px;
+    width: 92%;
+    margin-inline: auto;
+}
+
+/* ── Two-column Layout: Info + Form ── */
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+/* ── Info Column ── */
+.contact-info {
+    background: linear-gradient(135deg, var(--clr-nav-start) 0%, var(--clr-nav-end) 100%);
+    border-radius: 10px;
+    padding: 2rem 1.75rem;
+    box-shadow: 0 4px 18px rgba(74, 44, 23, 0.2);
+}
+
+.contact-info__heading {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--clr-hover);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(212, 160, 23, 0.3);
+}
+
+.contact-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    margin-bottom: 1.25rem;
+}
+
+.contact-detail__icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    color: var(--clr-hover);
+}
+
+.contact-detail__label {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--clr-hover);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+}
+
+.contact-detail__value {
+    font-family: var(--font-body);
+    font-size: 0.84rem;
+    color: var(--clr-nav-text);
+    opacity: 0.92;
+    line-height: 1.55;
+}
+
+.contact-detail__value a {
+    color: var(--clr-nav-text);
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(245, 236, 215, 0.4);
+    transition: color var(--transition-fast);
+}
+
+.contact-detail__value a:hover {
+    color: var(--clr-hover);
+}
+
+/* ── Form Column ── */
+.contact-form-card {
+    background: #fff8f0;
+    border-radius: 10px;
+    border: 1px solid rgba(74, 44, 23, 0.1);
+    box-shadow: 0 4px 18px rgba(74, 44, 23, 0.08);
+    padding: 2rem 1.75rem;
+}
+
+.contact-form-card__heading {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--clr-heading);
+    margin-bottom: 0.35rem;
+}
+
+.contact-form-card__desc {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--clr-text);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* ── Form Fields ── */
+.contact-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.contact-form-group {
+    margin-bottom: 1.15rem;
+}
+
+.contact-form-group label {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--clr-heading);
+    margin-bottom: 0.38rem;
+}
+
+.contact-form-group input,
+.contact-form-group select,
+.contact-form-group textarea {
+    width: 100%;
+    padding: 0.62rem 0.9rem;
+    border: 1.5px solid rgba(74, 44, 23, 0.18);
+    border-radius: 7px;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: var(--clr-text);
+    background: var(--clr-bg);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+}
+
+.contact-form-group input:focus,
+.contact-form-group select:focus,
+.contact-form-group textarea:focus {
+    outline: none;
+    border-color: var(--clr-hover);
+    box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.15);
+    background: #fff8f0;
+}
+
+.contact-form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* ── Submit Button ── */
+.contact-submit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.72rem 2rem;
+    background: linear-gradient(135deg, var(--clr-nav-start), var(--clr-nav-end));
+    color: var(--clr-hover);
+    border: none;
+    border-radius: 7px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.15s ease;
+    letter-spacing: 0.02em;
+    margin-top: 0.5rem;
+}
+
+.contact-submit-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* ── Map Card ── */
+.contact-map-card {
+    background: #fff8f0;
+    border-radius: 10px;
+    border: 1px solid rgba(74, 44, 23, 0.1);
+    box-shadow: 0 4px 18px rgba(74, 44, 23, 0.08);
+    padding: 1.75rem;
+    margin-top: 1.75rem;
+}
+
+.contact-map-card__heading {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--clr-heading);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--clr-hover);
+}
+
+.contact-map-placeholder {
+    width: 100%;
+    height: 260px;
+    background: linear-gradient(135deg, rgba(74, 44, 23, 0.06), rgba(212, 160, 23, 0.08));
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    border: 2px dashed rgba(74, 44, 23, 0.18);
+}
+
+.contact-map-placeholder__icon { font-size: 2.5rem; }
+
+.contact-map-placeholder__text {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--clr-heading);
+    font-weight: 500;
+    opacity: 0.7;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .contact-page {
+        padding: 1.5rem 0 2rem;
+    }
+
+    .contact-form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form-card,
+    .contact-map-card {
+        padding: 1.25rem;
+    }
+
+    .contact-submit-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

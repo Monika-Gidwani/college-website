@@ -1,0 +1,280 @@
+/* ================================================================
+   events-page.css — HN College of Management, Solapur
+   Events & Activities Page — consistent with site design
+   ================================================================ */
+
+/* ── Page Wrapper ── */
+.events-page {
+    background-color: var(--clr-bg);
+    min-height: calc(100vh - 200px);
+    padding: 2.25rem 0 3rem;
+}
+
+/* ── Page Title (same as about/academics) ── */
+.events-page-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.events-page-title h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 2.8vw, 1.85rem);
+    font-weight: 700;
+    color: var(--clr-heading);
+    letter-spacing: 0.015em;
+    margin-bottom: 0.4rem;
+}
+
+.events-page-title__bar {
+    display: block;
+    width: 64px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--clr-hover), transparent);
+    border-radius: 2px;
+    margin: 0 auto 0.45rem;
+}
+
+.events-page-title__sub {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--clr-text);
+    opacity: 0.6;
+}
+
+/* ── Content Container ── */
+.events-container {
+    max-width: 1160px;
+    width: 92%;
+    margin-inline: auto;
+}
+
+/* ── Filter Tabs ── */
+.events-filters {
+    display: flex;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.events-filter-btn {
+    padding: 0.45rem 1.15rem;
+    border: 1.5px solid rgba(74, 44, 23, 0.25);
+    background: #fff8f0;
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--clr-heading);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.events-filter-btn:hover,
+.events-filter-btn.active {
+    background: var(--clr-nav-start);
+    color: var(--clr-hover);
+    border-color: var(--clr-nav-start);
+}
+
+/* ── Events Grid ── */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 1.5rem;
+}
+
+/* ── Event Card ── */
+.event-card {
+    background: #fff8f0;
+    border-radius: 10px;
+    border: 1px solid rgba(74, 44, 23, 0.1);
+    box-shadow: 0 4px 18px rgba(74, 44, 23, 0.1);
+    overflow: hidden;
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(74, 44, 23, 0.16);
+}
+
+/* ── Card Image Banner ── */
+.event-card__banner {
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg, var(--clr-nav-start), var(--clr-hover), var(--clr-nav-end));
+}
+
+/* ── Card Header with date ── */
+.event-card__head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem 0.75rem;
+    border-bottom: 1px solid rgba(74, 44, 23, 0.08);
+}
+
+.event-card__date-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--clr-nav-start) 0%, var(--clr-nav-end) 100%);
+    color: var(--clr-nav-text);
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    min-width: 52px;
+    text-align: center;
+    gap: 0.05rem;
+    flex-shrink: 0;
+}
+
+.event-card__day {
+    font-family: var(--font-heading);
+    font-size: 1.55rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--clr-hover);
+}
+
+.event-card__month {
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--clr-nav-text);
+}
+
+.event-card__year {
+    font-family: var(--font-body);
+    font-size: 0.58rem;
+    font-weight: 400;
+    color: rgba(245, 236, 215, 0.7);
+}
+
+/* ── Card Tag ── */
+.event-card__tag {
+    display: inline-block;
+    background: rgba(212, 160, 23, 0.12);
+    color: var(--clr-nav-start);
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    border: 1px solid rgba(212, 160, 23, 0.3);
+}
+
+/* ── Card Body ── */
+.event-card__body {
+    padding: 0.95rem 1.25rem 1.25rem;
+}
+
+.event-card__title {
+    font-family: var(--font-heading);
+    font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+    font-weight: 600;
+    color: var(--clr-heading);
+    line-height: 1.35;
+    margin: 0 0 0.45rem;
+}
+
+.event-card__desc {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--clr-text);
+    line-height: 1.6;
+    margin: 0 0 0.85rem;
+    opacity: 0.85;
+}
+
+.event-card__btn {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--clr-accent);
+    border: 1.5px solid var(--clr-accent);
+    border-radius: 5px;
+    padding: 0.3rem 0.85rem;
+    transition: background 0.2s ease, color 0.2s ease;
+    text-decoration: none;
+}
+
+.event-card__btn:hover {
+    background: var(--clr-accent);
+    color: #fff;
+}
+
+/* ── Section Heading ── */
+.events-section-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 700;
+    color: var(--clr-heading);
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--clr-hover);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* ── Coming Soon State ── */
+.events-coming-soon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    gap: 1rem;
+}
+
+.events-coming-soon__icon {
+    font-size: 3.5rem;
+}
+
+.events-coming-soon__title {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--clr-heading);
+    font-weight: 700;
+}
+
+.events-coming-soon__text {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--clr-text);
+    opacity: 0.7;
+    max-width: 460px;
+    line-height: 1.7;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .events-container {
+        width: 94%;
+    }
+
+    .events-grid {
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 1.2rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .events-page {
+        padding: 1.5rem 0 2rem;
+    }
+
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .events-filters {
+        gap: 0.5rem;
+    }
+}

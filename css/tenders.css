@@ -1,0 +1,106 @@
+/* =====================================================
+   tenders.css — Consistent with site design
+   ===================================================== */
+
+.tenders-page {
+    background-color: var(--clr-bg);
+    min-height: calc(100vh - 200px);
+    padding: 2.25rem 0 3rem;
+}
+
+.tenders-page-title { text-align: center; margin-bottom: 2rem; }
+
+.tenders-page-title h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 2.8vw, 1.85rem);
+    font-weight: 700; color: var(--clr-heading);
+    letter-spacing: 0.015em; margin-bottom: 0.4rem;
+}
+
+.tenders-page-title__bar {
+    display: block; width: 64px; height: 3px;
+    background: linear-gradient(90deg, transparent, var(--clr-hover), transparent);
+    border-radius: 2px; margin: 0 auto 0.45rem;
+}
+
+.tenders-page-title__sub {
+    font-family: var(--font-body); font-size: 0.82rem;
+    color: var(--clr-text); opacity: 0.6;
+}
+
+.tenders-container { max-width: 1000px; width: 92%; margin-inline: auto; }
+
+.tenders-table-wrap {
+    background: #fff8f0; border-radius: 10px;
+    border: 1px solid rgba(74, 44, 23, 0.1);
+    box-shadow: 0 4px 18px rgba(74, 44, 23, 0.09);
+    overflow: hidden;
+}
+
+.tenders-table {
+    width: 100%; border-collapse: collapse;
+    font-family: var(--font-body); font-size: 0.84rem;
+}
+
+.tenders-table thead tr {
+    background: linear-gradient(90deg, var(--clr-nav-start), var(--clr-nav-end));
+}
+
+.tenders-table thead th {
+    padding: 0.7rem 1rem; text-align: left;
+    color: var(--clr-nav-text); font-weight: 600;
+    font-size: 0.78rem; letter-spacing: 0.04em;
+    text-transform: uppercase; white-space: nowrap;
+}
+
+.tenders-table tbody tr {
+    border-bottom: 1px solid rgba(74, 44, 23, 0.08);
+    transition: background 0.15s ease;
+}
+
+.tenders-table tbody tr:last-child { border-bottom: none; }
+.tenders-table tbody tr:nth-child(odd) { background: rgba(74, 44, 23, 0.025); }
+.tenders-table tbody tr:hover { background: rgba(212, 160, 23, 0.07); }
+
+.tenders-table tbody td {
+    padding: 0.62rem 1rem; color: var(--clr-text);
+    line-height: 1.5; vertical-align: middle;
+}
+
+.tenders-status {
+    display: inline-block; padding: 0.18rem 0.6rem;
+    border-radius: 50px; font-size: 0.72rem; font-weight: 600;
+}
+
+.tenders-status--open { background: rgba(22, 101, 52, 0.1); color: #166534; }
+.tenders-status--closed { background: rgba(153, 27, 27, 0.1); color: #991b1b; }
+.tenders-status--upcoming { background: rgba(212, 160, 23, 0.15); color: var(--clr-nav-start); }
+
+.tenders-download-btn {
+    display: inline-flex; align-items: center; gap: 0.35rem;
+    font-family: var(--font-body); font-size: 0.78rem;
+    font-weight: 600; color: var(--clr-accent);
+    border: 1.5px solid var(--clr-accent);
+    border-radius: 5px; padding: 0.28rem 0.7rem;
+    text-decoration: none; white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.tenders-download-btn:hover { background: var(--clr-accent); color: #fff; }
+
+.tenders-coming-soon {
+    display: flex; flex-direction: column;
+    align-items: center; text-align: center;
+    padding: 4rem 2rem; gap: 1rem;
+}
+
+.tenders-coming-soon__icon { font-size: 3.5rem; }
+.tenders-coming-soon__title { font-family: var(--font-heading); font-size: 1.6rem; color: var(--clr-heading); font-weight: 700; }
+.tenders-coming-soon__text { font-family: var(--font-body); font-size: 0.9rem; color: var(--clr-text); opacity: 0.7; max-width: 480px; line-height: 1.7; }
+
+@media (max-width: 768px) { .tenders-container { width: 94%; } }
+
+@media (max-width: 640px) {
+    .tenders-page { padding: 1.5rem 0 2rem; }
+    .tenders-table-wrap { overflow-x: auto; }
+}

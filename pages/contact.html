@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Contact HN College of Management, Solapur — Address, email, phone and inquiry form." />
+    <title>Contact Us — HN College of Management, Solapur</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/contact.css" />
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+    <div id="navbar-placeholder"></div>
+
+    <main class="contact-page" id="contact-main">
+
+        <div class="contact-page-title">
+            <h2>Contact Us</h2>
+            <span class="contact-page-title__bar"></span>
+            <p class="contact-page-title__sub">We'd love to hear from you — reach out for admissions, queries, or feedback</p>
+        </div>
+
+        <div class="contact-pg-container">
+
+            <!-- Two-column Layout -->
+            <div class="contact-layout">
+
+                <!-- Info Column -->
+                <div class="contact-info">
+                    <h3 class="contact-info__heading">Get in Touch</h3>
+
+                    <div class="contact-detail">
+                        <span class="contact-detail__icon">📍</span>
+                        <div>
+                            <p class="contact-detail__label">Address</p>
+                            <p class="contact-detail__value">HN College of Management<br>Solapur, Maharashtra – 413 006</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <span class="contact-detail__icon">✉️</span>
+                        <div>
+                            <p class="contact-detail__label">Email</p>
+                            <p class="contact-detail__value"><a href="mailto:hnccsolapur@gmail.com">hnccsolapur@gmail.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <span class="contact-detail__icon">🏛️</span>
+                        <div>
+                            <p class="contact-detail__label">Affiliation</p>
+                            <p class="contact-detail__value">P.A.H. Solapur University<br>Autonomous | NAAC 'A' Grade</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <span class="contact-detail__icon">🕐</span>
+                        <div>
+                            <p class="contact-detail__label">Office Hours</p>
+                            <p class="contact-detail__value">Monday – Saturday<br>9:00 AM – 5:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Column -->
+                <div class="contact-form-card">
+                    <h3 class="contact-form-card__heading">Send Us a Message</h3>
+                    <p class="contact-form-card__desc">Fill in the form below and we'll get back to you as soon as possible.</p>
+
+                    <form id="contactForm" action="#" method="POST" novalidate>
+                        <div class="contact-form-row">
+                            <div class="contact-form-group">
+                                <label for="contactName">Full Name <span aria-hidden="true">*</span></label>
+                                <input type="text" id="contactName" name="name" placeholder="Your full name" required />
+                            </div>
+                            <div class="contact-form-group">
+                                <label for="contactEmail">Email Address <span aria-hidden="true">*</span></label>
+                                <input type="email" id="contactEmail" name="email" placeholder="your@email.com" required />
+                            </div>
+                        </div>
+                        <div class="contact-form-row">
+                            <div class="contact-form-group">
+                                <label for="contactPhone">Phone Number</label>
+                                <input type="tel" id="contactPhone" name="phone" placeholder="+91 XXXXX XXXXX" />
+                            </div>
+                            <div class="contact-form-group">
+                                <label for="contactSubject">Subject <span aria-hidden="true">*</span></label>
+                                <select id="contactSubject" name="subject" required>
+                                    <option value="" disabled selected>Select subject</option>
+                                    <option value="admissions">Admissions Enquiry</option>
+                                    <option value="academics">Academic Query</option>
+                                    <option value="placement">Placement &amp; Internship</option>
+                                    <option value="general">General Information</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="contact-form-group">
+                            <label for="contactMessage">Message <span aria-hidden="true">*</span></label>
+                            <textarea id="contactMessage" name="message" placeholder="Write your message here…" required></textarea>
+                        </div>
+                        <button type="submit" class="contact-submit-btn" id="contactSubmit">📨 Send Message</button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Map Placeholder -->
+            <div class="contact-map-card">
+                <h3 class="contact-map-card__heading">📍 Our Location</h3>
+                <div class="contact-map-placeholder">
+                    <span class="contact-map-placeholder__icon">🗺️</span>
+                    <p class="contact-map-placeholder__text">Google Maps embed will appear here</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/loader.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

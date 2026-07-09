@@ -1,0 +1,234 @@
+/* ================================================================
+   placement-page.css — HN College of Management, Solapur
+   Placement & Training Page — consistent with site design
+   ================================================================ */
+
+/* ── Page Wrapper ── */
+.placement-pg {
+    background-color: var(--clr-bg);
+    min-height: calc(100vh - 200px);
+    padding: 2.25rem 0 3rem;
+}
+
+/* ── Page Title ── */
+.placement-pg-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.placement-pg-title h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 2.8vw, 1.85rem);
+    font-weight: 700;
+    color: var(--clr-heading);
+    letter-spacing: 0.015em;
+    margin-bottom: 0.4rem;
+}
+
+.placement-pg-title__bar {
+    display: block;
+    width: 64px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--clr-hover), transparent);
+    border-radius: 2px;
+    margin: 0 auto 0.45rem;
+}
+
+.placement-pg-title__sub {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--clr-text);
+    opacity: 0.6;
+}
+
+/* ── Container ── */
+.placement-pg-container {
+    max-width: 1160px;
+    width: 92%;
+    margin-inline: auto;
+}
+
+/* ── Stats Banner ── */
+.placement-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+}
+
+.placement-stat-card {
+    background: linear-gradient(135deg, var(--clr-nav-start) 0%, var(--clr-nav-end) 100%);
+    border-radius: 10px;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+    box-shadow: 0 4px 18px rgba(74, 44, 23, 0.2);
+}
+
+.placement-stat-card__number {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 800;
+    color: var(--clr-hover);
+    line-height: 1;
+    margin-bottom: 0.35rem;
+}
+
+.placement-stat-card__label {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--clr-nav-text);
+    opacity: 0.88;
+    letter-spacing: 0.02em;
+}
+
+/* ── Section Card ── */
+.placement-card {
+    background: #fff8f0;
+    border-radius: 10px;
+    border: 1px solid rgba(74, 44, 23, 0.1);
+    box-shadow: 0 4px 18px rgba(74, 44, 23, 0.08);
+    padding: 1.75rem;
+    margin-bottom: 1.75rem;
+}
+
+.placement-card__heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+    font-weight: 700;
+    color: var(--clr-heading);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--clr-hover);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* ── Recruiters Grid ── */
+.recruiters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+}
+
+.recruiter-card {
+    background: var(--clr-bg);
+    border: 1px solid rgba(74, 44, 23, 0.12);
+    border-radius: 8px;
+    padding: 1.25rem 1rem;
+    text-align: center;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.recruiter-card:hover {
+    box-shadow: 0 4px 16px rgba(74, 44, 23, 0.15);
+    transform: translateY(-2px);
+}
+
+.recruiter-card__icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.recruiter-card__name {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--clr-heading);
+}
+
+/* ── Placement Table ── */
+.placement-table-wrap {
+    overflow-x: auto;
+}
+
+.placement-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-body);
+    font-size: 0.83rem;
+}
+
+.placement-table th {
+    background: linear-gradient(90deg, var(--clr-nav-start), var(--clr-nav-end));
+    color: var(--clr-hover);
+    font-weight: 600;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    white-space: nowrap;
+    letter-spacing: 0.03em;
+}
+
+.placement-table td {
+    padding: 0.72rem 1rem;
+    color: var(--clr-text);
+    border-bottom: 1px solid rgba(74, 44, 23, 0.07);
+}
+
+.placement-table tr:nth-child(even) td {
+    background: rgba(212, 160, 23, 0.05);
+}
+
+.placement-table tr:hover td {
+    background: rgba(212, 160, 23, 0.1);
+}
+
+/* ── Testimonials ── */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+}
+
+.testimonial-card {
+    background: var(--clr-bg);
+    border-left: 4px solid var(--clr-hover);
+    border-radius: 0 8px 8px 0;
+    padding: 1.25rem;
+}
+
+.testimonial-card__quote {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--clr-text);
+    line-height: 1.65;
+    font-style: italic;
+    margin-bottom: 0.85rem;
+}
+
+.testimonial-card__name {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--clr-heading);
+}
+
+.testimonial-card__role {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: var(--clr-text);
+    opacity: 0.7;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+    .placement-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .placement-pg {
+        padding: 1.5rem 0 2rem;
+    }
+
+    .placement-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.85rem;
+    }
+
+    .placement-card {
+        padding: 1.25rem;
+    }
+}
