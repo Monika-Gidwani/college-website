@@ -38,49 +38,191 @@
 
             <div class="prog-content" id="progContent">
                 <div class="prog-panel prog-visible" id="panel-bba">
-                    <div class="prog-card">
-                        <div class="prog-overview-strip">
-                            <div class="prog-overview-strip__icon" aria-hidden="true">📊</div>
-                            <div class="prog-overview-strip__text">
-                                <strong>Bachelor of Business Administration (BBA)</strong>
-                                3-Year Undergraduate Programme · 6 Semesters · Intake: 60 Seats
+                    <div class="bca-tabs-bar" role="tablist" aria-label="BBA sections">
+                        <button class="bca-tab-btn active bca-tab-active" data-tab="bba-about" role="tab" aria-selected="true">About Department</button>
+                        <button class="bca-tab-btn" data-tab="bba-mission" role="tab" aria-selected="false">Mission &amp; Focus</button>
+                        <button class="bca-tab-btn" data-tab="bba-co" role="tab" aria-selected="false">PO, PSO, PEO</button>
+                        <button class="bca-tab-btn" data-tab="bba-faculty" role="tab" aria-selected="false">Faculty</button>
+                        <button class="bca-tab-btn" data-tab="bba-activities" role="tab" aria-selected="false">Activities</button>
+                        <button class="bca-tab-btn" data-tab="bba-syllabus" role="tab" aria-selected="false">Syllabus</button>
+                        <button class="bca-tab-btn" data-tab="bba-special" role="tab" aria-selected="false">Specialisation</button>
+                        <button class="bca-tab-btn" data-tab="bba-cert" role="tab" aria-selected="false">Certification Course</button>
+                        <button class="bca-tab-btn" data-tab="bba-parents" role="tab" aria-selected="false">Parents Meet &amp; Orientation</button>
+                    </div>
+
+                    <div class="bca-tab-content active" data-content="bba-about" role="tabpanel">
+                        <div class="prog-card">
+                            <h2 class="prog-section-title">About Department</h2>
+                            <div class="prog-callout"><p>The Bachelor of Business Administration (BBA) Department at Hirachand Nemchand College of Commerce develops future managers and entrepreneurs through a balanced blend of management concepts, practical learning, communication skills, and ethical values.</p></div>
+                            <div class="prog-info-grid">
+                                <div class="prog-info-card"><div class="prog-info-card__label">Duration</div><div class="prog-info-card__value">3 Years (6 Semesters)</div></div>
+                                <div class="prog-info-card"><div class="prog-info-card__label">Intake</div><div class="prog-info-card__value">60 Seats</div></div>
+                                <div class="prog-info-card"><div class="prog-info-card__label">Eligibility</div><div class="prog-info-card__value">10+2 (Any Stream)</div></div>
+                                <div class="prog-info-card"><div class="prog-info-card__label">Affiliation</div><div class="prog-info-card__value">P.A.H. Solapur University</div></div>
+                            </div>
+                            <div class="prog-body">
+                                <h3 class="prog-sub-heading">Overview</h3>
+                                <p>The BBA programme provides a strong foundation in business management and prepares students for dynamic careers in marketing, finance, human resources, banking, retail, entrepreneurship, and allied sectors.</p>
+                                <p>The curriculum combines classroom learning with case studies, presentations, role plays, business simulations, industry interaction, projects, and internship exposure. It helps students develop professional competence and decision-making ability.</p>
                             </div>
                         </div>
+                    </div>
 
-                        <h2 class="prog-section-title">BBA Course</h2>
-                        <div class="prog-callout">
-                            <p>The Bachelor of Business Administration (BBA) programme provides a strong foundation in business, management, and entrepreneurship — grooming students for careers in business, banking, finance, marketing, and human resources, or for advanced studies such as MBA.</p>
+                    <div class="bca-tab-content" data-content="bba-mission" role="tabpanel">
+                        <div class="prog-card">
+                            <h2 class="prog-section-title">Mission &amp; Focus</h2>
+                            <div class="prog-vm-grid">
+                                <div class="prog-vm-box">
+                                    <div class="prog-vm-box__label">Mission</div>
+                                    <ul class="prog-list">
+                                        <li>Provide quality management education grounded in practical application and ethical values.</li>
+                                        <li>Develop analytical, leadership, communication, and entrepreneurial skills.</li>
+                                        <li>Create industry-ready graduates through projects, internships, seminars, and experiential learning.</li>
+                                    </ul>
+                                </div>
+                                <div class="prog-vm-box">
+                                    <div class="prog-vm-box__label">What Students Learn</div>
+                                    <p>BBA students learn principles of management, accounting, economics, marketing, human resources, finance, business law, entrepreneurship, and strategic management.</p>
+                                </div>
+                            </div>
+                            <div class="prog-body" style="margin-top:1.5rem;">
+                                <h3 class="prog-sub-heading">Programme Focus</h3>
+                                <ul class="prog-list">
+                                    <li>Management fundamentals and business decision-making</li>
+                                    <li>Accounting, finance, marketing, and human resource practices</li>
+                                    <li>Business communication and professional presentation</li>
+                                    <li>Entrepreneurship and innovation</li>
+                                    <li>Industry exposure, projects, and internship experience</li>
+                                </ul>
+                            </div>
                         </div>
+                    </div>
 
-                        <div class="prog-info-grid">
-                            <div class="prog-info-card"><div class="prog-info-card__label">Duration</div><div class="prog-info-card__value">3 Years (6 Semesters)</div></div>
-                            <div class="prog-info-card"><div class="prog-info-card__label">Intake</div><div class="prog-info-card__value">60 Seats</div></div>
-                            <div class="prog-info-card"><div class="prog-info-card__label">Eligibility</div><div class="prog-info-card__value">10+2 (Any Stream)</div></div>
-                            <div class="prog-info-card"><div class="prog-info-card__label">Affiliation</div><div class="prog-info-card__value">P.A.H. Solapur University</div></div>
-                        </div>
-
-                        <div class="prog-body">
-                            <h3 class="prog-sub-heading">Programme Highlights</h3>
+                    <div class="bca-tab-content" data-content="bba-co" role="tabpanel">
+                        <div class="prog-card">
+                            <h2 class="prog-section-title">PO, PSO &amp; PEO</h2>
+                            <h3 class="prog-sub-heading" style="margin-top:0.5rem;">Program Educational Objectives (PEOs)</h3>
                             <ul class="prog-list">
-                                <li>Broad-based business curriculum covering management principles, accounting, economics, marketing, HR, and entrepreneurship.</li>
-                                <li>Practical exposure through case studies, business simulations, role plays, and industry visits.</li>
-                                <li>Industry internship in the final year to gain hands-on corporate experience.</li>
-                                <li>Skill-development sessions in communication, leadership, presentation, and business etiquette.</li>
-                                <li>Direct pathway to MBA — BBA graduates are preferred and prepared for top MBA entrance examinations.</li>
-                                <li>Career pathways: Business Executive, Sales Manager, HR Executive, Banking, Retail Management, Entrepreneurship.</li>
+                                <li>PEO 1: Build strong foundational knowledge of business and management concepts.</li>
+                                <li>PEO 2: Apply managerial, analytical, and entrepreneurial skills in professional roles.</li>
+                                <li>PEO 3: Demonstrate ethical conduct, effective communication, leadership, and lifelong learning.</li>
+                            </ul>
+                            <h3 class="prog-sub-heading" style="margin-top:1.2rem;">Programme Outcomes (POs)</h3>
+                            <ul class="prog-list">
+                                <li>PO1: Understand core concepts of management, accounting, economics, finance, marketing, and human resources.</li>
+                                <li>PO2: Analyze business problems and identify appropriate managerial solutions.</li>
+                                <li>PO3: Use communication, presentation, and negotiation skills effectively.</li>
+                                <li>PO4: Apply ethical, legal, and socially responsible principles in business decisions.</li>
+                                <li>PO5: Work effectively in teams and demonstrate leadership qualities.</li>
+                                <li>PO6: Use digital and analytical tools for business operations and decision-making.</li>
+                                <li>PO7: Engage in lifelong learning and adapt to changing business environments.</li>
+                            </ul>
+                            <h3 class="prog-sub-heading" style="margin-top:1.2rem;">Program Specific Outcomes (PSOs)</h3>
+                            <ul class="prog-list">
+                                <li>PSO1: Apply functional knowledge to solve real-world business problems.</li>
+                                <li>PSO2: Demonstrate readiness for management, entrepreneurship, banking, or higher studies.</li>
+                                <li>PSO3: Develop comprehensive understanding of organizational processes and industry practices.</li>
                             </ul>
                         </div>
+                    </div>
 
-                        <h3 class="prog-sub-heading" style="margin-top:1.2rem;">Curriculum Overview</h3>
-                        <div class="prog-table-wrap">
-                            <table class="prog-table">
-                                <thead><tr><th>Year</th><th>Key Subjects</th></tr></thead>
-                                <tbody>
-                                    <tr><td style="width:100px;">Year 1</td><td>Principles of Management, Business Communication, Financial Accounting, Business Economics, Computer Applications</td></tr>
-                                    <tr><td>Year 2</td><td>Marketing Management, Human Resource Management, Cost Accounting, Business Law, Entrepreneurship Development</td></tr>
-                                    <tr><td>Year 3</td><td>Strategic Management, International Business, Financial Services, Project Management, Internship &amp; Project Report</td></tr>
-                                </tbody>
-                            </table>
+                    <div class="bca-tab-content" data-content="bba-faculty" role="tabpanel">
+                        <div class="prog-card">
+                            <h2 class="prog-section-title">Faculty</h2>
+                            <div class="prog-callout"><p>The BBA Department is supported by faculty members who focus on management education, student mentoring, practical learning, and academic development.</p></div>
+                            <div class="prog-faculty-list">
+                                <div class="prog-faculty-card"><div class="prog-faculty-card__inner"><div class="prog-faculty-card__info"><h3 class="prog-sub-heading">Dr. Lalita Rawal</h3><p class="prog-faculty-meta">Assistant Professor</p><div class="prog-body"><p>Faculty member of the BBA Department.</p></div></div><img class="prog-faculty-card__img" src="../../assets/BBA-faculty/Lalita_rawal.jpg" alt="Dr. Lalita Rawal"></div></div>
+                                <div class="prog-faculty-card"><div class="prog-faculty-card__inner"><div class="prog-faculty-card__info"><h3 class="prog-sub-heading">Mrs. Priyanka Kurle</h3><p class="prog-faculty-meta">Assistant Professor</p><div class="prog-body"><p>Faculty member of the BBA Department.</p></div></div><img class="prog-faculty-card__img" src="../../assets/BBA-faculty/Priyanka_kurle.jpg" alt="Mrs. Priyanka Kurle"></div></div>
+                                <div class="prog-faculty-card"><div class="prog-faculty-card__inner"><div class="prog-faculty-card__info"><h3 class="prog-sub-heading">Mrs. Rajani Kshirsagar</h3><p class="prog-faculty-meta">Assistant Professor</p><div class="prog-body"><p>Faculty member of the BBA Department.</p></div></div><img class="prog-faculty-card__img" src="../../assets/BBA-faculty/Rajani_Kshirsagar.jpg" alt="Mrs. Rajani Kshirsagar"></div></div>
+                                <div class="prog-faculty-card"><div class="prog-faculty-card__inner"><div class="prog-faculty-card__info"><h3 class="prog-sub-heading">Ms. Manali Mhetre</h3><p class="prog-faculty-meta">Assistant Professor</p><div class="prog-body"><p>Faculty member of the BBA Department.</p></div></div><img class="prog-faculty-card__img" src="../../assets/BBA-faculty/manali_mhetre.jpg" alt="Ms. Manali Mhetre"></div></div>
+                                <div class="prog-faculty-card"><div class="prog-faculty-card__inner"><div class="prog-faculty-card__info"><h3 class="prog-sub-heading">Mr. Sandeep Kasturkar</h3><p class="prog-faculty-meta">Assistant Professor</p><div class="prog-body"><p>Faculty member of the BBA Department.</p></div></div><img class="prog-faculty-card__img" src="../../assets/BBA-faculty/sandeep_kasturkar.jpg" alt="Mr. Sandeep Kasturkar"></div></div>
+                                <div class="prog-faculty-card"><div class="prog-faculty-card__inner"><div class="prog-faculty-card__info"><h3 class="prog-sub-heading">Mrs. Sheetal Nayaku</h3><p class="prog-faculty-meta">Assistant Professor</p><div class="prog-body"><p>Faculty member of the BBA Department.</p></div></div><img class="prog-faculty-card__img" src="../../assets/BBA-faculty/sheetal_nayaku.jpg" alt="Mrs. Sheetal Nayaku"></div></div>
+                                <div class="prog-faculty-card"><div class="prog-faculty-card__inner"><div class="prog-faculty-card__info"><h3 class="prog-sub-heading">Ms. Sonal Kedari</h3><p class="prog-faculty-meta">Assistant Professor</p><div class="prog-body"><p>Faculty member of the BBA Department.</p></div></div><img class="prog-faculty-card__img" src="../../assets/BBA-faculty/sonal_kedari.jpg" alt="Ms. Sonal Kedari"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bca-tab-content" data-content="bba-activities" role="tabpanel">
+                        <div class="prog-card">
+                            <h2 class="prog-section-title">Academic &amp; Co-Curricular Activities</h2>
+                            <div class="prog-callout"><p>The BBA Department conducts academic and co-curricular activities that strengthen management knowledge, confidence, creativity, teamwork, and industry awareness.</p></div>
+                            <div class="prog-body">
+                                <h3 class="prog-sub-heading">Academic Activities</h3>
+                                <ul class="prog-list">
+                                    <li>Guest lectures and expert sessions from industry professionals</li>
+                                    <li>Case-study discussions and business presentations</li>
+                                    <li>Industrial visits and field-based learning</li>
+                                    <li>Seminars, workshops, management games, and project work</li>
+                                    <li>Internship and entrepreneurship development activities</li>
+                                </ul>
+                                <h3 class="prog-sub-heading" style="margin-top:1.2rem;">Co-Curricular Activities</h3>
+                                <ul class="prog-list">
+                                    <li>Commerzarena — management and commerce fest</li>
+                                    <li>Udyamdeep — entrepreneurship event</li>
+                                    <li>Business quizzes and presentation competitions</li>
+                                    <li>Aarohi — cultural festival</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bca-tab-content" data-content="bba-syllabus" role="tabpanel">
+                        <div class="prog-card">
+                            <h2 class="prog-section-title">Syllabus</h2>
+                            <div class="prog-callout"><p>The BBA syllabus follows the programme structure prescribed by Punyashlok Ahilyadevi Holkar Solapur University and is updated through the college academic plan.</p></div>
+                            <h3 class="prog-sub-heading">Curriculum Overview</h3>
+                            <div class="prog-table-wrap">
+                                <table class="prog-table">
+                                    <thead><tr><th>Year</th><th>Key Subjects</th></tr></thead>
+                                    <tbody>
+                                        <tr><td style="width:100px;">Year 1</td><td>Principles of Management, Business Communication, Financial Accounting, Business Economics, Computer Applications</td></tr>
+                                        <tr><td>Year 2</td><td>Marketing Management, Human Resource Management, Cost Accounting, Business Law, Entrepreneurship Development</td></tr>
+                                        <tr><td>Year 3</td><td>Strategic Management, International Business, Financial Services, Project Management, Internship and Project Report</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="prog-body" style="margin-top:1.2rem;">
+                                <p>Detailed semester-wise syllabus and academic plans are available in the Academic Calendar and College documents.</p>
+                                <a class="ac-download-btn" href="../../assets/Academic Calender/BBA Academic Plan 2025-26.pdf" target="_blank" rel="noopener">&#128196; Download BBA Academic Plan</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bca-tab-content" data-content="bba-special" role="tabpanel">
+                        <div class="prog-card">
+                            <h2 class="prog-section-title">Specialisation</h2>
+                            <div class="prog-callout"><p>The BBA programme develops functional and industry-oriented capabilities across major areas of business management.</p></div>
+                            <div class="prog-spec-grid">
+                                <div class="prog-spec-card"><div class="prog-spec-card__icon">📈</div><div class="prog-spec-card__title">Marketing Management</div></div>
+                                <div class="prog-spec-card"><div class="prog-spec-card__icon">👥</div><div class="prog-spec-card__title">Human Resource Management</div></div>
+                                <div class="prog-spec-card"><div class="prog-spec-card__icon">💰</div><div class="prog-spec-card__title">Finance &amp; Banking</div></div>
+                                <div class="prog-spec-card"><div class="prog-spec-card__icon">🚀</div><div class="prog-spec-card__title">Entrepreneurship</div></div>
+                            </div>
+                            <div class="prog-body" style="margin-top:1.2rem;">
+                                <h3 class="prog-sub-heading">Career Opportunities</h3>
+                                <p>Graduates can pursue careers as management trainees, sales executives, marketing executives, HR executives, banking professionals, finance associates, retail managers, or entrepreneurs.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bca-tab-content" data-content="bba-cert" role="tabpanel">
+                        <div class="prog-card">
+                            <h2 class="prog-section-title">Certification Courses</h2>
+                            <div class="prog-callout"><p>Value-added certification courses help BBA students develop practical, job-oriented competencies in addition to the university curriculum.</p></div>
+                            <div class="prog-spec-grid">
+                                <div class="prog-spec-card"><div class="prog-spec-card__icon">📊</div><div class="prog-spec-card__title">Tally &amp; Accounting Applications</div><p class="prog-spec-card__desc">Practical training in accounting, GST, vouchers, and computerized financial records.</p></div>
+                                <div class="prog-spec-card"><div class="prog-spec-card__icon">🎯</div><div class="prog-spec-card__title">Digital Marketing</div><p class="prog-spec-card__desc">Introduction to social media, content marketing, online branding, analytics, and digital advertising.</p></div>
+                                <div class="prog-spec-card"><div class="prog-spec-card__icon">💼</div><div class="prog-spec-card__title">Professional &amp; Soft Skills</div><p class="prog-spec-card__desc">Training in communication, interview skills, presentation, workplace etiquette, and teamwork.</p></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bca-tab-content" data-content="bba-parents" role="tabpanel">
+                        <div class="prog-card">
+                            <h2 class="prog-section-title">Parents Meet &amp; Orientation Program</h2>
+                            <div class="prog-callout"><p>The BBA Department conducts induction, orientation, and parent interaction programmes to support students throughout their academic journey.</p></div>
+                            <div class="prog-event-row"><div class="prog-event-badge" aria-hidden="true">🎓</div><div class="prog-event-info"><div class="prog-event-info__title">Induction &amp; Orientation Programme</div><p class="prog-event-info__desc">The programme introduces newly admitted students to the college, faculty, BBA curriculum, academic calendar, examination system, library, facilities, and student support services.</p></div></div>
+                            <div class="prog-event-row"><div class="prog-event-badge" aria-hidden="true">👨‍👩‍👧</div><div class="prog-event-info"><div class="prog-event-info__title">Parents' Meet</div><p class="prog-event-info__desc">Parents interact with faculty to discuss attendance, academic progress, examinations, mentoring, career guidance, discipline, and opportunities for student development.</p></div></div>
                         </div>
                     </div>
                 </div><!-- /panel-bba -->

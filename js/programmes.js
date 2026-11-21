@@ -88,7 +88,10 @@ document.addEventListener('DOMContentLoaded', function () {
         var content = document.querySelector('.bca-tab-content[data-content="' + tabName + '"]');
         if (content) content.classList.add('active');
 
-        try { sessionStorage.setItem('progBcaTab', tabName); } catch (e) { }
+        try {
+            if (tabName.indexOf('bba-') === 0) sessionStorage.setItem('progBbaTab', tabName);
+            else sessionStorage.setItem('progBcaTab', tabName);
+        } catch (e) { }
     }
 
     /* tab button click — no hash, no scroll */
@@ -99,6 +102,23 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    function activateStandaloneBbaTab() {
+        var hasBbaTabs = document.querySelector('.bca-tab-btn[data-tab^="bba-"]');
+        if (!hasBbaTabs) return;
+
+        var tabName = 'bba-about';
+        var fromHash = window.location.hash ? window.location.hash.slice(1).toLowerCase() : '';
+        var resolved = resolveHash ? resolveHash(fromHash) : null;
+        if (resolved && resolved.prog === 'bba' && resolved.tab) {
+            tabName = resolved.tab;
+        } else {
+            try {
+                tabName = sessionStorage.getItem('progBbaTab') || tabName;
+            } catch (e) { }
+        }
+        activateBcaTab(tabName);
+    }
+
     /* ════════════════════════════════════════════════
        SIDEBAR PROGRAMME SWITCHING  (MBA / BCA / BBA)
     ════════════════════════════════════════════════ */
@@ -108,6 +128,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!sidebarLinks.length || !panels.length) {
         /* at least run default tab on page load */
         activateMbaTab('hod');
+        activateStandaloneBbaTab();
         return;
     }
 
@@ -138,7 +159,16 @@ document.addEventListener('DOMContentLoaded', function () {
         'bca-certification': { prog: 'bca', tab: 'bca-cert' },
         'bca-parents-meet': { prog: 'bca', tab: 'bca-parents' },
         'bba': { prog: 'bba', tab: null },
-        'panel-bba': { prog: 'bba', tab: null }
+        'panel-bba': { prog: 'bba', tab: null },
+        'bba-about-dept': { prog: 'bba', tab: 'bba-about' },
+        'bba-mission-focus': { prog: 'bba', tab: 'bba-mission' },
+        'bba-po-pso-peo': { prog: 'bba', tab: 'bba-co' },
+        'bba-faculty': { prog: 'bba', tab: 'bba-faculty' },
+        'bba-activities': { prog: 'bba', tab: 'bba-activities' },
+        'bba-syllabus': { prog: 'bba', tab: 'bba-syllabus' },
+        'bba-specialisation': { prog: 'bba', tab: 'bba-special' },
+        'bba-certification': { prog: 'bba', tab: 'bba-cert' },
+        'bba-parents-meet': { prog: 'bba', tab: 'bba-parents' }
     };
 
     function resolveHash(raw) {
@@ -163,6 +193,7 @@ document.addEventListener('DOMContentLoaded', function () {
         showProgramme(progId);
         if (progId === 'mba') activateMbaTab(tabName || 'hod');
         if (progId === 'bca') activateBcaTab(tabName || 'bca-about');
+        if (progId === 'bba') activateBcaTab(tabName || 'bba-about');
     }
 
     /* sidebar clicks */
