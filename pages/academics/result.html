@@ -14,6 +14,60 @@
     <link rel="stylesheet" href="../../css/navbar.css" />
     <link rel="stylesheet" href="../../css/components.css" />
     <link rel="stylesheet" href="../../css/academics.css" />
+    <style>
+        .result-analysis {
+            margin-top: 1.6rem;
+        }
+
+        .result-analysis .ac-table {
+            min-width: 760px;
+        }
+
+        .result-chart-section {
+            margin-top: 1.6rem;
+        }
+
+        .result-chart-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 0.9rem;
+        }
+
+        .result-chart-card {
+            min-width: 0;
+            padding: 1rem;
+            background: #fff;
+            border: 1px solid rgba(74, 44, 23, 0.12);
+            border-top: 3px solid var(--clr-hover);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(74, 44, 23, 0.06);
+        }
+
+        .result-chart-card h4 {
+            margin: 0 0 0.75rem;
+            color: var(--clr-heading);
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+        }
+
+        .result-chart-canvas-wrap {
+            position: relative;
+            height: 230px;
+        }
+
+        .result-chart-message {
+            margin-top: 1rem;
+            color: var(--clr-heading);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 480px) {
+            .result-chart-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="header-placeholder"></div>
@@ -80,6 +134,64 @@
                                     </tbody>
                                 </table>
                             </div>
+
+                            <section class="result-analysis" aria-labelledby="result-analysis-title">
+                                <h3 class="ac-sub-heading" id="result-analysis-title">2025–26 Class-wise Result Analysis</h3>
+                                <p>Figures are reproduced from the supplied 2025–26 result analysis documents. Reported pass totals and percentages are shown as published.</p>
+                                <div class="ac-table-wrap">
+                                    <table class="ac-table" id="result-class-data">
+                                        <thead>
+                                            <tr>
+                                                <th>Class</th>
+                                                <th>Appeared</th>
+                                                <th>Passed (reported)</th>
+                                                <th>Pass %</th>
+                                                <th>O</th>
+                                                <th>A+</th>
+                                                <th>A</th>
+                                                <th>B+</th>
+                                                <th>B</th>
+                                                <th>C+</th>
+                                                <th>C</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr data-course="BBA" data-part="Part I" data-appeared="126" data-passed="94" data-pass="91.26" data-grades="13,23,18,13,18,9,0">
+                                                <td>BBA Part I</td><td>126</td><td>94</td><td>91.26%</td><td>13</td><td>23</td><td>18</td><td>13</td><td>18</td><td>9</td><td>0</td>
+                                            </tr>
+                                            <tr data-course="BBA" data-part="Part II" data-appeared="119" data-passed="69" data-pass="58" data-grades="3,4,21,18,15,10,0">
+                                                <td>BBA Part II</td><td>119</td><td>69</td><td>58%</td><td>3</td><td>4</td><td>21</td><td>18</td><td>15</td><td>10</td><td>0</td>
+                                            </tr>
+                                            <tr data-course="BBA" data-part="Part III" data-appeared="124" data-passed="119" data-pass="95.97" data-grades="47,34,25,10,2,1,0">
+                                                <td>BBA Part III</td><td>124</td><td>119</td><td>95.97%</td><td>47</td><td>34</td><td>25</td><td>10</td><td>2</td><td>1</td><td>0</td>
+                                            </tr>
+                                            <tr data-course="BCA" data-part="Part I" data-appeared="126" data-passed="58" data-pass="79.36" data-grades="3,11,21,15,6,2,0">
+                                                <td>BCA Part I</td><td>126</td><td>58</td><td>79.36%</td><td>3</td><td>11</td><td>21</td><td>15</td><td>6</td><td>2</td><td>0</td>
+                                            </tr>
+                                            <tr data-course="BCA" data-part="Part II" data-appeared="120" data-passed="65" data-pass="91.66" data-grades="13,22,17,9,5,3,0">
+                                                <td>BCA Part II</td><td>120</td><td>65</td><td>91.66%</td><td>13</td><td>22</td><td>17</td><td>9</td><td>5</td><td>3</td><td>0</td>
+                                            </tr>
+                                            <tr data-course="BCA" data-part="Part III" data-appeared="56" data-passed="52" data-pass="92.85" data-grades="11,18,14,10,1,0,0">
+                                                <td>BCA Part III</td><td>56</td><td>52</td><td>92.85%</td><td>11</td><td>18</td><td>14</td><td>10</td><td>1</td><td>0</td><td>0</td>
+                                            </tr>
+                                            <tr data-course="MBA" data-part="Part I" data-appeared="126" data-passed="111" data-pass="96.03" data-grades="14,59,35,4,0,0,0">
+                                                <td>MBA Part I</td><td>126</td><td>111</td><td>96.03%</td><td>14</td><td>59</td><td>35</td><td>4</td><td>0</td><td>0</td><td>0</td>
+                                            </tr>
+                                            <tr data-course="MBA" data-part="Part II" data-appeared="122" data-passed="116" data-pass="95.08" data-grades="3,48,47,17,1,0,0">
+                                                <td>MBA Part II</td><td>122</td><td>116</td><td>95.08%</td><td>3</td><td>48</td><td>47</td><td>17</td><td>1</td><td>0</td><td>0</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <p class="result-chart-message" id="result-chart-message" role="status" hidden>
+                                    Charts could not be loaded. The complete result data is available in the table above.
+                                </p>
+                                <div class="result-chart-section">
+                                    <h3 class="ac-sub-heading">Pass Percentage by Programme</h3>
+                                    <div class="result-chart-grid" id="pass-charts"></div>
+                                </div>
+                            </section>
                         </div>
                     </div>
                 </div>
@@ -90,5 +202,84 @@
     <div id="footer-placeholder"></div>
     <script src="../../js/loader.js"></script>
     <script src="../../js/navbar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script>
+        (function () {
+            'use strict';
+
+            var resultRows = Array.prototype.slice.call(
+                document.querySelectorAll('#result-class-data tbody tr')
+            );
+
+            if (typeof Chart === 'undefined') {
+                document.getElementById('result-chart-message').hidden = false;
+                return;
+            }
+
+            function addChartCard(container, title, accessibleLabel) {
+                var card = document.createElement('article');
+                var heading = document.createElement('h4');
+                var canvasWrap = document.createElement('div');
+                var canvas = document.createElement('canvas');
+
+                card.className = 'result-chart-card';
+                heading.textContent = title;
+                canvasWrap.className = 'result-chart-canvas-wrap';
+                canvas.setAttribute('role', 'img');
+                canvas.setAttribute('aria-label', accessibleLabel);
+                canvasWrap.appendChild(canvas);
+                card.appendChild(heading);
+                card.appendChild(canvasWrap);
+                container.appendChild(card);
+                return canvas;
+            }
+
+            ['BBA', 'BCA', 'MBA'].forEach(function (course) {
+                var courseRows = resultRows.filter(function (row) {
+                    return row.dataset.course === course;
+                });
+                var canvas = addChartCard(
+                    document.getElementById('pass-charts'),
+                    course + ' Pass Percentage',
+                    course + ' pass percentages by part'
+                );
+
+                new Chart(canvas, {
+                    type: 'bar',
+                    data: {
+                        labels: courseRows.map(function (row) { return row.dataset.part; }),
+                        datasets: [{
+                            label: 'Pass percentage',
+                            data: courseRows.map(function (row) { return Number(row.dataset.pass); }),
+                            backgroundColor: '#6D9A78',
+                            borderColor: '#557D5F',
+                            borderWidth: 1,
+                            borderRadius: 5
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 100,
+                                ticks: { callback: function (value) { return value + '%'; } }
+                            }
+                        },
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    label: function (context) { return context.parsed.y + '% pass'; }
+                                }
+                            }
+                        }
+                    }
+                });
+            });
+
+        }());
+    </script>
 </body>
 </html>
