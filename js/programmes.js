@@ -108,9 +108,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
         var tabName = 'bba-about';
         var fromHash = window.location.hash ? window.location.hash.slice(1).toLowerCase() : '';
-        var resolved = resolveHash ? resolveHash(fromHash) : null;
-        if (resolved && resolved.prog === 'bba' && resolved.tab) {
-            tabName = resolved.tab;
+        var bbaHashTabs = {
+            'bba': 'bba-about',
+            'panel-bba': 'bba-about',
+            'bba-about-dept': 'bba-about',
+            'bba-mission-focus': 'bba-mission',
+            'bba-po-pso-peo': 'bba-co',
+            'bba-faculty': 'bba-faculty',
+            'bba-activities': 'bba-activities',
+            'bba-syllabus': 'bba-syllabus',
+            'bba-specialisation': 'bba-special',
+            'bba-certification': 'bba-cert',
+            'bba-parents-meet': 'bba-parents'
+        };
+        if (bbaHashTabs[fromHash]) {
+            tabName = bbaHashTabs[fromHash];
         } else {
             try {
                 tabName = sessionStorage.getItem('progBbaTab') || tabName;

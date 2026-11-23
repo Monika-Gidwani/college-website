@@ -44,7 +44,7 @@
      * The root is identified by the presence of the "components" folder one
      * level up (for pages/) or two levels up (for pages/sub/).
      */
-    function resolveComponentsBase() {
+    function resolvePagesRootPrefix() {
         var path = window.location.pathname;
         // Normalise slashes
         path = path.replace(/\\/g, '/');
@@ -63,11 +63,15 @@
             for (var i = 0; i < extraDepth; i++) {
                 prefix += '../';
             }
-            return prefix + 'components/';
+            return prefix;
         }
 
         // Fallback: try one level up
-        return '../components/';
+        return '../';
+    }
+
+    function resolveComponentsBase() {
+        return resolvePagesRootPrefix() + 'components/';
     }
 
     var COMPONENTS_BASE = resolveComponentsBase();
@@ -95,7 +99,17 @@
     function inject(containerId, html) {
         var el = document.getElementById(containerId);
         if (el) {
-            el.innerHTML = html;
+            var content = document.createElement('div');
+            content.innerHTML = html;
+
+            content.querySelectorAll('a[href^="/"]').forEach(function (link) {
+                var href = link.getAttribute('href');
+                if (href.indexOf('//') !== 0) {
+                    link.setAttribute('href', resolvePagesRootPrefix() + href.substring(1));
+                }
+            });
+
+            el.innerHTML = content.innerHTML;
         }
     }
 
