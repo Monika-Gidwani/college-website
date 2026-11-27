@@ -551,6 +551,20 @@
     font-size: 0.84rem;
 }
 
+.prog-table.bca-syllabus-table {
+    table-layout: fixed;
+}
+
+.prog-table.bca-syllabus-table th:first-child,
+.prog-table.bca-syllabus-table tbody td:first-child {
+    width: 80%;
+}
+
+.prog-table.bca-syllabus-table th:last-child,
+.prog-table.bca-syllabus-table tbody td:last-child {
+    width: 20%;
+}
+
 .prog-table thead tr {
     background: linear-gradient(90deg, var(--clr-nav-start), var(--clr-nav-end));
 }

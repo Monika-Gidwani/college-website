@@ -19,22 +19,98 @@
             margin-top: 1.6rem;
         }
 
-        .result-analysis .ac-table {
-            min-width: 760px;
+        .result-overview-table {
+            table-layout: fixed;
+            width: 100%;
         }
 
-        .result-chart-section {
-            margin-top: 1.6rem;
+        .result-overview-table thead th {
+            padding: 0.55rem 0.5rem;
+            font-size: 0.72rem;
+            white-space: normal;
         }
 
-        .result-chart-grid {
+        .result-program-table thead th {
+            padding: 0.5rem 0.35rem;
+            font-size: 0.7rem;
+            white-space: normal;
+            overflow-wrap: anywhere;
+        }
+
+        .result-program-table tbody td {
+            padding: 0.4rem 0.35rem;
+            font-size: 0.74rem;
+        }
+
+        .result-overview-table tbody td {
+            padding: 0.5rem;
+            font-size: 0.78rem;
+        }
+
+        .result-overview-table th:nth-child(1) { width: 15%; }
+        .result-overview-table th:nth-child(2) { width: 20%; }
+        .result-overview-table th:nth-child(3) { width: 15%; }
+        .result-overview-table th:nth-child(4) { width: 25%; }
+        .result-overview-table th:nth-child(5) { width: 25%; }
+
+        .result-program-table {
+            table-layout: auto;
+            width: 100%;
+            min-width: 0;
+        }
+
+        .result-program-table th,
+        .result-program-table td {
+            overflow-wrap: anywhere;
+        }
+
+        .result-program-table th:not(:first-child),
+        .result-program-table td:not(:first-child) {
+            text-align: center;
+        }
+
+        .result-program-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .result-program {
+            min-width: 0;
+        }
+
+        .result-program > h4 {
+            margin: 0 0 0.65rem;
+            color: var(--clr-heading);
+            font-family: var(--font-heading);
+            font-size: 1rem;
+        }
+
+        .result-program-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+            align-items: stretch;
             gap: 1rem;
-            margin-top: 0.9rem;
+        }
+
+        .result-program-layout .ac-table-wrap {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            margin-top: 0;
+        }
+
+        .result-program-table {
+            flex: 1;
+        }
+
+        .result-program-chart {
+            display: flex;
+            min-width: 0;
         }
 
         .result-chart-card {
+            flex: 1;
             min-width: 0;
             padding: 1rem;
             background: #fff;
@@ -53,7 +129,7 @@
 
         .result-chart-canvas-wrap {
             position: relative;
-            height: 230px;
+            height: 190px;
         }
 
         .result-chart-message {
@@ -62,8 +138,8 @@
             font-size: 0.85rem;
         }
 
-        @media (max-width: 480px) {
-            .result-chart-grid {
+        @media (max-width: 600px) {
+            .result-program-layout {
                 grid-template-columns: 1fr;
             }
         }
@@ -116,7 +192,7 @@
 
                             <h3 class="ac-sub-heading" style="margin-top:1.3rem;">Result History — Overview</h3>
                             <div class="ac-table-wrap">
-                                <table class="ac-table">
+                                <table class="ac-table result-overview-table">
                                     <thead>
                                         <tr>
                                             <th>Year</th>
@@ -137,59 +213,58 @@
 
                             <section class="result-analysis" aria-labelledby="result-analysis-title">
                                 <h3 class="ac-sub-heading" id="result-analysis-title">2025–26 Class-wise Result Analysis</h3>
-                                <p>Figures are reproduced from the supplied 2025–26 result analysis documents. Reported pass totals and percentages are shown as published.</p>
-                                <div class="ac-table-wrap">
-                                    <table class="ac-table" id="result-class-data">
-                                        <thead>
-                                            <tr>
-                                                <th>Class</th>
-                                                <th>Appeared</th>
-                                                <th>Passed (reported)</th>
-                                                <th>Pass %</th>
-                                                <th>O</th>
-                                                <th>A+</th>
-                                                <th>A</th>
-                                                <th>B+</th>
-                                                <th>B</th>
-                                                <th>C+</th>
-                                                <th>C</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr data-course="BBA" data-part="Part I" data-appeared="126" data-passed="94" data-pass="91.26" data-grades="13,23,18,13,18,9,0">
-                                                <td>BBA Part I</td><td>126</td><td>94</td><td>91.26%</td><td>13</td><td>23</td><td>18</td><td>13</td><td>18</td><td>9</td><td>0</td>
-                                            </tr>
-                                            <tr data-course="BBA" data-part="Part II" data-appeared="119" data-passed="69" data-pass="58" data-grades="3,4,21,18,15,10,0">
-                                                <td>BBA Part II</td><td>119</td><td>69</td><td>58%</td><td>3</td><td>4</td><td>21</td><td>18</td><td>15</td><td>10</td><td>0</td>
-                                            </tr>
-                                            <tr data-course="BBA" data-part="Part III" data-appeared="124" data-passed="119" data-pass="95.97" data-grades="47,34,25,10,2,1,0">
-                                                <td>BBA Part III</td><td>124</td><td>119</td><td>95.97%</td><td>47</td><td>34</td><td>25</td><td>10</td><td>2</td><td>1</td><td>0</td>
-                                            </tr>
-                                            <tr data-course="BCA" data-part="Part I" data-appeared="126" data-passed="58" data-pass="79.36" data-grades="3,11,21,15,6,2,0">
-                                                <td>BCA Part I</td><td>126</td><td>58</td><td>79.36%</td><td>3</td><td>11</td><td>21</td><td>15</td><td>6</td><td>2</td><td>0</td>
-                                            </tr>
-                                            <tr data-course="BCA" data-part="Part II" data-appeared="120" data-passed="65" data-pass="91.66" data-grades="13,22,17,9,5,3,0">
-                                                <td>BCA Part II</td><td>120</td><td>65</td><td>91.66%</td><td>13</td><td>22</td><td>17</td><td>9</td><td>5</td><td>3</td><td>0</td>
-                                            </tr>
-                                            <tr data-course="BCA" data-part="Part III" data-appeared="56" data-passed="52" data-pass="92.85" data-grades="11,18,14,10,1,0,0">
-                                                <td>BCA Part III</td><td>56</td><td>52</td><td>92.85%</td><td>11</td><td>18</td><td>14</td><td>10</td><td>1</td><td>0</td><td>0</td>
-                                            </tr>
-                                            <tr data-course="MBA" data-part="Part I" data-appeared="126" data-passed="111" data-pass="96.03" data-grades="14,59,35,4,0,0,0">
-                                                <td>MBA Part I</td><td>126</td><td>111</td><td>96.03%</td><td>14</td><td>59</td><td>35</td><td>4</td><td>0</td><td>0</td><td>0</td>
-                                            </tr>
-                                            <tr data-course="MBA" data-part="Part II" data-appeared="122" data-passed="116" data-pass="95.08" data-grades="3,48,47,17,1,0,0">
-                                                <td>MBA Part II</td><td>122</td><td>116</td><td>95.08%</td><td>3</td><td>48</td><td>47</td><td>17</td><td>1</td><td>0</td><td>0</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
+                                <p>Figures are reproduced from the supplied 2025–26 result analysis documents. Distinctions combine O+ and A+ grades.</p>
                                 <p class="result-chart-message" id="result-chart-message" role="status" hidden>
-                                    Charts could not be loaded. The complete result data is available in the table above.
+                                    Charts could not be loaded. The complete result data is available in the tables above.
                                 </p>
-                                <div class="result-chart-section">
-                                    <h3 class="ac-sub-heading">Pass Percentage by Programme</h3>
-                                    <div class="result-chart-grid" id="pass-charts"></div>
+                                <div class="result-program-list">
+                                    <section class="result-program" aria-labelledby="mba-result-title">
+                                        <h4 id="mba-result-title">MBA</h4>
+                                        <div class="result-program-layout">
+                                            <div class="ac-table-wrap">
+                                                <table class="ac-table result-program-table" id="result-mba-data" aria-label="MBA 2025–26 class-wise results">
+                                                    <thead><tr><th>Part</th><th>Pass %</th><th>Distinctions</th><th>First Class</th></tr></thead>
+                                                    <tbody>
+                                                        <tr data-part="Part I" data-pass="96.03"><td>Part I</td><td>96.03%</td><td>73</td><td>35</td></tr>
+                                                        <tr data-part="Part II" data-pass="95.08"><td>Part II</td><td>95.08%</td><td>51</td><td>47</td></tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="result-program-chart" id="pass-chart-mba"></div>
+                                        </div>
+                                    </section>
+                                    <section class="result-program" aria-labelledby="bba-result-title">
+                                        <h4 id="bba-result-title">BBA</h4>
+                                        <div class="result-program-layout">
+                                            <div class="ac-table-wrap">
+                                                <table class="ac-table result-program-table" id="result-bba-data" aria-label="BBA 2025–26 class-wise results">
+                                                    <thead><tr><th>Part</th><th>Pass %</th><th>Distinctions</th><th>First Class</th></tr></thead>
+                                                    <tbody>
+                                                        <tr data-part="Part I" data-pass="91.26"><td>Part I</td><td>91.26%</td><td>36</td><td>18</td></tr>
+                                                        <tr data-part="Part II" data-pass="58"><td>Part II</td><td>58%</td><td>7</td><td>21</td></tr>
+                                                        <tr data-part="Part III" data-pass="95.97"><td>Part III</td><td>95.97%</td><td>81</td><td>25</td></tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="result-program-chart" id="pass-chart-bba"></div>
+                                        </div>
+                                    </section>
+                                    <section class="result-program" aria-labelledby="bca-result-title">
+                                        <h4 id="bca-result-title">BCA</h4>
+                                        <div class="result-program-layout">
+                                            <div class="ac-table-wrap">
+                                                <table class="ac-table result-program-table" id="result-bca-data" aria-label="BCA 2025–26 class-wise results">
+                                                    <thead><tr><th>Part</th><th>Pass %</th><th>Distinctions</th><th>First Class</th></tr></thead>
+                                                    <tbody>
+                                                        <tr data-part="Part I" data-pass="79.36"><td>Part I</td><td>79.36%</td><td>14</td><td>21</td></tr>
+                                                        <tr data-part="Part II" data-pass="91.66"><td>Part II</td><td>91.66%</td><td>35</td><td>17</td></tr>
+                                                        <tr data-part="Part III" data-pass="92.85"><td>Part III</td><td>92.85%</td><td>29</td><td>14</td></tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="result-program-chart" id="pass-chart-bca"></div>
+                                        </div>
+                                    </section>
                                 </div>
                             </section>
                         </div>
@@ -206,10 +281,6 @@
     <script>
         (function () {
             'use strict';
-
-            var resultRows = Array.prototype.slice.call(
-                document.querySelectorAll('#result-class-data tbody tr')
-            );
 
             if (typeof Chart === 'undefined') {
                 document.getElementById('result-chart-message').hidden = false;
@@ -234,13 +305,13 @@
                 return canvas;
             }
 
-            ['BBA', 'BCA', 'MBA'].forEach(function (course) {
-                var courseRows = resultRows.filter(function (row) {
-                    return row.dataset.course === course;
-                });
+            ['MBA', 'BBA', 'BCA'].forEach(function (course) {
+                var courseRows = Array.prototype.slice.call(
+                    document.querySelectorAll('#result-' + course.toLowerCase() + '-data tbody tr')
+                );
                 var canvas = addChartCard(
-                    document.getElementById('pass-charts'),
-                    course + ' Pass Percentage',
+                    document.getElementById('pass-chart-' + course.toLowerCase()),
+                    'Pass Percentage',
                     course + ' pass percentages by part'
                 );
 
